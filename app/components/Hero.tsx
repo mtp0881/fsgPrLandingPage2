@@ -82,8 +82,8 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-12 flex items-center min-h-screen">
         <div className="text-center w-full">
           {/* Main heading - Craft.do style */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-            <span className="block text-gray-900 mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight tracking-tight">
+            <span className="block text-gray-900 mb-1 md:mb-2">
               FSG事業部
             </span>
             <span className="block text-gray-900">
@@ -92,44 +92,44 @@ export default function Hero() {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto font-normal">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 md:mb-12 leading-relaxed max-w-4xl mx-auto font-normal px-4">
             {content.hero.subtitle}
           </p>
 
           {/* Feature highlights */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 px-4">
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-3 md:px-4 py-2 md:py-2.5 rounded-full shadow-sm border border-gray-100">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm font-medium text-gray-700">19年以上の実績</span>
+              <span className="text-xs md:text-sm font-medium text-gray-700">19年以上の実績</span>
             </div>
-            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-3 md:px-4 py-2 md:py-2.5 rounded-full shadow-sm border border-gray-100">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="text-sm font-medium text-gray-700">金融・公共特化</span>
+              <span className="text-xs md:text-sm font-medium text-gray-700">金融・公共特化</span>
             </div>
-            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-3 md:px-4 py-2 md:py-2.5 rounded-full shadow-sm border border-gray-100">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span className="text-sm font-medium text-gray-700">Salesforce認定</span>
+              <span className="text-xs md:text-sm font-medium text-gray-700">Salesforce認定</span>
             </div>
           </div>
 
           {/* Visual representation */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-100">
+          <div className="max-w-6xl mx-auto mb-12 md:mb-16 px-4">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100">
               
               {/* Section headers */}
-              <div className="flex justify-center items-center gap-8 mb-4">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 mb-3 md:mb-4">
                 <div className="flex items-center gap-2 text-center">
-                  <span className="text-sm font-bold text-gray-700">🚀 コアコンピタンス</span>
+                  <span className="text-xs md:text-sm font-bold text-gray-700">🚀 コアコンピタンス</span>
                 </div>
-                <div className="w-px h-4 bg-gray-300"></div>
+                <div className="hidden sm:block w-px h-4 bg-gray-300"></div>
                 <div className="flex items-center gap-2 text-center">
-                  <span className="text-sm font-bold text-gray-700">🔑 戦略プログラム</span>
+                  <span className="text-xs md:text-sm font-bold text-gray-700">🔑 戦略プログラム</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                 {/* Core Competencies */}
-                <div className="text-center p-4 rounded-xl border border-green-100 relative overflow-hidden">
+                <div className="text-center p-2 md:p-4 rounded-lg md:rounded-xl border border-green-100 relative overflow-hidden">
                   {/* Background image */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -137,12 +137,12 @@ export default function Hero() {
                       backgroundImage: `url('/images/bank.jpg')`
                     }}
                   ></div>
-                  <div className="relative z-10 pt-16">
-                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.finance || '金融サービス'}</h4>
+                  <div className="relative z-10 pt-8 md:pt-16">
+                    <h4 className="font-bold text-white text-xs md:text-sm drop-shadow-lg bg-black/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded inline-block">{content.hero.domains?.finance || '金融サービス'}</h4>
                   </div>
                 </div>
                 
-                <div className="text-center p-4 rounded-xl border border-red-100 relative overflow-hidden">
+                <div className="text-center p-2 md:p-4 rounded-lg md:rounded-xl border border-red-100 relative overflow-hidden">
                   {/* Background image */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -150,13 +150,13 @@ export default function Hero() {
                       backgroundImage: `url('/images/public.jpg')`
                     }}
                   ></div>
-                  <div className="relative z-10 pt-16">
-                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.public || '公共サービス'}</h4>
+                  <div className="relative z-10 pt-8 md:pt-16">
+                    <h4 className="font-bold text-white text-xs md:text-sm drop-shadow-lg bg-black/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded inline-block">{content.hero.domains?.public || '公共サービス'}</h4>
                   </div>
                 </div>
 
                 {/* Strategic Programs */}
-                <div className="text-center p-4 rounded-xl border border-purple-100 relative overflow-hidden">
+                <div className="text-center p-2 md:p-4 rounded-lg md:rounded-xl border border-purple-100 relative overflow-hidden">
                   {/* Background image */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -164,12 +164,12 @@ export default function Hero() {
                       backgroundImage: `url('/images/legacy.png')`
                     }}
                   ></div>
-                  <div className="relative z-10 pt-16">
-                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.legacy || 'レガシーモダナイゼーション'}</h4>
+                  <div className="relative z-10 pt-8 md:pt-16">
+                    <h4 className="font-bold text-white text-xs md:text-sm drop-shadow-lg bg-black/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded inline-block">{content.hero.domains?.legacy || 'レガシーモダナイゼーション'}</h4>
                   </div>
                 </div>
                 
-                <div className="text-center p-4 rounded-xl border border-blue-100 relative overflow-hidden">
+                <div className="text-center p-2 md:p-4 rounded-lg md:rounded-xl border border-blue-100 relative overflow-hidden">
                   {/* Background image */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -177,8 +177,8 @@ export default function Hero() {
                       backgroundImage: `url('/images/sale.jpg')`
                     }}
                   ></div>
-                  <div className="relative z-10 pt-16">
-                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.salesforce || 'Salesforceプログラム'}</h4>
+                  <div className="relative z-10 pt-8 md:pt-16">
+                    <h4 className="font-bold text-white text-xs md:text-sm drop-shadow-lg bg-black/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded inline-block">{content.hero.domains?.salesforce || 'Salesforceプログラム'}</h4>
                   </div>
                 </div>
               </div>

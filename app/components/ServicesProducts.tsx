@@ -212,20 +212,23 @@ export default function ServicesProducts() {
     <section id="services" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tab Headers */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-8">
-            <div className="relative bg-gray-100 rounded-2xl p-2 shadow-inner">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center mb-6 md:mb-8 px-4">
+            <div className="relative bg-gray-100 rounded-2xl p-2 shadow-inner min-w-[400px] md:min-w-[600px]">
               {/* Sliding background indicator */}
               <div 
-                className={`absolute top-2 h-12 w-72 rounded-xl transition-all duration-300 ease-out shadow-sm ${
+                className={`absolute top-2 h-12 rounded-xl transition-all duration-300 ease-out shadow-sm ${
                   themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-gray-700'
-                } ${activeTab === 'services' ? 'left-2' : 'left-[296px]'}`}
+                } ${activeTab === 'services' ? 'left-2' : 'right-2'}`}
+                style={{
+                  width: 'calc(50% - 4px)'
+                }}
               />
               
               <div className="relative flex">
                 <button
                   onClick={() => setActiveTab('services')}
-                  className={`px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-300 w-72 whitespace-nowrap relative z-10 ${
+                  className={`px-6 md:px-8 py-3 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex-1 whitespace-nowrap relative z-10 ${
                     activeTab === 'services'
                       ? 'text-white'
                       : 'text-gray-600 hover:text-gray-800'
@@ -235,7 +238,7 @@ export default function ServicesProducts() {
                 </button>
                 <button
                   onClick={() => setActiveTab('products')}
-                  className={`px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-300 w-72 whitespace-nowrap relative z-10 ${
+                  className={`px-6 md:px-8 py-3 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 flex-1 whitespace-nowrap relative z-10 ${
                     activeTab === 'products'
                       ? 'text-white'
                       : 'text-gray-600 hover:text-gray-800'
@@ -247,40 +250,40 @@ export default function ServicesProducts() {
             </div>
           </div>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             {activeTab === 'services' ? content.services.subtitle : (content?.products?.subtitle || t('products.subtitle'))}
           </p>
         </div>
 
         {/* Services Tab Content */}
         {activeTab === 'services' && (
-          <div className="space-y-16">
+          <div className="space-y-12 md:space-y-16">
             {/* Core Competencies */}
             <div>
-              <div className="flex items-center justify-center mb-8">
-                <div className={`w-3 h-8 rounded-full mr-4 ${
+              <div className="flex items-center justify-center mb-6 md:mb-8">
+                <div className={`w-3 h-6 md:h-8 rounded-full mr-3 md:mr-4 ${
                   themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'
                 }`}></div>
-                <h3 className="text-3xl font-bold text-gray-900">🚀 コアコンピタンス</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">🚀 コアコンピタンス</h3>
               </div>
-              <p className="text-center text-gray-600 mb-12">私たちは<strong>2つの主要分野</strong>に注力しています：</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <p className="text-center text-gray-600 mb-8 md:mb-12 px-4">私たちは<strong>2つの主要分野</strong>に注力しています：</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 px-4">
                 {coreServices.map((service, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full"
+                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 md:p-6 hover:-translate-y-2 group flex flex-col h-full"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">{service.title}</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-3 text-center">{service.title}</h4>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
-                      <div className={`mb-4 text-center py-3 px-3 rounded-lg ${
+                      <div className={`mb-4 text-center py-2 md:py-3 px-3 rounded-lg ${
                         themeColor === 'emerald'
                           ? 'bg-gradient-to-r from-emerald-50 to-green-50'
                           : 'bg-gradient-to-r from-blue-50 to-indigo-50'
                       }`}>
                         <span 
-                          className={`text-sm font-semibold ${
+                          className={`text-xs md:text-sm font-semibold ${
                             themeColor === 'emerald' ? 'text-emerald-800' : 'text-blue-800'
                           }`}
                           dangerouslySetInnerHTML={{ __html: service.stats }}
@@ -294,13 +297,13 @@ export default function ServicesProducts() {
                       </div>
                     )}
                     
-                    <ul className="space-y-2 mb-6 flex-grow">
+                    <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6 flex-grow">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start space-x-2">
-                          <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
+                          <div className={`w-1.5 h-1.5 rounded-full mt-1.5 md:mt-2 flex-shrink-0 ${
                             themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'
                           }`}></div>
-                          <span className="text-sm text-gray-700">{feature}</span>
+                          <span className="text-xs md:text-sm text-gray-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -308,7 +311,7 @@ export default function ServicesProducts() {
                     <div className="mt-auto">
                       <button 
                         onClick={() => setSelectedService(service.domain)}
-                        className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
+                        className={`w-full font-medium py-2 md:py-3 px-4 rounded-lg transition-colors duration-200 text-white text-sm md:text-base ${
                           themeColor === 'emerald' 
                             ? 'bg-emerald-600 hover:bg-emerald-700' 
                             : 'bg-gray-700 hover:bg-gray-500'
@@ -324,21 +327,21 @@ export default function ServicesProducts() {
 
             {/* Strategic Programs */}
             <div>
-              <div className="flex items-center justify-center mb-8">
-                <div className={`w-3 h-8 rounded-full mr-4 ${
+              <div className="flex items-center justify-center mb-6 md:mb-8">
+                <div className={`w-3 h-6 md:h-8 rounded-full mr-3 md:mr-4 ${
                   themeColor === 'emerald' ? 'bg-purple-500' : 'bg-indigo-500'
                 }`}></div>
-                <h3 className="text-3xl font-bold text-gray-900">🔑 戦略プログラム</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">🔑 戦略プログラム</h3>
               </div>
-              <p className="text-center text-gray-600 mb-12">企業の競争力向上を支援する<strong>2つの戦略プログラム</strong>：</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <p className="text-center text-gray-600 mb-8 md:mb-12 px-4">企業の競争力向上を支援する<strong>2つの戦略プログラム</strong>：</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 px-4">
                 {strategicPrograms.map((service, index) => (
                   <div
                     key={index}
                     className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 hover:-translate-y-2 group flex flex-col"
-                    style={{ height: '320px' }}
+                    style={{ minHeight: '280px' }}
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-2 text-center">{service.title}</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-2 text-center">{service.title}</h4>
                     <p className="text-gray-600 mb-3 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
@@ -348,7 +351,7 @@ export default function ServicesProducts() {
                           : 'bg-gradient-to-r from-cyan-50 to-blue-50'
                       }`}>
                         <span 
-                          className={`text-sm font-semibold ${
+                          className={`text-xs md:text-sm font-semibold ${
                             service.domain === 'legacy' ? 'text-purple-800' : 'text-cyan-800'
                           }`}
                           dangerouslySetInnerHTML={{ __html: service.stats }}
@@ -359,7 +362,7 @@ export default function ServicesProducts() {
                     <div className="mt-auto">
                       <button 
                         onClick={() => setSelectedService(service.domain)}
-                        className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
+                        className={`w-full font-medium py-2 md:py-3 px-4 rounded-lg transition-colors duration-200 text-white text-sm md:text-base ${
                           service.domain === 'legacy'
                             ? 'bg-gray-700 hover:bg-gray-500'
                             : 'bg-gray-700 hover:bg-gray-500'
@@ -377,27 +380,27 @@ export default function ServicesProducts() {
 
         {/* Products Tab Content */}
         {activeTab === 'products' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
             {products.map((product, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${product.bgColor} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full`}
+                className={`bg-gradient-to-br ${product.bgColor} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 md:p-6 hover:-translate-y-2 group flex flex-col h-full`}
               >
-                <div className={`flex items-center justify-center w-16 h-16 ${product.iconColor} text-white rounded-lg mb-6 transition-all duration-300 group-hover:scale-110`}>
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className={`flex items-center justify-center w-12 h-12 md:w-16 md:h-16 ${product.iconColor} text-white rounded-lg mb-4 md:mb-6 transition-all duration-300 group-hover:scale-110 mx-auto`}>
+                  <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{product.name}</h3>
-                <p className="text-gray-700 mb-4 text-sm leading-relaxed flex-grow">{product.description}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 text-center">{product.name}</h3>
+                <p className="text-gray-700 mb-4 text-sm leading-relaxed flex-grow text-center">{product.description}</p>
                 
                 <div className="mt-auto">
-                  <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 mb-4">
-                    <h4 className="font-medium text-gray-900 mb-2">{content?.products?.main_achievements || t('products.main_achievements')}:</h4>
+                  <div className="bg-white/50 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-4">
+                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base text-center">{content?.products?.main_achievements || t('products.main_achievements')}:</h4>
                     <ul className="space-y-1">
                       {product.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start space-x-2">
-                          <div className="w-1 h-1 bg-gray-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-1 h-1 bg-gray-600 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></div>
                           <span className="text-xs text-gray-700">{feature}</span>
                         </li>
                       ))}
@@ -412,35 +415,35 @@ export default function ServicesProducts() {
         {/* Modal */}
         {selectedService && (
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 md:p-4"
             onClick={() => setSelectedService(null)}
           >
             <div 
-              className="bg-white rounded-xl max-w-6xl w-full max-h-[90vh] overflow-auto"
+              className="bg-white rounded-xl max-w-6xl w-full max-h-[95vh] md:max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center p-6 border-b">
-                <h3 className="text-2xl font-bold text-gray-900">
+              <div className="flex justify-between items-center p-4 md:p-6 border-b">
+                <h3 className="text-lg md:text-2xl font-bold text-gray-900 pr-4">
                   {t(`services.${selectedService}.title`)} - {t('services.modal_title')}
                 </h3>
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className={`text-gray-500 hover:text-gray-700 text-2xl font-bold ${
+                  className={`text-gray-500 hover:text-gray-700 text-xl md:text-2xl font-bold ${
                     themeColor === 'emerald'
                       ? 'hover:bg-emerald-100'
                       : 'hover:bg-gray-100'
-                  } w-10 h-10 rounded-lg flex items-center justify-center transition-colors`}
+                  } w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-colors flex-shrink-0`}
                 >
                   ×
                 </button>
               </div>
               
-              <div className="p-6 space-y-6">
+              <div className="p-4 md:p-6 space-y-4 md:space-y-6">
                 {getServiceImages(selectedService).map((imagePath: string, index: number) => (
-                  <div key={index} className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-lg">
+                  <div key={index} className="relative w-full h-[300px] md:h-[600px] rounded-lg overflow-hidden shadow-lg">
                     {loadingImages[imagePath] && (
                       <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                        <div className="animate-spin rounded-full h-8 w-8 md:h-12 md:w-12 border-b-2 border-blue-600"></div>
                       </div>
                     )}
                     {preloadedImages.has(imagePath) && (
@@ -457,10 +460,10 @@ export default function ServicesProducts() {
                 ))}
               </div>
               
-              <div className="p-6 border-t text-center">
+              <div className="p-4 md:p-6 border-t text-center">
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className={`font-medium py-2 px-6 rounded-lg transition-colors duration-200 ${
+                  className={`font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-200 text-sm md:text-base ${
                     themeColor === 'emerald'
                       ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
                       : 'bg-gray-600 hover:bg-gray-700 text-white'
