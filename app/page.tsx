@@ -42,9 +42,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">      
       {/* Main content - always rendered but hidden during loading */}
-      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className={`relative z-10 transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Header />
         <main>
           <Hero />

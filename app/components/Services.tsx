@@ -27,19 +27,10 @@ export default function Services() {
       description: t('services.finance.desc'),
       features: [t('features.banking_systems'), t('features.insurance_systems'), t('features.securities_systems'), t('features.payment_systems')],
       stats: t('services.finance.stats'),
-      domain: "finance"
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-        </svg>
-      ),
-      title: t('services.legacy.title'),
-      description: t('services.legacy.desc'),
-      features: [t('features.cobol_migration'), t('features.db_migration'), t('features.system_modernization'), t('features.legacy_assessment')],
-      stats: t('services.legacy.stats'),
-      domain: "legacy"
+      expertise: t('services.finance.expertise'),
+      domain: "finance",
+      category: "core",
+      categoryLabel: "コア分野"
     },
     {
       icon: (
@@ -51,7 +42,25 @@ export default function Services() {
       description: t('services.public.desc'),
       features: [t('features.government_systems'), t('features.education_systems'), t('features.smart_city'), t('features.public_infrastructure')],
       stats: t('services.public.stats'),
-      domain: "public"
+      expertise: t('services.public.expertise'),
+      domain: "public",
+      category: "core",
+      categoryLabel: "コア分野"
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+      ),
+      title: t('services.legacy.title'),
+      description: t('services.legacy.desc'),
+      features: [t('features.cobol_migration'), t('features.db_migration'), t('features.system_modernization'), t('features.legacy_assessment')],
+      stats: t('services.legacy.stats'),
+      expertise: t('services.legacy.expertise'),
+      domain: "legacy",
+      category: "strategic",
+      categoryLabel: "戦略プログラム"
     },
     {
       icon: (
@@ -63,12 +72,18 @@ export default function Services() {
       description: t('services.salesforce.desc'),
       features: [t('features.sales_cloud'), t('features.service_cloud'), t('features.mulesoft_integration'), t('features.data_cloud')],
       stats: t('services.salesforce.stats'),
-      domain: "salesforce"
+      expertise: t('services.salesforce.expertise'),
+      domain: "salesforce",
+      category: "strategic",
+      categoryLabel: "戦略プログラム"
     }
   ];
 
+  const coreServices = services.filter(service => service.category === 'core');
+  const strategicPrograms = services.filter(service => service.category === 'strategic');
+
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 relative">      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -79,69 +94,146 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full min-h-[500px]"
-            >
-              <div className={`flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-colors duration-300 ${
-                themeColor === 'emerald' 
-                  ? 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
-                  : 'bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
-              }`}>
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
-              
-              {service.stats && (
-                <div className={`mb-4 text-center py-3 px-3 rounded-lg min-h-[56px] flex items-center justify-center ${
-                  themeColor === 'emerald'
-                    ? 'bg-gradient-to-r from-emerald-50 to-green-50'
-                    : 'bg-gradient-to-r from-blue-50 to-indigo-50'
-                }`}>
-                  <span 
-                    className={`text-sm font-semibold leading-tight ${
-                      themeColor === 'emerald' ? 'text-emerald-800' : 'text-blue-800'
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: service.stats }}
-                  />
-                </div>
-              )}
-              
-              <ul className="space-y-2 mb-6 flex-grow">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start space-x-2">
-                    <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
-                      themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'
-                    }`}></div>
-                    <span className="text-sm text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="mt-auto">
-                <div className={`w-full h-1 rounded-full mb-4 ${
-                  service.domain === 'finance' ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
-                  service.domain === 'legacy' ? 'bg-gradient-to-r from-purple-400 to-violet-500' :
-                  service.domain === 'public' ? 'bg-gradient-to-r from-red-400 to-rose-500' :
-                  'bg-gradient-to-r from-blue-400 to-cyan-500'
-                }`}></div>
-                
-                <button 
-                  onClick={() => setSelectedService(service.domain)}
-                  className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
-                    themeColor === 'emerald' 
-                      ? 'bg-emerald-600 hover:bg-emerald-700' 
-                      : 'bg-blue-600 hover:bg-blue-700'
-                  }`}
-                >
-                  {t('services.learn_more')}
-                </button>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div>
+            <div className="flex items-center mb-6">
+              <div className={`w-3 h-8 rounded-full mr-4 ${
+                themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'
+              }`}></div>
+              <h3 className="text-2xl font-bold text-gray-900">コアコンピタンス</h3>
             </div>
-          ))}
+            <p className="text-gray-600 mb-8">私たちは<strong>2つの主要分野</strong>に注力しています：</p>
+            <div className="grid grid-cols-1 gap-6">
+              {coreServices.map((service, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex items-center justify-center w-12 h-12 rounded-lg flex-shrink-0 transition-colors duration-300 ${
+                      themeColor === 'emerald' 
+                        ? 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
+                        : 'bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h4>
+                      <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                      
+                      {service.stats && (
+                        <div className={`mb-3 text-center py-2 px-3 rounded-lg ${
+                          themeColor === 'emerald'
+                            ? 'bg-gradient-to-r from-emerald-50 to-green-50'
+                            : 'bg-gradient-to-r from-blue-50 to-indigo-50'
+                        }`}>
+                          <span 
+                            className={`text-sm font-semibold ${
+                              themeColor === 'emerald' ? 'text-emerald-800' : 'text-blue-800'
+                            }`}
+                            dangerouslySetInnerHTML={{ __html: service.stats }}
+                          />
+                        </div>
+                      )}
+                      
+                      {service.expertise && (
+                        <div className="mb-4">
+                          <p className="text-xs text-gray-500 font-medium">{service.expertise}</p>
+                        </div>
+                      )}
+                      
+                      <div className="flex justify-between items-center">
+                        <div className={`w-20 h-1 rounded-full ${
+                          service.domain === 'finance' ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
+                          'bg-gradient-to-r from-red-400 to-rose-500'
+                        }`}></div>
+                        <button 
+                          onClick={() => setSelectedService(service.domain)}
+                          className={`font-medium py-1 px-3 rounded-lg transition-colors duration-200 text-white text-sm ${
+                            themeColor === 'emerald' 
+                              ? 'bg-emerald-600 hover:bg-emerald-700' 
+                              : 'bg-gray-600 hover:bg-gray-700'
+                          }`}
+                        >
+                          詳細
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center mb-6">
+              <div className={`w-3 h-8 rounded-full mr-4 ${
+                themeColor === 'emerald' ? 'bg-purple-500' : 'bg-indigo-500'
+              }`}></div>
+              <h3 className="text-2xl font-bold text-gray-900">戦略プログラム</h3>
+            </div>
+            <p className="text-gray-600 mb-8">企業の競争力向上を支援する<strong>2つの戦略プログラム</strong>：</p>
+            <div className="grid grid-cols-1 gap-6">
+              {strategicPrograms.map((service, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex items-center justify-center w-12 h-12 rounded-lg flex-shrink-0 transition-colors duration-300 ${
+                      service.domain === 'legacy'
+                        ? 'bg-purple-100 text-purple-600 group-hover:bg-purple-600 group-hover:text-white'
+                        : 'bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h4>
+                      <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                      
+                      {service.stats && (
+                        <div className={`mb-3 text-center py-2 px-3 rounded-lg ${
+                          service.domain === 'legacy'
+                            ? 'bg-gradient-to-r from-purple-50 to-violet-50'
+                            : 'bg-gradient-to-r from-cyan-50 to-blue-50'
+                        }`}>
+                          <span 
+                            className={`text-sm font-semibold ${
+                              service.domain === 'legacy' ? 'text-purple-800' : 'text-cyan-800'
+                            }`}
+                            dangerouslySetInnerHTML={{ __html: service.stats }}
+                          />
+                        </div>
+                      )}
+                      
+                      {service.expertise && (
+                        <div className="mb-4">
+                          <p className="text-xs text-gray-500 font-medium">{service.expertise}</p>
+                        </div>
+                      )}
+                      
+                      <div className="flex justify-between items-center">
+                        <div className={`w-20 h-1 rounded-full ${
+                          service.domain === 'legacy' ? 'bg-gradient-to-r from-purple-400 to-violet-500' :
+                          'bg-gradient-to-r from-blue-400 to-cyan-500'
+                        }`}></div>
+                        <button 
+                          onClick={() => setSelectedService(service.domain)}
+                          className={`font-medium py-1 px-3 rounded-lg transition-colors duration-200 text-white text-sm ${
+                            service.domain === 'legacy'
+                              ? 'bg-purple-600 hover:bg-purple-700'
+                              : 'bg-cyan-600 hover:bg-cyan-700'
+                          }`}
+                        >
+                          詳細
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         
         {/* Modal */}

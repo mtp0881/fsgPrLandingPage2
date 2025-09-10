@@ -11,7 +11,6 @@ export default function ServicesProducts() {
   const [activeTab, setActiveTab] = useState<'services' | 'products'>('services');
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({});
-  const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
 
   // Listen for external tab changes
   useEffect(() => {
@@ -26,18 +25,6 @@ export default function ServicesProducts() {
     };
   }, []);
 
-  // Only load service images when needed (lazy loading)
-  const getServiceImages = (serviceName: string) => {
-    const imageMap = {
-      finance: content?.slides?.finance || ['/slides/Slide12.jpg', '/slides/Slide13.jpg'],
-      legacy: content?.slides?.legacy || ['/slides/Slide18.jpg', '/slides/Slide19.jpg', '/slides/Slide20.jpg'],
-      public: content?.slides?.public || ['/slides/Slide15.jpg', '/slides/Slide16.jpg'],
-      salesforce: content?.slides?.salesforce || ['/slides/Slide22.jpg', '/slides/Slide23.jpg', '/slides/Slide24.jpg', '/slides/Slide25.jpg', '/slides/Slide26.jpg', '/slides/Slide27.jpg'],
-      fpt: content?.slides?.fpt || ['/slides/Slide4.jpg', '/slides/Slide5.jpg', '/slides/Slide6.jpg', '/slides/Slide7.jpg', '/slides/Slide8.jpg', '/slides/Slide9.jpg']
-    };
-    return imageMap[serviceName as keyof typeof imageMap] || [];
-  };
-
   // Handle image loading
   const handleImageLoadStart = (imagePath: string) => {
     setLoadingImages(prev => ({ ...prev, [imagePath]: true }));
@@ -45,52 +32,41 @@ export default function ServicesProducts() {
 
   const handleImageLoadComplete = (imagePath: string) => {
     setLoadingImages(prev => ({ ...prev, [imagePath]: false }));
-    setPreloadedImages(prev => new Set([...prev, imagePath]));
   };
 
-  // Preload images when modal opens
+  // Initialize loading state when modal opens
   useEffect(() => {
     if (selectedService) {
-      const images = getServiceImages(selectedService);
+      const images = serviceImages[selectedService as keyof typeof serviceImages] || [];
       const initialLoadingState: { [key: string]: boolean } = {};
-      
       images.forEach((imagePath: string) => {
-        if (!preloadedImages.has(imagePath)) {
-          initialLoadingState[imagePath] = true;
-          // Preload image using createElement
-          if (typeof window !== 'undefined') {
-            const img = document.createElement('img');
-            img.onload = () => {
-              handleImageLoadComplete(imagePath);
-              document.body.removeChild(img);
-            };
-            img.onerror = () => {
-              handleImageLoadComplete(imagePath);
-              document.body.removeChild(img);
-            };
-            img.src = imagePath;
-            img.style.display = 'none';
-            document.body.appendChild(img);
-          }
-        }
+        initialLoadingState[imagePath] = true;
       });
-      
       setLoadingImages(initialLoadingState);
     }
-  }, [selectedService, preloadedImages]);
+  }, [selectedService]);
+  
+  const serviceImages = {
+    finance: content?.slides?.finance || ['/slides/Slide12.jpg', '/slides/Slide13.jpg'],
+    legacy: content?.slides?.legacy || ['/slides/Slide18.jpg', '/slides/Slide19.jpg', '/slides/Slide20.jpg'],
+    public: content?.slides?.public || ['/slides/Slide15.jpg', '/slides/Slide16.jpg'],
+    salesforce: content?.slides?.salesforce || ['/slides/Slide22.jpg', '/slides/Slide23.jpg', '/slides/Slide24.jpg', '/slides/Slide25.jpg', '/slides/Slide26.jpg', '/slides/Slide27.jpg'],
+    fpt: content?.slides?.fpt || ['/slides/Slide4.jpg', '/slides/Slide5.jpg', '/slides/Slide6.jpg', '/slides/Slide7.jpg', '/slides/Slide8.jpg', '/slides/Slide9.jpg']
+  };
 
   if (loading || !content) {
     return (
-      <section id="services" className="py-20">
+      <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">コンテンツを読み込み中...</p>
           </div>
         </div>
       </section>
     );
   }
-
+  
   const services = [
     {
       icon: (
@@ -209,7 +185,7 @@ export default function ServicesProducts() {
   ];
 
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tab Headers */}
         <div className="text-center mb-16">
@@ -218,7 +194,7 @@ export default function ServicesProducts() {
               {/* Sliding background indicator */}
               <div 
                 className={`absolute top-2 h-12 w-72 rounded-xl transition-all duration-300 ease-out shadow-sm ${
-                  themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-gray-700'
+                  themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-gray-600'
                 } ${activeTab === 'services' ? 'left-2' : 'left-[296px]'}`}
               />
               
@@ -231,7 +207,7 @@ export default function ServicesProducts() {
                       : 'text-gray-600 hover:text-gray-800'
                   }`}
                 >
-                  コアコンピタンス
+                  私たちのサービス
                 </button>
                 <button
                   onClick={() => setActiveTab('products')}
@@ -270,7 +246,14 @@ export default function ServicesProducts() {
                     key={index}
                     className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">{service.title}</h4>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-colors duration-300 ${
+                      themeColor === 'emerald' 
+                        ? 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
+                        : 'bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h4>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
@@ -306,12 +289,17 @@ export default function ServicesProducts() {
                     </ul>
                     
                     <div className="mt-auto">
+                      <div className={`w-full h-1 rounded-full mb-4 ${
+                        service.domain === 'finance' ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
+                        'bg-gradient-to-r from-red-400 to-rose-500'
+                      }`}></div>
+                      
                       <button 
                         onClick={() => setSelectedService(service.domain)}
                         className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
                           themeColor === 'emerald' 
                             ? 'bg-emerald-600 hover:bg-emerald-700' 
-                            : 'bg-gray-700 hover:bg-gray-500'
+                            : 'bg-gray-600 hover:bg-gray-700'
                         }`}
                       >
                         {t('services.learn_more')}
@@ -335,14 +323,20 @@ export default function ServicesProducts() {
                 {strategicPrograms.map((service, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 hover:-translate-y-2 group flex flex-col"
-                    style={{ height: '320px' }}
+                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-2 text-center">{service.title}</h4>
-                    <p className="text-gray-600 mb-3 text-sm leading-relaxed flex-grow">{service.description}</p>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-colors duration-300 ${
+                      service.domain === 'legacy'
+                        ? 'bg-purple-100 text-purple-600 group-hover:bg-purple-600 group-hover:text-white'
+                        : 'bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h4>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
-                      <div className={`mb-3 text-center py-2 px-3 rounded-lg ${
+                      <div className={`mb-4 text-center py-3 px-3 rounded-lg ${
                         service.domain === 'legacy'
                           ? 'bg-gradient-to-r from-purple-50 to-violet-50'
                           : 'bg-gradient-to-r from-cyan-50 to-blue-50'
@@ -356,13 +350,35 @@ export default function ServicesProducts() {
                       </div>
                     )}
                     
+                    {service.expertise && (
+                      <div className="mb-4">
+                        <p className="text-xs text-gray-500 font-medium text-center">{service.expertise}</p>
+                      </div>
+                    )}
+                    
+                    <ul className="space-y-2 mb-6 flex-grow">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start space-x-2">
+                          <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
+                            service.domain === 'legacy' ? 'bg-purple-500' : 'bg-cyan-500'
+                          }`}></div>
+                          <span className="text-sm text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
                     <div className="mt-auto">
+                      <div className={`w-full h-1 rounded-full mb-4 ${
+                        service.domain === 'legacy' ? 'bg-gradient-to-r from-purple-400 to-violet-500' :
+                        'bg-gradient-to-r from-blue-400 to-cyan-500'
+                      }`}></div>
+                      
                       <button 
                         onClick={() => setSelectedService(service.domain)}
                         className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
                           service.domain === 'legacy'
-                            ? 'bg-gray-700 hover:bg-gray-500'
-                            : 'bg-gray-700 hover:bg-gray-500'
+                            ? 'bg-purple-600 hover:bg-purple-700'
+                            : 'bg-cyan-600 hover:bg-cyan-700'
                         }`}
                       >
                         {t('services.learn_more')}
@@ -374,31 +390,56 @@ export default function ServicesProducts() {
             </div>
           </div>
         )}
+                  
+                  <button 
+                    onClick={() => setSelectedService(service.domain)}
+                    className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
+                      themeColor === 'emerald' 
+                        ? 'bg-emerald-600 hover:bg-emerald-700' 
+                        : 'bg-gray-600 hover:bg-gray-700'
+                    }`}
+                  >
+                    {t('services.learn_more')}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Products Tab Content */}
         {activeTab === 'products' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {products.map((product, index) => (
-              <div
-                key={index}
-                className={`bg-gradient-to-br ${product.bgColor} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full`}
-              >
-                <div className={`flex items-center justify-center w-16 h-16 ${product.iconColor} text-white rounded-lg mb-6 transition-all duration-300 group-hover:scale-110`}>
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
-                  </svg>
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full">
+                {/* Product Header */}
+                <div className={`h-48 bg-gradient-to-br ${product.bgColor} flex items-center justify-center`}>
+                  <div className="text-center">
+                    <div className={`w-20 h-20 ${product.iconColor} rounded-full mx-auto mb-4 flex items-center justify-center`}>
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
+                      </svg>
+                    </div>
+                    <h4 className="font-semibold text-gray-700">{product.name}</h4>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{product.name}</h3>
-                <p className="text-gray-700 mb-4 text-sm leading-relaxed flex-grow">{product.description}</p>
-                
-                <div className="mt-auto">
-                  <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 mb-4">
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    {product.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="mb-6 flex-grow">
                     <h4 className="font-medium text-gray-900 mb-2">{content?.products?.main_achievements || t('products.main_achievements')}:</h4>
                     <ul className="space-y-1">
                       {product.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start space-x-2">
-                          <div className="w-1 h-1 bg-gray-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-xs text-gray-700">{feature}</span>
+                        <li key={featureIndex} className="flex items-start text-sm text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                          {feature}
                         </li>
                       ))}
                     </ul>
@@ -408,8 +449,44 @@ export default function ServicesProducts() {
             ))}
           </div>
         )}
+
+        {/* Common Call to Action */}
+        <div className="mt-16 text-center">
+          <div className={`rounded-2xl p-8 ${
+            themeColor === 'emerald' 
+              ? 'bg-gradient-to-r from-emerald-50 to-green-100' 
+              : 'bg-gradient-to-r from-blue-50 to-indigo-100'
+          }`}>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              {content?.products?.custom?.title || t('products.custom.title')}
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              {content?.products?.custom?.desc || t('products.custom.desc')}
+            </p>
+            <button 
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  const headerHeight = 80;
+                  const elementPosition = contactSection.offsetTop - headerHeight;
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className={`text-white px-8 py-3 rounded-lg transition-colors ${
+                themeColor === 'emerald' 
+                  ? 'bg-emerald-600 hover:bg-emerald-700' 
+                  : 'bg-gray-600 hover:bg-gray-700'
+              }`}
+            >
+              {t('products.custom.contact')}
+            </button>
+          </div>
+        </div>
         
-        {/* Modal */}
+        {/* Services Modal */}
         {selectedService && (
           <div 
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
@@ -425,34 +502,35 @@ export default function ServicesProducts() {
                 </h3>
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className={`text-gray-500 hover:text-gray-700 text-2xl font-bold ${
-                    themeColor === 'emerald'
-                      ? 'hover:bg-emerald-100'
-                      : 'hover:bg-gray-100'
-                  } w-10 h-10 rounded-lg flex items-center justify-center transition-colors`}
+                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
                 >
                   ×
                 </button>
               </div>
               
               <div className="p-6 space-y-6">
-                {getServiceImages(selectedService).map((imagePath: string, index: number) => (
+                {serviceImages[selectedService as keyof typeof serviceImages]?.map((imagePath: string, index: number) => (
                   <div key={index} className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-lg">
+                    {/* Loading Spinner */}
                     {loadingImages[imagePath] && (
-                      <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                        <div className="flex flex-col items-center space-y-2">
+                          <div className={`w-8 h-8 border-3 border-gray-300 border-t-3 rounded-full animate-spin ${
+                            themeColor === 'emerald' ? 'border-t-emerald-500' : 'border-t-blue-500'
+                          }`}></div>
+                          <span className="text-sm text-gray-500">Loading...</span>
+                        </div>
                       </div>
                     )}
-                    {preloadedImages.has(imagePath) && (
-                      <Image
-                        src={imagePath}
-                        alt={`${selectedService} slide ${index + 1}`}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                        priority={index < 2} // Prioritize first 2 images
-                      />
-                    )}
+                    <Image
+                      src={imagePath}
+                      alt={`${selectedService} slide ${index + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                      onLoadingComplete={() => handleImageLoadComplete(imagePath)}
+                      priority={index === 0}
+                    />
                   </div>
                 ))}
               </div>
@@ -460,11 +538,7 @@ export default function ServicesProducts() {
               <div className="p-6 border-t text-center">
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className={`font-medium py-2 px-6 rounded-lg transition-colors duration-200 ${
-                    themeColor === 'emerald'
-                      ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-                      : 'bg-gray-600 hover:bg-gray-700 text-white'
-                  }`}
+                  className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200"
                 >
                   {t('services.close_modal')}
                 </button>

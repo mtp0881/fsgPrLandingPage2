@@ -25,7 +25,7 @@ const translations = {
     'nav.consultation': '無料相談',
     
     // Hero Section
-    'hero.title': 'FSG事業部 デジタル変革のパートナー',
+    'hero.title': 'FSG事業部<br/>デジタル変革のパートナー',
     'hero.subtitle': 'FPTソフトウェアジャパンの金融・公共・レガシー・Salesforce専門部門として、19年以上の実績で日本企業のDXを支援します。',
     'hero.explore': '詳細を見る',
     'hero.demo': 'サービス紹介',
@@ -34,7 +34,7 @@ const translations = {
     
     // About Section
     'about.title': 'FSG事業部について',
-    'about.subtitle': 'FPTソフトウェアジャパンのファイナンスサービス開発事業部として、金融・公共・レガシー・Salesforceの4つの専門分野で日本のデジタル変革をリードしています。',
+    'about.subtitle': 'FPTソフトウェアジャパンのパブリック・ファイナンスサービス開発事業本部として、金融・公共・レガシー・Salesforceの4つの専門分野で日本のデジタル変革をリードしています。',
     'about.mission.title': 'ミッション',
     'about.mission.desc': '19年以上の経験と豊富な人材を活かし、銀行・保険・証券を中心とした金融業界のデジタル変革を支援します。',
     'about.vision.title': 'ビジョン',
@@ -211,7 +211,7 @@ const translations = {
     'nav.consultation': 'Tư Vấn Miễn Phí',
     
     // Hero Section
-    'hero.title': 'FSG事業部 - Đối Tác Chuyển Đổi Số',
+    'hero.title': 'FSG事業部<br/>Đối Tác Chuyển Đổi Số',
     'hero.subtitle': 'Phòng ban chuyên về Tài chính, Dịch vụ công, Legacy và Salesforce thuộc FPT Software Japan, hỗ trợ DX với 19+ năm kinh nghiệm.',
     'hero.explore': 'Tìm Hiểu Thêm',
     'hero.demo': 'Giới Thiệu Dịch Vụ',

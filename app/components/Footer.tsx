@@ -10,9 +10,7 @@ export default function Footer() {
 
   if (loading || !content) {
     return (
-      <footer className={`text-white py-12 ${
-        themeColor === 'emerald' ? 'bg-emerald-950' : 'bg-gray-900'
-      }`}>
+      <footer className="bg-slate-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-gray-300">Loading...</p>
@@ -23,10 +21,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className={`text-white py-12 ${
-      themeColor === 'emerald' ? 'bg-emerald-950' : 'bg-gray-900'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-slate-900 text-white py-12 relative">
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">

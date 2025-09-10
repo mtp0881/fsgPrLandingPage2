@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import ImageOptimizer from "./components/ImageOptimizer";
+import PreloadContent from "./components/PreloadContent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +31,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
+          <PreloadContent />
+          <ImageOptimizer 
+            criticalImages={[
+              '/images/hero-bg.png',
+              '/logo.png',
+              '/partners/ntt-data--600.png'
+            ]}
+          />
           {children}
         </LanguageProvider>
       </body>

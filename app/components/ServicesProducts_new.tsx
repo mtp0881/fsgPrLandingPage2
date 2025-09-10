@@ -11,7 +11,6 @@ export default function ServicesProducts() {
   const [activeTab, setActiveTab] = useState<'services' | 'products'>('services');
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({});
-  const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
 
   // Listen for external tab changes
   useEffect(() => {
@@ -26,18 +25,6 @@ export default function ServicesProducts() {
     };
   }, []);
 
-  // Only load service images when needed (lazy loading)
-  const getServiceImages = (serviceName: string) => {
-    const imageMap = {
-      finance: content?.slides?.finance || ['/slides/Slide12.jpg', '/slides/Slide13.jpg'],
-      legacy: content?.slides?.legacy || ['/slides/Slide18.jpg', '/slides/Slide19.jpg', '/slides/Slide20.jpg'],
-      public: content?.slides?.public || ['/slides/Slide15.jpg', '/slides/Slide16.jpg'],
-      salesforce: content?.slides?.salesforce || ['/slides/Slide22.jpg', '/slides/Slide23.jpg', '/slides/Slide24.jpg', '/slides/Slide25.jpg', '/slides/Slide26.jpg', '/slides/Slide27.jpg'],
-      fpt: content?.slides?.fpt || ['/slides/Slide4.jpg', '/slides/Slide5.jpg', '/slides/Slide6.jpg', '/slides/Slide7.jpg', '/slides/Slide8.jpg', '/slides/Slide9.jpg']
-    };
-    return imageMap[serviceName as keyof typeof imageMap] || [];
-  };
-
   // Handle image loading
   const handleImageLoadStart = (imagePath: string) => {
     setLoadingImages(prev => ({ ...prev, [imagePath]: true }));
@@ -45,43 +32,31 @@ export default function ServicesProducts() {
 
   const handleImageLoadComplete = (imagePath: string) => {
     setLoadingImages(prev => ({ ...prev, [imagePath]: false }));
-    setPreloadedImages(prev => new Set([...prev, imagePath]));
   };
 
-  // Preload images when modal opens
+  // Initialize loading state when modal opens
   useEffect(() => {
     if (selectedService) {
-      const images = getServiceImages(selectedService);
+      const images = serviceImages[selectedService as keyof typeof serviceImages] || [];
       const initialLoadingState: { [key: string]: boolean } = {};
-      
       images.forEach((imagePath: string) => {
-        if (!preloadedImages.has(imagePath)) {
-          initialLoadingState[imagePath] = true;
-          // Preload image using createElement
-          if (typeof window !== 'undefined') {
-            const img = document.createElement('img');
-            img.onload = () => {
-              handleImageLoadComplete(imagePath);
-              document.body.removeChild(img);
-            };
-            img.onerror = () => {
-              handleImageLoadComplete(imagePath);
-              document.body.removeChild(img);
-            };
-            img.src = imagePath;
-            img.style.display = 'none';
-            document.body.appendChild(img);
-          }
-        }
+        initialLoadingState[imagePath] = true;
       });
-      
       setLoadingImages(initialLoadingState);
     }
-  }, [selectedService, preloadedImages]);
+  }, [selectedService]);
+  
+  const serviceImages = {
+    finance: content?.slides?.finance?.slice(0, 2) || ['/slides/Slide12.jpg', '/slides/Slide13.jpg'], // Limit to 2 images
+    legacy: content?.slides?.legacy?.slice(0, 2) || ['/slides/Slide18.jpg', '/slides/Slide19.jpg'], // Limit to 2 images  
+    public: content?.slides?.public?.slice(0, 2) || ['/slides/Slide15.jpg', '/slides/Slide16.jpg'],
+    salesforce: content?.slides?.salesforce?.slice(0, 3) || ['/slides/Slide22.jpg', '/slides/Slide23.jpg', '/slides/Slide24.jpg'], // Limit to 3 images
+    fpt: content?.slides?.fpt?.slice(0, 3) || ['/slides/Slide4.jpg', '/slides/Slide5.jpg', '/slides/Slide6.jpg'] // Limit to 3 images
+  };
 
   if (loading || !content) {
     return (
-      <section id="services" className="py-20">
+      <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
@@ -209,7 +184,7 @@ export default function ServicesProducts() {
   ];
 
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tab Headers */}
         <div className="text-center mb-16">
@@ -218,7 +193,7 @@ export default function ServicesProducts() {
               {/* Sliding background indicator */}
               <div 
                 className={`absolute top-2 h-12 w-72 rounded-xl transition-all duration-300 ease-out shadow-sm ${
-                  themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-gray-700'
+                  themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-gray-600'
                 } ${activeTab === 'services' ? 'left-2' : 'left-[296px]'}`}
               />
               
@@ -270,7 +245,14 @@ export default function ServicesProducts() {
                     key={index}
                     className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">{service.title}</h4>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-colors duration-300 ${
+                      themeColor === 'emerald' 
+                        ? 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
+                        : 'bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h4>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
@@ -306,12 +288,17 @@ export default function ServicesProducts() {
                     </ul>
                     
                     <div className="mt-auto">
+                      <div className={`w-full h-1 rounded-full mb-4 ${
+                        service.domain === 'finance' ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
+                        'bg-gradient-to-r from-red-400 to-rose-500'
+                      }`}></div>
+                      
                       <button 
                         onClick={() => setSelectedService(service.domain)}
                         className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
                           themeColor === 'emerald' 
                             ? 'bg-emerald-600 hover:bg-emerald-700' 
-                            : 'bg-gray-700 hover:bg-gray-500'
+                            : 'bg-gray-600 hover:bg-gray-700'
                         }`}
                       >
                         {t('services.learn_more')}
@@ -335,14 +322,20 @@ export default function ServicesProducts() {
                 {strategicPrograms.map((service, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 hover:-translate-y-2 group flex flex-col"
-                    style={{ height: '320px' }}
+                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-2 group flex flex-col h-full"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-2 text-center">{service.title}</h4>
-                    <p className="text-gray-600 mb-3 text-sm leading-relaxed flex-grow">{service.description}</p>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-lg mb-6 transition-colors duration-300 ${
+                      service.domain === 'legacy'
+                        ? 'bg-purple-100 text-purple-600 group-hover:bg-purple-600 group-hover:text-white'
+                        : 'bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white'
+                    }`}>
+                      {service.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h4>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">{service.description}</p>
                     
                     {service.stats && (
-                      <div className={`mb-3 text-center py-2 px-3 rounded-lg ${
+                      <div className={`mb-4 text-center py-3 px-3 rounded-lg ${
                         service.domain === 'legacy'
                           ? 'bg-gradient-to-r from-purple-50 to-violet-50'
                           : 'bg-gradient-to-r from-cyan-50 to-blue-50'
@@ -356,13 +349,35 @@ export default function ServicesProducts() {
                       </div>
                     )}
                     
+                    {service.expertise && (
+                      <div className="mb-4">
+                        <p className="text-xs text-gray-500 font-medium text-center">{service.expertise}</p>
+                      </div>
+                    )}
+                    
+                    <ul className="space-y-2 mb-6 flex-grow">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start space-x-2">
+                          <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
+                            service.domain === 'legacy' ? 'bg-purple-500' : 'bg-cyan-500'
+                          }`}></div>
+                          <span className="text-sm text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
                     <div className="mt-auto">
+                      <div className={`w-full h-1 rounded-full mb-4 ${
+                        service.domain === 'legacy' ? 'bg-gradient-to-r from-purple-400 to-violet-500' :
+                        'bg-gradient-to-r from-blue-400 to-cyan-500'
+                      }`}></div>
+                      
                       <button 
                         onClick={() => setSelectedService(service.domain)}
                         className={`w-full font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-white ${
                           service.domain === 'legacy'
-                            ? 'bg-gray-700 hover:bg-gray-500'
-                            : 'bg-gray-700 hover:bg-gray-500'
+                            ? 'bg-purple-600 hover:bg-purple-700'
+                            : 'bg-cyan-600 hover:bg-cyan-700'
                         }`}
                       >
                         {t('services.learn_more')}
@@ -436,23 +451,28 @@ export default function ServicesProducts() {
               </div>
               
               <div className="p-6 space-y-6">
-                {getServiceImages(selectedService).map((imagePath: string, index: number) => (
+                {serviceImages[selectedService as keyof typeof serviceImages]?.map((imagePath, index) => (
                   <div key={index} className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-lg">
                     {loadingImages[imagePath] && (
                       <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
                       </div>
                     )}
-                    {preloadedImages.has(imagePath) && (
-                      <Image
-                        src={imagePath}
-                        alt={`${selectedService} slide ${index + 1}`}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                        priority={index < 2} // Prioritize first 2 images
-                      />
-                    )}
+                    <Image
+                      src={imagePath}
+                      alt={`${selectedService} slide ${index + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                      loading="lazy"
+                      quality={75}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjb2KMuD2MgtbNWjhjWeSGJsrGgCordzPqzQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+                      onLoadStart={() => handleImageLoadStart(imagePath)}
+                      onLoad={() => handleImageLoadComplete(imagePath)}
+                      onError={() => handleImageLoadComplete(imagePath)}
+                      priority={index === 0} // Only first image gets priority
+                    />
                   </div>
                 ))}
               </div>

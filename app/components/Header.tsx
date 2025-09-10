@@ -1,42 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t, themeColor } = useLanguage();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // Khi scroll quá 20px thì header sẽ di chuyển lên sát
+      setIsScrolled(scrollPosition > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 overflow-visible">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      {/* Overlay mờ để che khoảng hở khi scroll */}
+      {isScrolled && (
+        <div className="fixed top-0 left-0 right-0 h-4 bg-gradient-to-b from-white/80 to-transparent z-40 backdrop-blur-sm"></div>
+      )}
+      
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out px-4 ${
+        isScrolled ? 'pt-1' : 'pt-12'
+      }`}>
+      <div className="bg-white/70 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg shadow-black/5 max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <div className="flex flex-col items-center">
-                <div className="text-gray-500 text-lx leading-tight mb-1">
-                  FPTソフトウェアジャパン株式会社
-                </div>
-                <div className="flex items-center space-x-3">
-                  <img 
-                    src="/logo_fpt_text_black.webp" 
-                    alt="FPT Software" 
-                    className="h-10 w-auto"
-                  />
-                  <img 
-                    src="/logo.png" 
-                    alt="FSG - Finance Services Group" 
-                    className="h-10 w-auto relative z-10"
-                  />
-                </div>
+            <Link href="/" className="flex items-center group">
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="/logo_fpt_text_black.webp" 
+                  alt="FPT Software" 
+                  className="h-8 w-auto transition-opacity group-hover:opacity-80"
+                />
+                <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+                <img 
+                  src="/logo.png" 
+                  alt="FSG - Finance Services Group" 
+                  className="h-8 w-auto transition-opacity group-hover:opacity-80"
+                />
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-10">
             <button 
               onClick={() => {
                 const aboutSection = document.getElementById('about');
@@ -49,7 +65,7 @@ export default function Header() {
                   });
                 }
               }}
-              className={`text-gray-700 transition-colors whitespace-nowrap ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`}
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
             >
               {t('nav.about')}
             </button>
@@ -65,7 +81,7 @@ export default function Header() {
                   });
                 }
               }}
-              className={`text-gray-700 transition-colors whitespace-nowrap ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`}
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
             >
               {t('nav.services')}
             </button>
@@ -81,7 +97,7 @@ export default function Header() {
                   });
                 }
               }}
-              className={`text-gray-700 transition-colors whitespace-nowrap ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`}
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
             >
               {t('nav.global')}
             </button>
@@ -97,7 +113,7 @@ export default function Header() {
                   });
                 }
               }}
-              className={`text-gray-700 transition-colors whitespace-nowrap ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`}
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
             >
               {t('nav.contact')}
             </button>
@@ -105,69 +121,57 @@ export default function Header() {
 
           {/* Language Switcher & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Language Switcher - Fixed width */}
-            <div className="flex items-center bg-gray-100 rounded-lg p-1 w-[100px] shrink-0">
+            {/* Language Switcher */}
+            <div className="flex items-center bg-gray-50 rounded-full p-1">
               <button
                 onClick={() => setLanguage('jp')}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors flex-1 text-center ${
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                   language === 'jp'
-                    ? `${themeColor === 'emerald' ? 'bg-emerald-600' : 'bg-blue-600'} text-white`
-                    : `text-gray-600 ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 JP
               </button>
               <button
                 onClick={() => setLanguage('vn')}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors flex-1 text-center ${
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                   language === 'vn'
-                    ? `${themeColor === 'emerald' ? 'bg-emerald-600' : 'bg-blue-600'} text-white`
-                    : `text-gray-600 ${themeColor === 'emerald' ? 'hover:text-emerald-600' : 'hover:text-blue-600'}`
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 VN
               </button>
             </div>
             
-            {/* CTA Button - Fixed width */}
-            <div className="w-[140px] shrink-0">
-              <button
-                onClick={() => {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    const headerHeight = 80; // Chiều cao của header
-                    const elementPosition = contactSection.offsetTop - headerHeight;
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className={`text-white px-4 py-2 rounded-lg transition-colors whitespace-nowrap text-center text-sm block w-full ${
-                  themeColor === 'emerald' 
-                    ? 'bg-emerald-600 hover:bg-emerald-700' 
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-              >
-                {t('nav.consultation')}
-              </button>
-            </div>
-
             {/* Admin Login Button */}
-            <div className="w-[120px] shrink-0">
-              <Link
-                href="/admin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-gray-600 hover:text-gray-800 px-2 py-2 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors whitespace-nowrap text-center text-xs block w-full ${
-                  themeColor === 'emerald' 
-                    ? 'hover:text-emerald-600 hover:border-emerald-300' 
-                    : 'hover:text-blue-600 hover:border-blue-300'
-                }`}
-              >
-                管理者ログイン
-              </Link>
-            </div>
+            <Link
+              href="/admin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-all text-xs font-medium"
+            >
+              管理者ログイン
+            </Link>
+            
+            {/* CTA Button */}
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  const headerHeight = 80;
+                  const elementPosition = contactSection.offsetTop - headerHeight;
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className="bg-gray-700 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors w-40 flex items-center justify-center"
+            >
+              {t('nav.consultation')}
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -310,7 +314,7 @@ export default function Header() {
                 className={`text-white px-6 py-2 rounded-lg transition-colors text-center mx-4 block ${
                   themeColor === 'emerald' 
                     ? 'bg-emerald-600 hover:bg-emerald-700' 
-                    : 'bg-blue-600 hover:bg-blue-700'
+                    : 'bg-gray-600 hover:bg-gray-700'
                 }`}
               >
                 {t('nav.consultation')}
@@ -335,5 +339,6 @@ export default function Header() {
         )}
       </div>
     </header>
+    </>
   );
 }

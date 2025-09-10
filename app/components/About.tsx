@@ -10,6 +10,7 @@ export default function About() {
   const { content, loading } = useContent();
   const [showFptModal, setShowFptModal] = useState(false);
   const [loadingImages, setLoadingImages] = useState<{ [key: number]: boolean }>({});
+  const [imagePreloadStarted, setImagePreloadStarted] = useState(false);
   
   // Get FPT images from content instead of hardcoded
   const fptImages = useMemo(() => {
@@ -25,6 +26,29 @@ export default function About() {
     }
     return content.slides.fpt;
   }, [content]);
+
+  // Preload images in background after page load
+  useEffect(() => {
+    if (!loading && content && !imagePreloadStarted) {
+      const timer = setTimeout(() => {
+        setImagePreloadStarted(true);
+        // Preload first few images silently using createElement
+        fptImages.slice(0, 3).forEach((imagePath: string) => {
+          if (typeof window !== 'undefined') {
+            const img = document.createElement('img');
+            img.src = imagePath;
+            img.style.display = 'none';
+            document.body.appendChild(img);
+            // Remove after loading
+            img.onload = () => document.body.removeChild(img);
+            img.onerror = () => document.body.removeChild(img);
+          }
+        });
+      }, 2000); // Wait 2 seconds after page load
+
+      return () => clearTimeout(timer);
+    }
+  }, [loading, content, fptImages, imagePreloadStarted]);
 
   const handleImageLoadStart = (index: number) => {
     setLoadingImages(prev => ({ ...prev, [index]: true }));
@@ -51,7 +75,7 @@ export default function About() {
 
   if (loading || !content) {
     return (
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
@@ -63,7 +87,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20">      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -76,75 +100,69 @@ export default function About() {
             >
               FPTソフトウェアジャパン
             </button>
-            のファイナンスサービス開発事業部として、金融・公共・レガシー・Salesforceの4つの専門分野で日本のデジタル変革をリードしています。
+            {content.about.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Mission */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Global Experience */}
           <div className="text-center p-6">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${
               themeColor === 'emerald' ? 'bg-emerald-100' : 'bg-blue-100'
             }`}>
               <svg className={`w-8 h-8 ${themeColor === 'emerald' ? 'text-emerald-600' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">{content.about.mission.title}</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">グローバルな経験</h3>
             <p className="text-gray-600">
-              {content.about.mission.desc}
+              金融・公共分野における大規模プロジェクトの実績
             </p>
           </div>
 
-          {/* Vision */}
+          {/* Strong Human Resources */}
           <div className="text-center p-6">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${
               themeColor === 'emerald' ? 'bg-green-100' : 'bg-green-100'
             }`}>
               <svg className={`w-8 h-8 ${themeColor === 'emerald' ? 'text-green-600' : 'text-green-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">{content.about.vision.title}</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">強力な人材基盤</h3>
             <p className="text-gray-600">
-              {content.about.vision.desc}
+              33,000人以上の従業員、2,000人以上の金融専門家、200人以上のSalesforce専門家
             </p>
           </div>
 
-          {/* Values */}
+          {/* Cost Optimization */}
           <div className="text-center p-6">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${
               themeColor === 'emerald' ? 'bg-teal-100' : 'bg-purple-100'
             }`}>
               <svg className={`w-8 h-8 ${themeColor === 'emerald' ? 'text-teal-600' : 'text-purple-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">{content.about.values.title}</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">コスト最適化</h3>
             <p className="text-gray-600">
-              {content.about.values.desc}
+              オンサイトとオフショアのハイブリッドモデル
             </p>
           </div>
-        </div>
 
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">500+</div>
-            <div className="text-gray-600">{t('about.stats.finance_engineers')}</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">200+</div>
-            <div className="text-gray-600">{t('about.stats.legacy_projects')}</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">15</div>
-            <div className="text-gray-600">{t('about.stats.public_locations')}</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-cyan-600 mb-2">200+</div>
-            <div className="text-gray-600">{t('about.stats.salesforce_specialists')}</div>
+          {/* Continuous Innovation */}
+          <div className="text-center p-6">
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${
+              themeColor === 'emerald' ? 'bg-orange-100' : 'bg-orange-100'
+            }`}>
+              <svg className={`w-8 h-8 ${themeColor === 'emerald' ? 'text-orange-600' : 'text-orange-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">継続的なイノベーション</h3>
+            <p className="text-gray-600">
+              AI、クラウド、先端技術の活用
+            </p>
           </div>
         </div>
       </div>

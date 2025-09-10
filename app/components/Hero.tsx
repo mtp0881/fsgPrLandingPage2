@@ -9,11 +9,52 @@ export default function Hero() {
 
   if (loading || !content) {
     return (
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">コンテンツを読み込み中...</p>
+      <section className="min-h-screen mx-3 my-3 relative overflow-hidden pt-16 rounded-3xl shadow-2xl">
+        {/* Craft.do background */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://www.craft.do/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FheroBg-blur-small.e33d9b5e.png&w=1920&q=75')`
+            }}
+          >
+          </div>
+          <div className="absolute inset-0 bg-white/10"></div>
+        </div>
+        
+        {/* Skeleton content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-12 flex items-center min-h-screen">
+          <div className="text-center w-full">
+            {/* Title skeleton */}
+            <div className="mb-8">
+              <div className="h-16 bg-gray-300/50 rounded-lg mb-4 animate-pulse"></div>
+              <div className="h-16 bg-gray-300/50 rounded-lg animate-pulse"></div>
+            </div>
+            
+            {/* Subtitle skeleton */}
+            <div className="mb-12 max-w-4xl mx-auto">
+              <div className="h-6 bg-gray-300/50 rounded mb-3 animate-pulse"></div>
+              <div className="h-6 bg-gray-300/50 rounded mb-3 animate-pulse"></div>
+              <div className="h-6 bg-gray-300/50 rounded w-3/4 mx-auto animate-pulse"></div>
+            </div>
+            
+            {/* Buttons skeleton */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <div className="h-14 w-40 bg-gray-300/50 rounded-lg animate-pulse"></div>
+              <div className="h-14 w-40 bg-gray-300/50 rounded-lg animate-pulse"></div>
+            </div>
+            
+            {/* Stats skeleton */}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gray-300/50 rounded animate-pulse"></div>
+                <div className="h-6 w-32 bg-gray-300/50 rounded animate-pulse"></div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gray-300/50 rounded animate-pulse"></div>
+                <div className="h-6 w-32 bg-gray-300/50 rounded animate-pulse"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -21,129 +62,125 @@ export default function Hero() {
   }
 
   return (
-    <section 
-      className={`py-20 relative overflow-hidden`}
-      style={{
-        backgroundImage: `url('/images/hero-bg.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Overlay - blur effect */}
-      <div className={`absolute inset-0 bg-black/20 backdrop-blur-[2px]`}></div>
+    <section className="min-h-screen mx-3 my-3 relative overflow-hidden pt-16 rounded-3xl shadow-2xl">
+      {/* Exact Craft.do background using their actual image */}
+      <div className="absolute inset-0 rounded-3xl overflow-hidden">
+        {/* Base background with Craft.do's actual background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://www.craft.do/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FheroBg-blur-small.e33d9b5e.png&w=1920&q=75')`
+          }}
+        >
+        </div>
+        
+        {/* White overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/10"></div>
+      </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl" style={{textShadow: '6px 6px 12px rgba(0,0,0,1), 4px 4px 8px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.7)'}}>
-              {content.hero.title}
-            </h1>
-            <p className="text-xl text-gray-100 mb-8 leading-relaxed drop-shadow-lg" style={{textShadow: '5px 5px 10px rgba(0,0,0,1), 3px 3px 6px rgba(0,0,0,0.9), 1px 1px 2px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6)'}}>
-              {content.hero.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => {
-                  const aboutSection = document.getElementById('about');
-                  if (aboutSection) {
-                    const headerHeight = 80; // Chiều cao của header
-                    const elementPosition = aboutSection.offsetTop - headerHeight;
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className={`text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg ${
-                  themeColor === 'emerald' 
-                    ? 'bg-emerald-600 hover:bg-emerald-700' 
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-                style={{textShadow: '2px 2px 4px rgba(0,0,0,0.7), 1px 1px 2px rgba(0,0,0,0.6)'}}
-              >
-                {content.hero.explore}
-              </button>
-              <button 
-                onClick={() => {
-                  const servicesSection = document.getElementById('services');
-                  if (servicesSection) {
-                    const headerHeight = 80; // Chiều cao của header
-                    const elementPosition = servicesSection.offsetTop - headerHeight;
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className={`text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg ${
-                  themeColor === 'emerald' 
-                    ? 'bg-emerald-600 hover:bg-emerald-700' 
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-                style={{textShadow: '2px 2px 4px rgba(0,0,0,0.7), 1px 1px 2px rgba(0,0,0,0.6)'}}
-              >
-                {content.hero.demo}
-              </button>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-12 flex items-center min-h-screen">
+        <div className="text-center w-full">
+          {/* Main heading - Craft.do style */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
+            <span className="block text-gray-900 mb-2">
+              FSG事業部
+            </span>
+            <span className="block text-gray-900">
+              デジタル変革のパートナー
+            </span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto font-normal">
+            {content.hero.subtitle}
+          </p>
+
+          {/* Feature highlights */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">19年以上の実績</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">金融・公共特化</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-gray-100">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">Salesforce認定</span>
             </div>
           </div>
 
-          {/* Image/Visual */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
-              <div className={`aspect-video rounded-lg flex items-center justify-center ${
-                themeColor === 'emerald' 
-                  ? 'bg-gradient-to-br from-emerald-100 to-green-100' 
-                  : 'bg-gradient-to-br from-blue-100 to-purple-100'
-              }`}>
-                <div className="text-center">
-                  <div className={`w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center ${
-                    themeColor === 'emerald' 
-                      ? 'bg-gradient-to-r from-emerald-900 to-green-700' 
-                      : 'bg-gradient-to-r from-blue-900 to-indigo-700'
-                  }`}>
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {content.hero.fsg_title || 'FSG事業部'}
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    {content.hero.fsg_subtitle || 'デジタル変革のエキスパート'}
-                  </p>
-                  <div className="grid grid-cols-4 gap-1 mt-4 text-base font-medium">
-                    <div className="bg-green-300 text-green-700 px-3 py-2 rounded border border-green-500 text-center">
-                      {content.hero.domains?.finance || '金融'}
-                    </div>
-                    <div className="bg-red-100 text-red-700 px-3 py-2 rounded border border-red-500 text-center">
-                      {content.hero.domains?.public || '公共'}
-                    </div>
-                    <div className="bg-purple-300 text-purple-700 px-3 py-2 rounded border border-purple-500 text-center">
-                      {content.hero.domains?.legacy || 'レガシー'}
-                    </div>
-                    <div className="bg-cyan-100 text-cyan-700 px-3 py-2 rounded border border-cyan-500 text-center">
-                      {content.hero.domains?.salesforce || 'Salesforce'}
-                    </div>
-                  </div>
+          {/* Visual representation */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-100">
+              
+              {/* Section headers */}
+              <div className="flex justify-center items-center gap-8 mb-4">
+                <div className="flex items-center gap-2 text-center">
+                  <span className="text-sm font-bold text-gray-700">🚀 コアコンピタンス</span>
+                </div>
+                <div className="w-px h-4 bg-gray-300"></div>
+                <div className="flex items-center gap-2 text-center">
+                  <span className="text-sm font-bold text-gray-700">🔑 戦略プログラム</span>
                 </div>
               </div>
-            </div>
-            
-            {/* Floating cards */}
-            <div className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-green-500'}`}></div>
-                <span className="text-sm font-medium text-gray-900">{content.hero.uptime}</span>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${themeColor === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'}`}></div>
-                <span className="text-sm font-medium text-gray-900">{content.hero.support}</span>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {/* Core Competencies */}
+                <div className="text-center p-4 rounded-xl border border-green-100 relative overflow-hidden">
+                  {/* Background image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('/images/bank.jpg')`
+                    }}
+                  ></div>
+                  <div className="relative z-10 pt-16">
+                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.finance || '金融サービス'}</h4>
+                  </div>
+                </div>
+                
+                <div className="text-center p-4 rounded-xl border border-red-100 relative overflow-hidden">
+                  {/* Background image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('/images/public.jpg')`
+                    }}
+                  ></div>
+                  <div className="relative z-10 pt-16">
+                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.public || '公共サービス'}</h4>
+                  </div>
+                </div>
+
+                {/* Strategic Programs */}
+                <div className="text-center p-4 rounded-xl border border-purple-100 relative overflow-hidden">
+                  {/* Background image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('/images/legacy.png')`
+                    }}
+                  ></div>
+                  <div className="relative z-10 pt-16">
+                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.legacy || 'レガシーモダナイゼーション'}</h4>
+                  </div>
+                </div>
+                
+                <div className="text-center p-4 rounded-xl border border-blue-100 relative overflow-hidden">
+                  {/* Background image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('/images/sale.jpg')`
+                    }}
+                  ></div>
+                  <div className="relative z-10 pt-16">
+                    <h4 className="font-bold text-white text-sm drop-shadow-lg bg-black/50 px-2 py-1 rounded inline-block">{content.hero.domains?.salesforce || 'Salesforceプログラム'}</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

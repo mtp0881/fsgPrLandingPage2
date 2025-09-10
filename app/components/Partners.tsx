@@ -3,6 +3,7 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContent } from '../hooks/useContent';
 import Image from 'next/image';
+import { optimizeImageUrl } from './ImageOptimizer';
 
 export default function Partners() {
   const { t, themeColor } = useLanguage();
@@ -69,9 +70,8 @@ export default function Partners() {
 
   if (loading) {
     return (
-      <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-orange-100 to-green-100"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-b-2 ${
               themeColor === 'emerald' ? 'border-emerald-600' : 'border-blue-600'
@@ -85,20 +85,8 @@ export default function Partners() {
   const partnersContent = content?.partners || {};
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Background with smooth transitions */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-orange-100 to-green-100"></div>
-      
-      {/* Floating shapes for visual interest */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-300 rounded-full blur-xl"></div>
-        <div className="absolute top-20 right-20 w-24 h-24 bg-orange-300 rounded-full blur-lg"></div>
-        <div className="absolute bottom-20 left-20 w-28 h-28 bg-green-300 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-blue-200 rounded-full blur-md"></div>
-      </div>
-      
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16">      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             {partnersContent.title || t('partners.title')}
@@ -117,12 +105,16 @@ export default function Partners() {
             >
               <div className="relative flex items-center justify-center w-full h-full">
                 <Image
-                  src={partner.logo}
+                  src={optimizeImageUrl(partner.logo, partner.width || 200, 85)}
                   alt={partner.name || `Partner ${index + 1}`}
                   width={partner.width || 200}
                   height={partner.height || 100}
                   className="object-contain transition-transform duration-300 hover:scale-105 max-w-full max-h-full"
                   style={{ maxWidth: '90%', maxHeight: '90%' }}
+                  loading="lazy"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjb2KMuD2MgtbNWjhjWeSGJsrGgCordzPqzQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
                 />
               </div>
             </div>
@@ -138,12 +130,16 @@ export default function Partners() {
             >
               <div className="relative flex items-center justify-center w-full h-full">
                 <Image
-                  src={partner.logo}
+                  src={optimizeImageUrl(partner.logo, partner.width || 120, 80)}
                   alt={partner.name || `Secondary Partner ${index + 1}`}
                   width={partner.width || 120}
                   height={partner.height || 60}
                   className="object-contain transition-transform duration-300 hover:scale-105 max-w-full max-h-full"
                   style={{ maxWidth: '85%', maxHeight: '85%' }}
+                  loading="lazy"
+                  quality={80}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjb2KMuD2MgtbNWjhjWeSGJsrGgCordzPqzQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
                 />
               </div>
             </div>

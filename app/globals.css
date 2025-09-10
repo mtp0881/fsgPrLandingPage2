@@ -14,16 +14,58 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  background: var(--background);
+  background: #f8f9fa; /* Light gray background for floating Hero card */
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Global gradient background similar to Craft.do - starts after Hero */
+body::before {
+  content: '';
+  position: absolute;
+  top: 100vh; /* Start after Hero section */
+  left: 0;
+  right: 0;
+  height: 500vh; /* Adjusted height since starting later */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,                    /* Smooth start after Hero */
+    rgba(241, 243, 244, 0.2) 5%,     /* About section - start */
+    rgba(241, 243, 244, 0.4) 15%,    /* About section - peak */
+    rgba(241, 243, 244, 0.3) 20%,    /* About section - fade start */
+    rgba(248, 239, 230, 0.25) 25%,   /* S-curve: blend to warm tone */
+    rgba(244, 234, 215, 0.2) 30%,    /* Services section - gentle start */
+    rgba(244, 234, 215, 0.4) 40%,    /* Services section - peak */
+    rgba(244, 234, 215, 0.3) 45%,    /* Services section - fade start */
+    rgba(215, 228, 239, 0.25) 50%,   /* S-curve: blend to cool tone */
+    rgba(186, 222, 243, 0.2) 55%,    /* Partners section - gentle start */
+    rgba(186, 222, 243, 0.4) 65%,    /* Partners section - peak */
+    rgba(186, 222, 243, 0.3) 70%,    /* Partners section - fade start */
+    rgba(230, 215, 205, 0.25) 75%,   /* S-curve: blend to warm earth tone */
+    rgba(219, 187, 167, 0.2) 78%,    /* GlobalNetwork - gentle start */
+    rgba(219, 187, 167, 0.4) 85%,    /* GlobalNetwork - peak */
+    rgba(219, 187, 167, 0.3) 88%,    /* GlobalNetwork - fade start */
+    rgba(203, 205, 213, 0.25) 90%,   /* S-curve: blend to cool transition */
+    rgba(186, 222, 242, 0.2) 92%,    /* Contact section - gentle start */
+    rgba(186, 222, 242, 0.4) 96%,    /* Contact section - peak */
+    rgba(186, 222, 242, 0.25) 98%,   /* Contact section - soft fade */
+    transparent 100%                   /* Final transparent - before footer */
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Dynamic Theme Classes */
@@ -125,4 +167,102 @@ html {
 .focus-visible:focus {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
+}
+
+/* Craft.do inspired background animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Craft.do style page gradient */
+.bg-fsg-page-gradient {
+  background: linear-gradient(
+    180deg,
+    #f1f3f4 0%,
+    #f4ead7 15%,
+    #badef3 40%,
+    #f1f3f4 60%,
+    #dbbba7 80%,
+    #badef2 90%,
+    #f1f3f4 100%
+  );
+}
+
+/* Section-specific gradients for smooth transitions */
+.bg-section-about {
+  background: linear-gradient(180deg, transparent 0%, #f1f3f4 50%, #f1f3f4 100%);
+}
+
+.bg-section-services {
+  background: linear-gradient(180deg, #f1f3f4 0%, #f4ead7 50%, #f4ead7 100%);
+}
+
+.bg-section-partners {
+  background: linear-gradient(180deg, #f4ead7 0%, #badef3 50%, #badef3 100%);
+}
+
+.bg-section-global {
+  background: linear-gradient(180deg, #badef3 0%, #dbbba7 50%, #dbbba7 100%);
+}
+
+.bg-section-contact {
+  background: linear-gradient(180deg, #dbbba7 0%, #badef2 50%, #badef2 100%);
+}
+
+/* Home page hero section gradient */
+.bg-fsg-hero-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 50%,
+    #dae9f6 100%
+  );
+}
+
+/* Background patterns */
+.bg-grid-pattern {
+  background-image: radial-gradient(circle, #00000008 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
