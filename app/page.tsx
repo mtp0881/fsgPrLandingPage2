@@ -3,110 +3,60 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import ServicesProducts from './components/ServicesProducts';
-import GlobalNetwork from './components/GlobalNetwork';
-import Partners from './components/Partners';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { useLanguage } from './contexts/LanguageContext';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import Partners from './components/Partners';
 
 export default function Home() {
-  const { } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
-    const progressInterval = setInterval(() => {
+    const interval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
-          clearInterval(progressInterval);
-          setTimeout(() => setIsLoading(false), 200); // Small delay before hiding loading screen
+          clearInterval(interval);
+          setTimeout(() => setIsLoading(false), 200);
           return 100;
         }
-        return prev + Math.random() * 20; // Faster increment for quicker loading
+        return prev + Math.random() * 25;
       });
     }, 100);
 
-    // Minimum loading time
-    const minLoadTime = setTimeout(() => {
-      setLoadingProgress(100);
-    }, 2000); // Changed from 2000ms to 1000ms (1 second)
-
-    return () => {
-      clearInterval(progressInterval);
-      clearTimeout(minLoadTime);
-    };
+    const timeout = setTimeout(() => setLoadingProgress(100), 1500);
+    return () => { clearInterval(interval); clearTimeout(timeout); };
   }, []);
 
   return (
-    <div className="min-h-screen relative">      
-      {/* Main content - always rendered but hidden during loading */}
-      <div className={`relative z-10 transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+    <div className="min-h-screen relative flex flex-col flex-1">
+      {/* Main Content */}
+      <div className={`relative z-10 flex flex-col min-h-screen transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Header />
-        <main>
+        <main className="flex-1">
           <Hero />
-          <About />
-          <ServicesProducts />
+          <Services />
           <Partners />
-          <GlobalNetwork />
-          <Contact />
         </main>
         <Footer />
       </div>
 
-      {/* Loading Screen Overlay */}
+      {/* Loading Screen */}
       {isLoading && (
         <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
           <div className="text-center max-w-md mx-auto px-6">
-            {/* Company Logo */}
             <div className="mb-12">
               <div className="flex items-center justify-center space-x-8 mb-6">
-                {/* FPT Logo */}
-                <div className="w-48 h-32 flex items-center justify-center">
-                  <Image
-                    src="/logo_fpt_text_black.webp"
-                    alt="FPT Software Japan"
-                    width={192}
-                    height={128}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                
-                {/* FSG Logo */}
-                <div className="w-32 h-32 flex items-center justify-center">
-                  <Image
-                    src="/logo.png"
-                    alt="FSG Logo"
-                    width={128}
-                    height={128}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                <Image src="/logo_fpt_text_black.webp" alt="FPT Software Japan" width={192} height={128} className="h-16 w-auto object-contain" priority />
+                <Image src="/logo.png" alt="FSG Logo" width={128} height={128} className="h-16 w-auto object-contain" priority />
               </div>
-
-              <p className="text-1xl text-gray-400">
-                FPTソフトウェアジャパン株式会社
-              </p>
-              <br />
-              {/* Department */}
-              <p className="text-xl text-gray-700 font-semibold">
-                FSG事業部公開サイト
-              </p>
+              <p className="text-sm text-gray-400">FPTソフトウェアジャパン株式会社</p>
+              <p className="text-lg text-gray-700 font-semibold mt-2">FSG事業部</p>
             </div>
-
-            {/* Loading Animation */}
             <div className="mb-6">
-              <div className="w-8 h-8 mx-auto mb-3">
-                <div className="w-full h-full border-3 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <div className="w-48 h-1 bg-gray-200 rounded-full mx-auto overflow-hidden">
+                <div className="h-full bg-emerald-500 rounded-full transition-all duration-300" style={{ width: `${Math.min(loadingProgress, 100)}%` }} />
               </div>
-              <p className="text-gray-500 text-sm font-medium">
-                コンテンツを初期化中...
-              </p>
             </div>
           </div>
         </div>

@@ -1,0 +1,250 @@
+{
+  "service": {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "description_ja": "顧客接点に関わるデータ領域を中心に、ワンストップでの包括的な支援が可能なセールスフォース・ジャパン傘下のグローバルキープログラムです。200人以上のエンジニア・コンサルタント、100人以上のMuleSoftエンジニアを擁し、業界トップクラスの実装支援体制を整えています。",
+    "description_en": "A global key program under Salesforce Japan providing comprehensive one-stop support centered on customer contact data domains. With over 200 engineers and consultants, and over 100 MuleSoft engineers, we maintain industry-leading implementation support capabilities.",
+    "icon": "☁️",
+    "color": "#0032A2",
+    "focus_area": "拡大中"
+  },
+  "clouds": [
+    {
+      "id": "sales_cloud",
+      "name": "Sales Cloud",
+      "description_ja": "営業チームの生産性向上と売上予測の精度向上を実現するクラウドソリューション",
+      "description_en": "Cloud solution enabling sales teams to increase productivity and improve revenue forecasting accuracy",
+      "icon": "📊",
+      "color": "#0032A2",
+      "capabilities": [
+        "Opportunity Management",
+        "Account Management",
+        "Forecasting & Analytics",
+        "AI-powered Insights",
+        "Sales Automation"
+      ]
+    },
+    {
+      "id": "service_cloud",
+      "name": "Service Cloud",
+      "description_ja": "顧客サービス部門の効率化と顧客満足度の向上を実現するカスタマーサービスプラットフォーム",
+      "description_en": "Customer service platform enabling service teams to increase efficiency and improve customer satisfaction",
+      "icon": "🎯",
+      "color": "#0032A2",
+      "capabilities": [
+        "Case Management",
+        "Multi-channel Support",
+        "AI-powered Chatbots",
+        "Knowledge Management",
+        "Service Analytics"
+      ]
+    },
+    {
+      "id": "experience_cloud",
+      "name": "Experience Cloud",
+      "description_ja": "顧客、パートナー、従業員向けのデジタルエクスペリエンスを提供するコミュニティプラットフォーム",
+      "description_en": "Community platform delivering digital experiences for customers, partners, and employees",
+      "icon": "💬",
+      "color": "#0032A2",
+      "capabilities": [
+        "Community Building",
+        "Partner Collaboration",
+        "Employee Engagement",
+        "Customer Portals",
+        "Digital Workplace"
+      ]
+    },
+    {
+      "id": "commerce_cloud",
+      "name": "Commerce Cloud",
+      "description_ja": "オムニチャネル販売を実現するeコマースプラットフォーム",
+      "description_en": "Omnichannel ecommerce platform enabling seamless shopping experiences",
+      "icon": "🛒",
+      "color": "#0032A2",
+      "capabilities": [
+        "Omnichannel Selling",
+        "Personalized Shopping",
+        "Order Management",
+        "Inventory Management",
+        "Unified Commerce"
+      ]
+    },
+    {
+      "id": "data_cloud",
+      "name": "Data Cloud",
+      "description_ja": "顧客データを統一的に管理し、AIを活用した分析・予測を実現するデータプラットフォーム。13社の導入実績",
+      "description_en": "Data platform for unified customer data management and AI-powered analytics. 13 companies implementation experience",
+      "icon": "📈",
+      "color": "#0032A2",
+      "capabilities": [
+        "Unified Data Platform",
+        "Real-time Data Sync",
+        "AI-powered Analytics",
+        "Predictive Intelligence",
+        "Data Activation"
+      ],
+      "implementation_count": 13
+    }
+  ],
+  "solutions": [
+    {
+      "id": "crm_sfa",
+      "category": "CRM/SFA",
+      "provider": "FPT Software",
+      "description_ja": "営業・顧客管理ソリューション（FPTソフトウェアが提供）",
+      "description_en": "Sales and Customer Management Solution (provided by FPT Software)",
+      "icon": "📋",
+      "color": "#0032A2"
+    },
+    {
+      "id": "marketing",
+      "category": "Marketing",
+      "provider": "NAC",
+      "description_ja": "マーケティング自動化・顧客エンゲージメントソリューション（NAC社が提供）",
+      "description_en": "Marketing Automation and Customer Engagement Solution (provided by NAC)",
+      "icon": "📢",
+      "color": "#0032A2"
+    }
+  ],
+  "implementations": [
+    {
+      "id": "mc_engagement",
+      "name": "Marketing Cloud Engagement",
+      "description_ja": "顧客エンゲージメントとマーケティング自動化を実現するプラットフォーム。60社の導入実績",
+      "description_en": "Customer engagement and marketing automation platform. 60 companies implementation experience",
+      "icon": "💌",
+      "color": "#0032A2",
+      "implementation_count": 60
+    },
+    {
+      "id": "mc_personalization",
+      "name": "Marketing Cloud Personalization",
+      "description_ja": "AIを活用した個人化マーケティングを実現するプラットフォーム。6社の導入実績",
+      "description_en": "Personalized marketing platform powered by AI. 6 companies implementation experience",
+      "icon": "🎨",
+      "color": "#0032A2",
+      "implementation_count": 6
+    }
+  ],
+  "industries": [
+    {
+      "id": "financial",
+      "name": "金融（Financial）",
+      "description_ja": "金融機関向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for financial institutions",
+      "icon": "💰",
+      "color": "#0032A2"
+    },
+    {
+      "id": "manufacturing",
+      "name": "製造（Manufacturing）",
+      "description_ja": "製造業向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for manufacturing industries",
+      "icon": "🏭",
+      "color": "#0032A2"
+    },
+    {
+      "id": "distribution",
+      "name": "流通（Distribution/Retail）",
+      "description_ja": "流通・小売業向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for distribution and retail",
+      "icon": "🏬",
+      "color": "#0032A2"
+    },
+    {
+      "id": "healthcare",
+      "name": "医療（Healthcare）",
+      "description_ja": "医療業界向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for healthcare industry",
+      "icon": "🏥",
+      "color": "#0032A2"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "expertise",
+      "name": "豊富な人材リソース / Extensive Human Resources",
+      "description_ja": "200人以上のSalesforceエンジニア・コンサルタントと100人以上のMuleSoftエンジニアによる強力な支援体制",
+      "description_en": "Powerful support system with over 200 Salesforce engineers/consultants and over 100 MuleSoft engineers"
+    },
+    {
+      "id": "integration",
+      "name": "統合ソリューション / Integrated Solutions",
+      "description_ja": "CRM/SFAからMarketingまで、顧客接点全体をワンストップでサポート可能",
+      "description_en": "One-stop support for entire customer touchpoints from CRM/SFA to Marketing"
+    },
+    {
+      "id": "implementation",
+      "name": "実装実績 / Implementation Track Record",
+      "description_ja": "Data Cloud 13社、MC Engagement 60社、MC Personalization 6社など、国内トップクラスの導入実績",
+      "description_en": "Top-class implementation experience: Data Cloud (13), MC Engagement (60), MC Personalization (6)"
+    },
+    {
+      "id": "innovation",
+      "name": "最新テクノロジー / Latest Technology",
+      "description_ja": "AIを活用したデータ分析、予測インテリジェンス、自動化により、ビジネス成果を最大化",
+      "description_en": "Maximize business outcomes through AI-powered analytics, predictive intelligence, and automation"
+    }
+  ],
+  "collaboration": {
+    "description_ja": "2024年春よりFPT SoftwareはグループのNAC社と連携し、CRM/SFA領域だけに留まらずMarketing領域も合わせた包括的な支援サービスを提供しています。",
+    "description_en": "Since spring 2024, FPT Software collaborates with group company NAC to provide comprehensive support covering not only CRM/SFA but also Marketing domains.",
+    "partners": [
+      {
+        "id": "fpt_software",
+        "name": "FPT Software",
+        "domain": "CRM/SFA",
+        "description_ja": "営業・顧客管理領域の専門家"
+      },
+      {
+        "id": "nac",
+        "name": "NAC",
+        "domain": "Marketing",
+        "description_ja": "マーケティング・顧客エンゲージメント領域の専門家"
+      }
+    ]
+  },
+  "platforms": [
+    {
+      "id": "aws",
+      "name": "AWS",
+      "full_name": "Amazon Web Services",
+      "description_ja": "Amazon Web Servicesはクラウドコンピューティングサービスのリーダーで、Salesforceとの統合により、スケーラブルで安全なクラウド環境を提供します。",
+      "description_en": "Amazon Web Services is a leading cloud computing platform that integrates with Salesforce to provide a scalable and secure cloud environment.",
+      "icon": "/salesforce/aws.png",
+      "color": "#FF9900"
+    },
+    {
+      "id": "azure",
+      "name": "Microsoft Azure",
+      "full_name": "Microsoft Azure",
+      "description_ja": "マイクロソフトのAzureはエンタープライズグレードのクラウドプラットフォームで、Salesforceと連携し、Dynamics 365との統合を実現します。",
+      "description_en": "Microsoft Azure is an enterprise-grade cloud platform that integrates with Salesforce and enables integration with Dynamics 365.",
+      "icon": "/salesforce/azure.png",
+      "color": "#0078D4"
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "full_name": "SAP Enterprise Resource Planning",
+      "description_ja": "SAPはエンタープライズ資源計画（ERP）ソリューションの業界トップメーカーで、Salesforceとの連携により、CRM・SFAと財務・オペレーション系システムの統合を実現します。",
+      "description_en": "SAP is a leading enterprise resource planning (ERP) solution that integrates with Salesforce to unify CRM/SFA with financial and operational systems.",
+      "icon": "/salesforce/sap.png",
+      "color": "#00A4EF"
+    },
+    {
+      "id": "dynamics365",
+      "name": "Dynamics 365",
+      "full_name": "Microsoft Dynamics 365",
+      "description_ja": "マイクロソフトのDynamics 365はビジネスアプリケーションスイートで、Salesforceと統合することで、営業・顧客サービス・プロジェクト管理などの機能を統一的に提供します。",
+      "description_en": "Microsoft Dynamics 365 is a business applications suite that integrates with Salesforce to provide unified sales, customer service, and project management capabilities.",
+      "icon": "/salesforce/dynamic.png",
+      "color": "#0078D4"
+    }
+  ],  "metadata": {
+    "createdDate": "2026-02-06",
+    "version": "1.0",
+    "sourceFile": "slides 12, 13, 15, 16",
+    "languages": ["Japanese", "English"]
+  }
+}

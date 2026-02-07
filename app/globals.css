@@ -24,45 +24,33 @@ html {
 }
 
 body {
-  background: #f8f9fa; /* Light gray background for floating Hero card */
+  background: #f8f9fa;
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
-/* Global gradient background similar to Craft.do - starts after Hero */
+/* Global gradient background - constrained to content area only */
 body::before {
   content: '';
-  position: absolute;
-  top: 100vh; /* Start after Hero section */
+  position: fixed;
+  top: 100vh;
   left: 0;
   right: 0;
-  height: 500vh; /* Adjusted height since starting later */
+  bottom: 0;
   background: linear-gradient(
     180deg,
-    transparent 0%,                    /* Smooth start after Hero */
-    rgba(241, 243, 244, 0.2) 5%,     /* About section - start */
-    rgba(241, 243, 244, 0.4) 15%,    /* About section - peak */
-    rgba(241, 243, 244, 0.3) 20%,    /* About section - fade start */
-    rgba(248, 239, 230, 0.25) 25%,   /* S-curve: blend to warm tone */
-    rgba(244, 234, 215, 0.2) 30%,    /* Services section - gentle start */
-    rgba(244, 234, 215, 0.4) 40%,    /* Services section - peak */
-    rgba(244, 234, 215, 0.3) 45%,    /* Services section - fade start */
-    rgba(215, 228, 239, 0.25) 50%,   /* S-curve: blend to cool tone */
-    rgba(186, 222, 243, 0.2) 55%,    /* Partners section - gentle start */
-    rgba(186, 222, 243, 0.4) 65%,    /* Partners section - peak */
-    rgba(186, 222, 243, 0.3) 70%,    /* Partners section - fade start */
-    rgba(230, 215, 205, 0.25) 75%,   /* S-curve: blend to warm earth tone */
-    rgba(219, 187, 167, 0.2) 78%,    /* GlobalNetwork - gentle start */
-    rgba(219, 187, 167, 0.4) 85%,    /* GlobalNetwork - peak */
-    rgba(219, 187, 167, 0.3) 88%,    /* GlobalNetwork - fade start */
-    rgba(203, 205, 213, 0.25) 90%,   /* S-curve: blend to cool transition */
-    rgba(186, 222, 242, 0.2) 92%,    /* Contact section - gentle start */
-    rgba(186, 222, 242, 0.4) 96%,    /* Contact section - peak */
-    rgba(186, 222, 242, 0.25) 98%,   /* Contact section - soft fade */
-    transparent 100%                   /* Final transparent - before footer */
+    transparent 0%,
+    rgba(241, 243, 244, 0.2) 10%,
+    rgba(244, 234, 215, 0.15) 30%,
+    rgba(186, 222, 243, 0.15) 60%,
+    rgba(219, 187, 167, 0.1) 80%,
+    transparent 100%
   );
   pointer-events: none;
   z-index: -1;

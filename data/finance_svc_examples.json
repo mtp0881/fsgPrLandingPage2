@@ -1,0 +1,606 @@
+{
+  "metadata": {
+    "createdDate": "2025-02-06",
+    "version": "1.0",
+    "sourceSlides": "37-46",
+    "totalExamples": 6,
+    "languages": ["ja-JP", "en-US"],
+    "category": "Finance Service Examples"
+  },
+  "examples": [
+    {
+      "id": "fs_example_001",
+      "projectID": "インターネットバンキングシステム開発/運用・保守",
+      "projectIDEn": "Internet Banking System Development/Operation/Maintenance",
+      "customer": "大手SIベンダー N社（約100の地方銀行がエンドユーザー）",
+      "customerEn": "Large SI Vendor Company N (approximately ~100 regional banks as end-users)",
+      "projectName": {
+        "ja": "インターネットバンキングシステム",
+        "en": "Internet Banking System"
+      },
+      "overview": {
+        "ja": "日本の約100の地方銀行にサービスを提供するインターネットバンキングシステム。毎月のサービス変更と画面変更が必要で、モックとデザイン実装を管理するために大規模なチームが必要です。",
+        "en": "Internet banking system serving approximately 100 regional banks across Japan. Requires monthly service changes and screen interface modifications. Requires significant team to manage mocks and design implementation."
+      },
+      "businessNeeds": {
+        "ja": [
+          "毎月のサービス変更と画面変更が必要",
+          "日本での40人規模チーム維持の高コスト化",
+          "注文管理の課題",
+          "ナレッジ管理の課題"
+        ],
+        "en": [
+          "Monthly service changes and screen interface changes required",
+          "High cost of maintaining 40-person team in Japan",
+          "Order management challenges",
+          "Knowledge management issues"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "日本でのチーム維持コストが高い（月40人規模）",
+          "銀行とN社間の繰り返されるモック相互作用",
+          "デザイン・ソースコードの反映課題"
+        ],
+        "en": [
+          "High team maintenance costs in Japan (40 people/month)",
+          "Repeated mock interactions between banks and company N",
+          "Design and source code reflection challenges"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "サービス変更・画面変更業務（詳細設計～統合テスト）をベトナムへシフト",
+          "ServiceNowの導入による注文管理システム構築",
+          "RPA・自動化ツール（Java、C#）による生産性・品質向上",
+          "ODCモデルに基づくオフショア運用で柔軟なリソース調整"
+        ],
+        "en": [
+          "Shifted service changes and screen changes work (detailed design to integration testing) to Vietnam",
+          "Implemented ServiceNow for order management system",
+          "Improved productivity and quality through RPA and automation tools (Java, C#)",
+          "Offshore operations based on ODC model for flexible resource adjustment"
+        ]
+      },
+      "results": {
+        "ja": {
+          "annualManMonthsSaved": "300+",
+          "yearsOfService": "10+",
+          "bankCoverage": "ほぼすべての銀行サービス（残高照会、振込、住宅ローン、投資信託など）",
+          "summ": "コスト削減と運用効率化を同時に実現"
+        },
+        "en": {
+          "annualManMonthsSaved": "300+",
+          "yearsOfService": "10+",
+          "bankCoverage": "Almost all banking services (balance inquiry, transfers, housing loans, investment trusts)",
+          "summary": "Achieved both cost reduction and operational efficiency improvement"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "ServiceNow（注文管理）",
+          "RPA/自動化ツール",
+          "Java、C#",
+          "ODCモデル"
+        ],
+        "en": [
+          "ServiceNow (order management)",
+          "RPA/Automation tools",
+          "Java, C#",
+          "ODC model"
+        ]
+      },
+      "metrics": {
+        "banks": "100+",
+        "savedManMonths": "300+",
+        "yearsService": "10+",
+        "teamSize": "40"
+      }
+    },
+    {
+      "id": "fs_example_002",
+      "projectID": "地方金融機関向けリモート商談ソリューション提供",
+      "projectIDEn": "Remote Business Consultation Solution for Regional Financial Institutions",
+      "customer": "大手SIベンダー、約30の地方金融機関",
+      "customerEn": "Large SI Vendor, approximately 30 regional financial institutions",
+      "projectName": {
+        "ja": "地方金融機関向けリモート商談ソリューション",
+        "en": "Remote Meeting Solution for Financial Institutions"
+      },
+      "overview": {
+        "ja": "金融機関向けの高セキュリティを備えたリモートビデオ会議ソリューション。口座開設顧客との商談を遠隔で実施し、複数デバイスに対応します。",
+        "en": "High-security remote video meeting solution for financial institutions. Enables remote business consultations with account opening customers and supports multiple device types."
+      },
+      "businessNeeds": {
+        "ja": [
+          "社会距離確保に伴う対面口座開設廃止",
+          "営業担当者のリモートコミュニケーションツール需要",
+          "高セキュリティ環境要件",
+          "マルチデバイス対応要件"
+        ],
+        "en": [
+          "Social distancing requirements eliminated face-to-face account opening",
+          "Remote communication tools needed for sales officers",
+          "High-security environment requirement",
+          "Multi-device compatibility requirement"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "遠隔の安全で信頼できるコミュニケーション手段の欠如",
+          "複数の金融機関への対応",
+          "セキュリティ要件への対応",
+          "ユーザビリティの高さ"
+        ],
+        "en": [
+          "Lack of secure and reliable remote communication means",
+          "Support for multiple financial institutions",
+          "Security requirements",
+          "High usability"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "akaMeetビデオ会議プラットフォームの導入",
+          "複数の金融機関向けカスタマイズ画面設定",
+          "表示色、テキスト、会議ON/OFFなどのカスタマイズ設定",
+          "オンプレミス展開、金融機関への SaaS提供"
+        ],
+        "en": [
+          "Implementation of akaMeet video conferencing platform",
+          "Customized screen settings for multiple financial institutions",
+          "Customizable settings for display colors, text, meeting ON/OFF",
+          "On-premise deployment with SaaS delivery to financial institutions"
+        ]
+      },
+      "results": {
+        "ja": {
+          "userAdoption": "100%",
+          "businessProcedureTimeReduction": "65%削減",
+          "manHourReduction": "80%削減",
+          "contractsConcluded": "日量300件以上",
+          "businessUsers": "3,400人以上",
+          "summary": "ユーザー満足度が高く、業務効率が大幅に向上"
+        },
+        "en": {
+          "userAdoption": "100%",
+          "businessProcedureTimeReduction": "65% reduction",
+          "manHourReduction": "80% reduction",
+          "contractsConcluded": "300+ contracts daily",
+          "businessUsers": "3,400+ active users",
+          "summary": "High user satisfaction with significant operational efficiency improvement"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "akaMeet（ビデオ会議プラットフォーム）",
+          "オンプレミス展開",
+          "SaaSサービスモデル"
+        ],
+        "en": [
+          "akaMeet (video conferencing platform)",
+          "On-premise deployment",
+          "SaaS service model"
+        ]
+      },
+      "metrics": {
+        "institutions": "30+",
+        "businessUsers": "3400+",
+        "contractsPerDay": "300+",
+        "timeReduction": "65%",
+        "laborReduction": "80%"
+      }
+    },
+    {
+      "id": "fs_example_003",
+      "projectID": "大手銀行の海外支援　勘定システム置き換え",
+      "projectIDEn": "Overseas Accounting System Replacement for Major Bank",
+      "customer": "大手銀行の海外支店",
+      "customerEn": "Overseas branches of major Japanese bank",
+      "projectName": {
+        "ja": "海外勘定システム置き換えプロジェクト",
+        "en": "Overseas Accounting System Replacement Project"
+      },
+      "overview": {
+        "ja": "大手銀行の海外支店向け勘定管理システムの置き換え。20年以上の老朽システムが信用・マーケット商売契約に対応。各支店での独立したEUCシステムが複数存在。",
+        "en": "Legacy accounting system replacement for major bank's overseas branches. 20+ year old system supporting credit and market business contracts. Multiple independent EUC systems at various branches."
+      },
+      "businessNeeds": {
+        "ja": [
+          "20年以上の老朽システムの刷新",
+          "各支店でのEUCシステムの一元化・統合",
+          "業務効率の低下解決",
+          "信用資産管理機能の不足補解",
+          "事業拡大の障壁排除"
+        ],
+        "en": [
+          "Replacement of legacy system 20+ years old",
+          "Consolidation and integration of EUC systems at each branch",
+          "Improved operational efficiency",
+          "Enhanced credit asset management capabilities",
+          "Removal of business expansion barriers"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "複雑な要件定義と多数のステークホルダー対応",
+          "英語でのコミュニケーション",
+          "複数の地域での同時進行",
+          "運用リスクの最小化"
+        ],
+        "en": [
+          "Complex requirements definition and multiple stakeholder coordination",
+          "Communication in English language",
+          "Simultaneous implementation across multiple regions",
+          "Minimization of operational risks"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "many FlexCube経験者チームを配置",
+          "要件作成をサポート",
+          "チーム内での主要な英語コミュニケーション",
+          "複数ステークホルダーとの強固な協力体制",
+          "運用リスク最小化の技術的ソリューション提供"
+        ],
+        "en": [
+          "Deployed many experienced FlexCube team members",
+          "Supported requirements creation",
+          "Primary English communication within team",
+          "Strong collaboration with multiple stakeholders",
+          "Provided technical solutions to minimize operational risks"
+        ]
+      },
+      "results": {
+        "ja": {
+          "projectScale": "約400 person-months",
+          "systemAge": "20+年",
+          "successfulMigration": "全支店でのシステム置き換え完了",
+          "summary": "老朽システムから最新システムへの円滑な移行"
+        },
+        "en": {
+          "projectScale": "~400 person-months",
+          "legacySystemAge": "20+ years",
+          "successfulMigration": "System replacement completed across all branches",
+          "summary": "Smooth migration from legacy to modern system"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "Oracle FlexCube Universal",
+          "Oracle Corebanking v14.x",
+          "Oracle DB",
+          "Java",
+          "英語によるコミュニケーション"
+        ],
+        "en": [
+          "Oracle FlexCube Universal",
+          "Oracle Corebanking v14.x",
+          "Oracle DB",
+          "Java",
+          "English language communication"
+        ]
+      },
+      "metrics": {
+        "projectMonths": 400,
+        "systemAge": "20+",
+        "scope": "Comprehensive replacement"
+      }
+    },
+    {
+      "id": "fs_example_004",
+      "projectID": "維持および海外コアバンキングシステムのアップグレード",
+      "projectIDEn": "Maintenance and upgrade of overseas core banking system",
+      "customer": "大手メガバンクの海外支店",
+      "customerEn": "Overseas branches of major Japanese mega bank",
+      "projectName": {
+        "ja": "海外コアバンキングシステムアップグレード",
+        "en": "Overseas Core Banking System Upgrade"
+      },
+      "overview": {
+        "ja": "Temenos T24コアバンキングシステムのアップグレードと維持管理。SWIFT標準の改定に伴い、MT形式からISO20022形式への国際決済システムの準拠アップグレード。",
+        "en": "Temenos T24 core banking system upgrade and maintenance. SWIFT compliance migration from MT formats to ISO20022 standards for international payment systems."
+      },
+      "businessNeeds": {
+        "ja": [
+          "国際決済システムのSWIFT標準対応",
+          "MT形式からISO20022形式への移行",
+          "システムの継続的維持保守",
+          "安定性とセキュリティ確保",
+          "グローバル決済への対応"
+        ],
+        "en": [
+          "SWIFT standard compliance for international settlement systems",
+          "Migration from MT format to ISO20022 format",
+          "Continuous system maintenance and support",
+          "Ensure stability and security",
+          "Support for global payment settlement"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "SWIFT標準の複雑な仕様理解",
+          "既存システムと新仕様の整合性確保",
+          "複数国での同時運用",
+          "高い信頼性要件"
+        ],
+        "en": [
+          "Understanding complex SWIFT standard specifications",
+          "Ensuring compatibility between existing system and new specifications",
+          "Simultaneous operations across multiple countries",
+          "High reliability requirements"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "many T24経験者チームを配置",
+          "要件作成をサポート",
+          "チーム内での主要な英語コミュニケーション",
+          "SWIFT ISO20022準拠アップグレードへの積極的参加",
+          "要件定義と設計フェーズでのリーダーシップ"
+        ],
+        "en": [
+          "Deployed many experienced T24 team members",
+          "Supported requirements creation",
+          "Primary English communication within team",
+          "Active participation in SWIFT ISO20022 compliance upgrade",
+          "Leadership in requirements definition and design phases"
+        ]
+      },
+      "results": {
+        "ja": {
+          "projectScale": "約200 person-months",
+          "compliance": "SWIFT ISO20022標準に完全準拠",
+          "settlement": "国際決済システムの安定運用",
+          "summary": "最新国際標準への円滑な移行と安定運用を実現"
+        },
+        "en": {
+          "projectScale": "~200 person-months",
+          "compliance": "Full SWIFT ISO20022 standard compliance",
+          "settlement": "Stable operation of international payment systems",
+          "summary": "Smooth migration to latest international standards with stable operations"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "Temenos T24",
+          "Oracle DB",
+          "Java",
+          "SWIFT MT形式",
+          "ISO20022標準"
+        ],
+        "en": [
+          "Temenos T24",
+          "Oracle DB",
+          "Java",
+          "SWIFT MT format",
+          "ISO20022 standards"
+        ]
+      },
+      "metrics": {
+        "projectMonths": 200,
+        "compliance": "ISO20022",
+        "scope": "SWIFT upgrade and maintenance"
+      }
+    },
+    {
+      "id": "fs_example_005",
+      "projectID": "年金資産管理開発/運用・保守",
+      "projectIDEn": "Pension Asset Management Development/Operation/Maintenance",
+      "customer": "年金基金機関（長期的なパートナーシップ）",
+      "customerEn": "Pension fund organization (long-term partnership)",
+      "projectName": {
+        "ja": "年金資産管理システム開発・運用・保守",
+        "en": "Pension Asset Management System Development/Operation/Maintenance"
+      },
+      "overview": {
+        "ja": "年金資産管理システムの開発と継続的サポート。長期的な顧客との関係構築実績。現在、旧システムから新システムへのマイグレーションプロジェクトを実施中。",
+        "en": "Long-term pension asset management system development and support engagement. Currently in migration project from legacy to new system."
+      },
+      "businessNeeds": {
+        "ja": [
+          "年金資産の効率的な管理",
+          "レガシーシステムからの最新システムへの移行",
+          "複数のサブシステムの統合管理",
+          "運用効率の向上",
+          "監査・コンプライアンス対応"
+        ],
+        "en": [
+          "Efficient management of pension assets",
+          "Migration from legacy to modern system",
+          "Integrated management of multiple subsystems",
+          "Operational efficiency improvement",
+          "Audit and compliance support"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "複数の依存するサブシステム群",
+          "年金業務の高い複雑性",
+          "データ移行の精密性要件",
+          "年間を通じての安定運用",
+          "多くの利害関係者への対応"
+        ],
+        "en": [
+          "Multiple dependent subsystems",
+          "High complexity of pension operations",
+          "Precision requirements for data migration",
+          "Stable year-round operations",
+          "Multiple stakeholder coordination"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "長期的なパートナーシップに基づく献身的サポート",
+          "複数サブシステムでの高度な経験",
+          "俊敏なマイグレーションプロジェクト実施",
+          "規律あるプロジェクト管理",
+          "継続的な技術支援体制"
+        ],
+        "en": [
+          "Dedicated support based on long-term partnership",
+          "Extensive experience across multiple subsystems",
+          "Agile migration project execution",
+          "Disciplined project management",
+          "Continuous technical support structure"
+        ]
+      },
+      "results": {
+        "ja": {
+          "annualManMonths": "120 person-months/year",
+          "partnershipDuration": "Long-term ongoing",
+          "migrationStatus": "進行中",
+          "subsystemsCovered": "複数のサブシステムで継続的サポート",
+          "summary": "年金基金の資産管理を支える重要なシステム"
+        },
+        "en": {
+          "annualManMonths": "120 person-months/year",
+          "partnershipDuration": "Long-term ongoing",
+          "migrationStatus": "In progress",
+          "subsystemsCovered": "Continuous support across multiple subsystems",
+          "summary": "Critical systems supporting pension fund asset management"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "COBOL",
+          "Java",
+          "Oracle",
+          "IBM DB2"
+        ],
+        "en": [
+          "COBOL",
+          "Java",
+          "Oracle",
+          "IBM DB2"
+        ]
+      },
+      "subsystems": {
+        "ja": [
+          "約定決済照合（Settlement reconciliation）",
+          "外国証券決済管理（Foreign securities settlement）",
+          "年金資産管理（Pension asset management）",
+          "年金固有業務（Pension-specific operations）",
+          "公的固有業務（Public-specific operations）"
+        ],
+        "en": [
+          "Settlement reconciliation",
+          "Foreign securities settlement",
+          "Pension asset management",
+          "Pension-specific operations",
+          "Public-specific operations"
+        ]
+      },
+      "imageStatus": "placeholder",
+      "metrics": {
+        "annualManMonths": 120,
+        "partnershipStatus": "long-term",
+        "subsystemCount": 5
+      }
+    },
+    {
+      "id": "fs_example_006",
+      "projectID": "クレジットカード管理Webシステム開発",
+      "projectIDEn": "Credit Card Management Web System Development",
+      "customer": "大手クレジットカード発行会社",
+      "customerEn": "Major credit card issuer",
+      "projectName": {
+        "ja": "クレジットカード管理Webシステム開発",
+        "en": "Credit Card Management Web System Development"
+      },
+      "overview": {
+        "ja": "クレジットカード及びユーザー管理のための包括的なWeb/モバイルシステム。カード選択、オンライン承認プロセス、5営業日での配送が特徴。",
+        "en": "Comprehensive web/mobile system for credit card and user management. Features card design selection, online approval process with 5-day delivery."
+      },
+      "businessNeeds": {
+        "ja": [
+          "クレジットカードのオンラインでの新規申込",
+          "迅速な本人確認と承認プロセス",
+          "複数のオンラインチャネル対応",
+          "セキュアな決済処理",
+          "カスタマイズされたカードデザイン"
+        ],
+        "en": [
+          "Online credit card application",
+          "Rapid ID verification and approval process",
+          "Support for multiple online channels",
+          "Secure payment processing",
+          "Customized card design"
+        ]
+      },
+      "challenges": {
+        "ja": [
+          "大規模で複雑な開発プロジェクト",
+          "マルチプラットフォーム対応（Web/iOS/Android）",
+          "高いセキュリティ要件",
+          "ピーク時での激しい負荷変動",
+          "短期間での大規模チーム編成と管理"
+        ],
+        "en": [
+          "Large-scale complex development project",
+          "Multi-platform support (Web/iOS/Android)",
+          "High security requirements",
+          "Intense load fluctuations during peak periods",
+          "Large scale team formation and management within tight timeframe"
+        ]
+      },
+      "solutions": {
+        "ja": [
+          "Vue.js（フロントエンド）とマイクロサービス・アーキテクチャ",
+          "モバイルネイティブ展開（Swift for iOS、Java for Android）",
+          "Golang + Dockerマイクロサービスによる柔軟なスケーリング",
+          "AWS を活用したインフラストラクチャ",
+          "大規模チーム管理と敏捷性の両立",
+          "複数段階のテスト戦略（UT、IT、ST、UAT）"
+        ],
+        "en": [
+          "Vue.js frontend with microservice architecture",
+          "Mobile native deployment (Swift for iOS, Java for Android)",
+          "Golang + Docker microservices for flexible scaling",
+          "AWS-based infrastructure",
+          "Large-scale team management with agility",
+          "Multi-stage testing strategy (UT, IT, ST, UAT)"
+        ]
+      },
+      "results": {
+        "ja": {
+          "projectScale": "400人月以上",
+          "peakTeamSize": "55人/月",
+          "deliveryTime": "申込から配送まで5営業日",
+          "features": "複雑な決済フロー、複数のカードデザイン、オンライン本人確認",
+          "summary": "大規模複合的なシステム開発における高度なスケーラビリティ"
+        },
+        "en": {
+          "projectScale": ">400 person-months",
+          "peakTeamSize": "55 people/month",
+          "deliveryTime": "5 business days from application to delivery",
+          "features": "Complex payment flow, multiple card designs, online ID verification",
+          "summary": "Advanced scalability in large-scale complex system development"
+        }
+      },
+      "technologyStack": {
+        "ja": [
+          "Vue.js（フロントエンド）",
+          "Swift（iOS）",
+          "Java（Android）",
+          "Golang + Dockerマイクロサービス",
+          "AWS インフラストラクチャ"
+        ],
+        "en": [
+          "Vue.js (Frontend)",
+          "Swift (iOS)",
+          "Java (Android)",
+          "Golang + Docker microservices",
+          "AWS infrastructure"
+        ]
+      },
+      "imageStatus": "placeholder",
+      "metrics": {
+        "totalPersonMonths": 400,
+        "peakTeamSize": 55,
+        "deliveryDays": 5,
+        "platforms": 3
+      }
+    }
+  ]
+}

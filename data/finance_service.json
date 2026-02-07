@@ -1,0 +1,239 @@
+{
+  "service": {
+    "name": "Finance Service",
+    "description_ja": "ファイナンスサービスは、銀行、証券、決済などの金融機関向けの総合的なITソリューションを提供する専門部門です。最新のフィンテック技術から従来のバックエンド・フロントチャネル開発まで、多岐にわたるサービスを展開しています。",
+    "description_en": "Finance Service is a specialized division providing comprehensive IT solutions for financial institutions including banks, securities firms, and payment systems. We deliver diverse services ranging from cutting-edge fintech technology to traditional backend and front-channel development.",
+    "languageSupport": ["Japanese", "English"]
+  },
+  "sectors": [
+    {
+      "id": "fintech",
+      "name": "フィンテック",
+      "name_en": "Fintech",
+      "icon": "🚀",
+      "color": "#E74C3C",
+      "description_ja": "最新のデジタル金融ソリューション",
+      "description_en": "Cutting-edge digital financial solutions",
+      "services": [
+        {
+          "id": "bank_digital_currency",
+          "name": "銀行デジタル通貨",
+          "name_en": "Bank Digital Currency",
+          "description_ja": "中央銀行が発行するデジタル通貨（CBDC）の開発・実装",
+          "description_en": "Development and implementation of central bank digital currencies (CBDC)"
+        },
+        {
+          "id": "stable_coin",
+          "name": "Stable Coin",
+          "description_ja": "ブロックチェーン基盤の安定した価値を持つ暗号資産の構築",
+          "description_en": "Construction of blockchain-based cryptocurrencies with stable value"
+        },
+        {
+          "id": "e_wallet",
+          "name": "E-wallet",
+          "description_ja": "デジタルウォレットプラットフォームの開発・運用",
+          "description_en": "Digital wallet platform development and operation"
+        },
+        {
+          "id": "nft_market",
+          "name": "NFT Market構築",
+          "name_en": "NFT Marketplace Development",
+          "description_ja": "NFTの売買プラットフォームの開発・構築",
+          "description_en": "Development and construction of NFT trading platforms"
+        },
+        {
+          "id": "nft_development",
+          "name": "NFT開発",
+          "name_en": "NFT Development",
+          "description_ja": "NFTとゲーミファイ（GamiFi）などのアプリケーション開発",
+          "description_en": "NFT and gamification (GamiFi) application development"
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "name": "ペイメント",
+      "name_en": "Payment Systems",
+      "icon": "💳",
+      "color": "#8E44AD",
+      "description_ja": "多様な決済方法の企画・開発・運用",
+      "description_en": "Planning, development and operation of diverse payment methods",
+      "services": [
+        {
+          "id": "credit_card",
+          "name": "クレジットカード",
+          "name_en": "Credit Card Systems",
+          "description_ja": "クレジットカード決済システムの開発・運用・保守",
+          "description_en": "Development, operation and maintenance of credit card payment systems"
+        },
+        {
+          "id": "mobile_payment",
+          "name": "モバイル決済",
+          "name_en": "Mobile Payment",
+          "description_ja": "スマートフォンを使用した決済ソリューションの開発",
+          "description_en": "Development of mobile payment solutions using smartphones"
+        },
+        {
+          "id": "qr_code_payment",
+          "name": "QR Code決済",
+          "name_en": "QR Code Payment",
+          "description_ja": "QRコードを基盤とした決済システムの構築・運用",
+          "description_en": "Construction and operation of QR code-based payment systems"
+        },
+        {
+          "id": "e_money",
+          "name": "電子マネー",
+          "name_en": "Electronic Money (Pasmo, SUICA)",
+          "description_ja": "交通系電子マネー（Pasmo、SUICA）などの開発・運用",
+          "description_en": "Development and operation of electronic money systems like Pasmo and SUICA"
+        },
+        {
+          "id": "buy_now_pay_later",
+          "name": "後払い",
+          "name_en": "Buy Now Pay Later (BNPL)",
+          "description_ja": "購入後に支払う後払いサービスの構築・運用",
+          "description_en": "Construction and operation of buy-now-pay-later services"
+        }
+      ]
+    },
+    {
+      "id": "securities",
+      "name": "証券",
+      "name_en": "Securities",
+      "icon": "📊",
+      "color": "#27AE60",
+      "description_ja": "証券会社向けの統合的なシステムソリューション",
+      "description_en": "Comprehensive system solutions for securities firms",
+      "services": [
+        {
+          "id": "securities_core_system",
+          "name": "証券コアシステム開発・保守",
+          "name_en": "Securities Core System Development & Maintenance",
+          "description_ja": "証券業務の中核となるコアシステムの開発・保守",
+          "description_en": "Development and maintenance of core systems for securities operations"
+        },
+        {
+          "id": "trading_system",
+          "name": "トレーディングシステムなど証券フロントチャネル開発",
+          "name_en": "Trading Systems and Securities Front-Channel Development",
+          "description_ja": "トレーディングシステムおよび顧客向けフロントチャネルの開発",
+          "description_en": "Development of trading systems and customer-facing front-channel applications"
+        },
+        {
+          "id": "universal_search",
+          "name": "汎用検索・データHUB",
+          "name_en": "Universal Search & Data HUB",
+          "description_ja": "データを統一的に管理・検索するHUBシステムの構築",
+          "description_en": "Construction of centralized data management and search HUB systems"
+        },
+        {
+          "id": "sales_support",
+          "name": "営業支援システム開発",
+          "name_en": "Sales Support System Development",
+          "description_ja": "営業活動を支援するシステムの開発・実装",
+          "description_en": "Development and implementation of sales support systems"
+        },
+        {
+          "id": "custody_system",
+          "name": "証券保管振替システム",
+          "name_en": "Securities Custody & Transfer System",
+          "description_ja": "証券の保管・管理・振替を行うシステムの開発・運用",
+          "description_en": "Development and operation of securities custody and transfer systems"
+        }
+      ]
+    },
+    {
+      "id": "banking",
+      "name": "銀行",
+      "name_en": "Banking",
+      "icon": "🏦",
+      "color": "#2980B9",
+      "description_ja": "銀行向けの総合的なITソリューション",
+      "description_en": "Comprehensive IT solutions for banks",
+      "services": [
+        {
+          "id": "core_banking",
+          "name": "コア・バンキング導入・刷新",
+          "name_en": "Core Banking Implementation & Renewal",
+          "description_ja": "銀行の基幹となるコアシステムの導入・更新・刷新",
+          "description_en": "Implementation, update and renewal of core banking systems"
+        },
+        {
+          "id": "banking_front_channel",
+          "name": "モバイルバンキング・インターネットバンキング・セルフ手続など銀行のフロントチャネル開発",
+          "name_en": "Banking Front-Channel Development (Mobile, Internet Banking, Self-Service)",
+          "description_ja": "モバイルバンキング、インターネットバンキング、セルフサービスなどの顧客向けチャネルの開発",
+          "description_en": "Development of customer-facing channels including mobile banking, internet banking and self-service"
+        },
+        {
+          "id": "corporate_banking",
+          "name": "法人インタネットバンキング",
+          "name_en": "Corporate Internet Banking",
+          "description_ja": "企業顧客向けのオンラインバンキングシステムの構築・運用",
+          "description_en": "Construction and operation of online banking systems for corporate customers"
+        },
+        {
+          "id": "personal_finance",
+          "name": "住宅ローン、年金管理、経理管理",
+          "name_en": "Housing Loans, Pension Management & Accounting Management",
+          "description_ja": "住宅ローン、年金、経理等に関連するソリューションの提供",
+          "description_en": "Provision of solutions related to housing loans, pensions and accounting management"
+        },
+        {
+          "id": "banking_peripherals",
+          "name": "銀行系の周辺システム開発・導入",
+          "name_en": "Banking Peripheral Systems Development & Deployment",
+          "description_ja": "データHUB、営業支援システム、CRM、ワークフローなどの周辺システムの開発・導入",
+          "description_en": "Development and deployment of peripheral systems including data HUB, sales support, CRM and workflow"
+        }
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Cloud Computing & Microservices",
+      "description_ja": "スケーラブルで柔軟な金融システムの構築",
+      "description_en": "Construction of scalable and flexible financial systems"
+    },
+    {
+      "name": "Blockchain & Cryptocurrency",
+      "description_ja": "デジタル通貨・分散台帳技術を活用したソリューション",
+      "description_en": "Solutions leveraging digital currency and distributed ledger technology"
+    },
+    {
+      "name": "Mobile-First Development",
+      "description_ja": "モバイル中心の金融サービスの開発",
+      "description_en": "Mobile-first financial services development"
+    },
+    {
+      "name": "Data Analytics & AI/ML",
+      "description_ja": "データ分析とAI・機械学習を活用した高度なソリューション",
+      "description_en": "Advanced solutions leveraging data analytics, AI and machine learning"
+    },
+    {
+      "name": "Security & Compliance",
+      "description_ja": "最高水準のセキュリティとコンプライアンス対応",
+      "description_en": "Highest-level security and compliance implementation"
+    }
+  ],
+  "capabilities": {
+    "expertise_ja": "銀行、証券、決済など多様な金融領域での深い知識と実績",
+    "expertise_en": "Deep knowledge and track record across diverse financial domains including banking, securities, and payments",
+    "integration_ja": "レガシーシステムから最新技術まで統合的なソリューション提供",
+    "integration_en": "Integrated solutions spanning from legacy systems to cutting-edge technology",
+    "compliance_ja": "金融規制（PCI-DSS、個人情報保護等）への完全対応",
+    "compliance_en": "Full compliance with financial regulations (PCI-DSS, data protection, etc.)",
+    "support_ja": "24/7のシステム運用・保守サービス",
+    "support_en": "24/7 system operation and maintenance services"
+  },
+  "metadata": {
+    "createdDate": "2026-02-06",
+    "version": "1.0",
+    "sourceFile": "ppt_extracted/ppt/slides/slide9.xml, slide10.xml",
+    "language": "ja",
+    "translations": {
+      "ja": "Japanese",
+      "en": "English"
+    }
+  }
+}

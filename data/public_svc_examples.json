@@ -1,0 +1,742 @@
+{
+  "metadata": {
+    "title": "Public Service Development Examples | 公共サービス開発事例",
+    "description": "FPT's public service development expertise across Japan",
+    "createdDate": "2025-01-15",
+    "updatedDate": "2025-06-20",
+    "version": "2.0",
+    "sourceSlides": "17-36",
+    "totalExamples": 10,
+    "languages": ["ja-JP", "en-US"]
+  },
+  "examples": [
+    {
+      "id": "ps_example_001",
+      "order": 1,
+      "sourceSlides": [18, 19],
+      "projectName": {
+        "ja": "地方公共団体向け総合パッケージ開発・保守",
+        "en": "Comprehensive Package Development & Maintenance for Local Governments"
+      },
+      "overview": {
+        "ja": "N様は日本全国約200の自治体に（人口10万人）主に住民サービスと内部業務サービスのパッケージを提供。2023年からFPTはN様と協力し、オンサイト・オフショア開発モデルを使用し、パッケージの機能開発・維持保守を対応。オフショアはダナンに設置し、ODCモデルで運営。",
+        "en": "Customer N provides resident service and internal business service packages to approximately 200 municipalities across Japan (population 100,000). Since 2023, FPT has collaborated using onsite-offshore development model for package feature development and maintenance. Offshore operations are based in Da Nang using ODC model."
+      },
+      "customer": {
+        "type": "Major IT Solutions Provider",
+        "base": "約200の自治体",
+        "businessContext": "Resident services and internal business services for local governments"
+      },
+      "projectMetrics": {
+        "duration": {
+          "ja": "2023年～継続中",
+          "en": "2023 - ongoing"
+        },
+        "growthPlan": "100人/月 → 200人/月 → 400人/月"
+      },
+      "deliveryModel": {
+        "ja": "オンサイト・オフショア開発モデル（ODC）",
+        "en": "Onsite-Offshore Development Model (ODC)"
+      },
+      "teamStructure": {
+        "offshore": {
+          "location": "FPTダナン",
+          "model": "ODC"
+        }
+      },
+      "businessNeeds": [
+        {
+          "ja": "リソース枯渇による機会損失の防止",
+          "en": "Prevention of business opportunity loss due to resource constraints"
+        },
+        {
+          "ja": "競争力強化（品質・生産性のさらなる向上）",
+          "en": "Strengthen competitiveness (further improve quality and productivity)"
+        },
+        {
+          "ja": "地政学的リスクへの対応（ポスト中国としてベトナムの活用）",
+          "en": "Address geopolitical risks (leverage Vietnam as post-China alternative)"
+        }
+      ],
+      "challenges": [
+        {
+          "ja": "リソース枯渇、競争力低下、地政学的リスク（中国依存）",
+          "en": "Resource depletion, declining competitiveness, geopolitical risk (China dependency)"
+        }
+      ],
+      "solutions": [
+        {
+          "ja": "ODCモデルによる安定的なリソース確保と最適な開発体制の構築",
+          "en": "Stable resource supply and optimal development structure via ODC model"
+        },
+        {
+          "ja": "オンサイト・オフショア連携による品質・生産性向上",
+          "en": "Onsite-offshore collaboration to improve quality and productivity"
+        },
+        {
+          "ja": "ベトナム拠点活用によるリスク分散",
+          "en": "Risk diversification by leveraging Vietnam base"
+        }
+      ],
+      "expectationsForFPT": [
+        {
+          "ja": "安定的なリソースの提供（幅広いスキルセット、業務知識）",
+          "en": "Stable resource supply (wide skill set, business knowledge)"
+        },
+        {
+          "ja": "生産性・品質・コストの最適化",
+          "en": "Optimization of productivity, quality, and cost"
+        },
+        {
+          "ja": "オンサイト・ニアショア・オフショアの最適スキーム提供",
+          "en": "Optimal onsite-nearshore-offshore scheme provision"
+        }
+      ],
+      "achievements": [
+        {
+          "ja": "リソースの安定確保",
+          "en": "Stable resource supply"
+        },
+        {
+          "ja": "競争力強化（品質・生産性）",
+          "en": "Competitiveness strengthening (quality/productivity)"
+        },
+        {
+          "ja": "グローバル人材育成最適配置",
+          "en": "Global talent development and optimal allocation"
+        }
+      ],
+      "growthStrategy": {
+        "ja": "プロダクト分析・ドキュメント改善 → つくり（設計）の理解 → 開発（実践）力向上",
+        "en": "Product analysis/document improvement → Design understanding → Development capability enhancement"
+      },
+      "technologyStack": {
+        "開発モデル": ["ODC (Offshore Development Center)"],
+        "対象業務": ["住民サービス", "内部業務サービス"]
+      }
+    },
+    {
+      "id": "ps_example_002",
+      "order": 2,
+      "sourceSlides": [22, 23],
+      "projectName": {
+        "ja": "消防指令システム開発",
+        "en": "Fire Command System Development"
+      },
+      "overview": {
+        "ja": "119番通報の受付から災害種別に応じた出動指令の自動化を実現するシステム。現行のデスクトップアプリケーションからWebアプリケーションへの再構築を行い、サービスの機能や仕様の更新・変更。新システムは1カ所の本部で運用する装置を最小化。",
+        "en": "System automating dispatch operations from 119 emergency call reception based on disaster type. Rebuilt from desktop to web application, updating service functions and specifications. New system minimizes equipment required at each command center."
+      },
+      "customer": {
+        "type": "A会社",
+        "businessContext": "Fire emergency dispatch and management"
+      },
+      "projectMetrics": {
+        "duration": "39+ months",
+        "teamSize": 25,
+        "projectSize": {
+          "value": 924,
+          "unit": "person-months"
+        },
+        "projectType": {
+          "ja": "新規開発",
+          "en": "New Development"
+        }
+      },
+      "scope": {
+        "ja": "基本設計～結合テスト、総合テストサポート",
+        "en": "Basic design through integration testing and comprehensive testing support"
+      },
+      "businessNeeds": [
+        {
+          "ja": "消防情報を受け取る",
+          "en": "Receive fire emergency information"
+        },
+        {
+          "ja": "現場に車両と職員を管理出動する",
+          "en": "Manage dispatch of vehicles and staff to the scene"
+        },
+        {
+          "ja": "指揮官が現場での救助活動の状況を把握できるようにサポートする",
+          "en": "Support commanders in grasping rescue operation status on site"
+        },
+        {
+          "ja": "職員のスキルアップを目的としたトレーニングをサポートする",
+          "en": "Support training aimed at improving staff skills"
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "現行システムの運用効率・保守性の低さ、展開コストの高さ",
+        "en": "Low operational efficiency/maintainability and high deployment cost of legacy system"
+      }
+    ],
+      "solutions": [
+        {
+          "ja": "現行の業務を分析し、より最適な改善業務を提案",
+          "en": "Analyze current operations and propose optimal improvements"
+        },
+        {
+          "ja": "システムの設計を分析し、ユーザーに最適な機能設計を提案",
+          "en": "Analyze system design and propose optimal functionality for users"
+        },
+        {
+          "ja": "運用方法をDesktopAppからWebAppに変更することを提案し、コスト及びアプリケーションの展開時間を最適化",
+          "en": "Proposed migration from DesktopApp to WebApp, optimizing cost and application deployment time"
+        },
+        {
+          "ja": "ウェブアプリケーション向けのソースフレームワークをビルドする",
+          "en": "Built source framework for web application"
+        }
+      ],
+      "achievements": [
+        {
+          "ja": "プロジェクトのすべてが計画通りにリリースされ、順調に運用ができ、お客様の新ビジネスの成功に貢献",
+          "en": "All deliverables released on schedule with smooth operations, contributing to customer's new business success"
+        },
+        {
+          "ja": "エンドユーザーからプロジェクトの最適化や使いやすさなどの好評をいただき、利用ユーザー数の増加に貢献",
+          "en": "Received positive feedback on optimization and usability from end users, contributing to user growth"
+        },
+        {
+          "ja": "プロジェクト展開プロセスの一部を自動化し、エンドユーザのアプリ展開の時間・費用を50％以上削減",
+          "en": "Automated parts of the deployment process, reducing app deployment time and costs by over 50%"
+        },
+        {
+          "ja": "アプリケーションの保守性を向上させ、運用の費用と時間を削減",
+          "en": "Improved application maintainability, reducing operational costs and time"
+        }
+      ],
+      "technologyStack": {
+        "Frontend": ["Angular", "HTML/CSS"],
+        "Backend": ["Java Spring Boot"],
+        "Database": ["PostgreSQL"],
+        "Tools": ["Visual Code", "Eclipse", "Git"],
+        "Server": ["zabbix", "lifekeeper"],
+        "Deployment": ["on-premise"]
+      }
+    },
+    {
+      "id": "ps_example_003",
+      "order": 3,
+      "sourceSlides": [24],
+      "projectName": {
+        "ja": "L-ALERT WEBシステム開発",
+        "en": "L-ALERT Web System Development"
+      },
+      "overview": {
+        "ja": "企業のリスク管理を支援するWEBシステム。メール通知のほか、システム経由で世界中で発生する地震や台風などの自然災害、テロ、デモンストレーション、感染症などの情報をまとめて確認できる。",
+        "en": "Web system supporting enterprise risk management. In addition to email notifications, users can view consolidated information about natural disasters (earthquakes, typhoons), terrorism, demonstrations, and infectious diseases occurring worldwide."
+      },
+      "customer": {
+        "type": "Enterprise Risk Management",
+        "businessContext": "Corporate risk information aggregation and alert"
+      },
+      "projectMetrics": {
+        "projectSize": {
+          "value": 32,
+          "unit": "person-months"
+        },
+        "duration": "4 months"
+      },
+      "scope": {
+        "ja": "要件定義、UI/UXデザイン、アーキテクチャ設計、実装・単体テスト、結合テスト",
+        "en": "Requirements definition, UI/UX design, architecture design, implementation/unit testing, integration testing"
+      },
+      "achievements": [
+        {
+          "ja": "管理したい拠点（工場、事務所、倉庫、サプライヤー拠点など）を地図上に配置する",
+          "en": "Place locations to manage (factories, offices, warehouses, supplier sites) on a map"
+        },
+        {
+          "ja": "登録した拠点に関連するリスク情報のみを選択しアラートとしてメールで受信",
+          "en": "Select only risk information related to registered locations and receive email alerts"
+        },
+        {
+          "ja": "大地震発生時に被災エリア内の拠点を一覧表示し初期対応に必要な情報を迅速に取得",
+          "en": "Display list of locations within disaster areas during major earthquakes for rapid initial response"
+        },
+        {
+          "ja": "関係者にメールやアラート通知を配信し拠点の被害状況やライフライン状況を確認",
+          "en": "Distribute email and alert notifications to stakeholders, confirm damage and lifeline status"
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "多拠点のリスク情報管理の煩雑さ、災害時の迅速な情報把握の困難",
+        "en": "Complexity of managing risk info for multiple sites, difficulty in rapid info gathering during disasters"
+      }
+    ],
+    "solutions": [
+      {
+        "ja": "地図連携・アラート自動配信によるリスク管理効率化",
+        "en": "Risk management efficiency via map integration and automated alerts"
+      }
+    ],
+      "technologyStack": {
+        "Frontend": ["Angular"],
+        "Backend": ["PHP"],
+        "Cloud": ["AWS"]
+      }
+    },
+    {
+      "id": "ps_example_004",
+      "order": 4,
+      "sourceSlides": [27],
+      "projectName": {
+        "ja": "スマートフォンによる自然災害警報",
+        "en": "Smartphone Natural Disaster Alert System"
+      },
+      "overview": {
+        "ja": "情報受信を登録したユーザのスマートフォンに自然災害情報を配信するシステム。アプリケーションをインストールする必要がなく、通知はWebプッシュ通知を介してスマホのブラウザに配信される。エリア登録、通知登録、端末登録などの機能を対応。",
+        "en": "System delivering natural disaster information to registered users' smartphones. No app installation required - notifications are delivered via web push notifications to the smartphone browser. Supports area registration, notification registration, and device registration."
+      },
+      "customer": {
+        "type": "Local Government/Emergency Management",
+        "businessContext": "Natural disaster notification and emergency alert"
+      },
+      "projectMetrics": {
+        "projectSize": {
+          "value": 15,
+          "unit": "person-months"
+        },
+        "duration": "4 months"
+      },
+      "scope": {
+        "ja": "実装、基本設計、単体テスト、結合テスト",
+        "en": "Implementation, basic design, unit testing, integration testing"
+      },
+      "businessNeeds": [
+        {
+          "ja": "緊急時の迅速な情報配信",
+          "en": "Rapid information distribution during emergencies"
+        },
+        {
+          "ja": "ユーザーのアプリインストール負荷軽減",
+          "en": "Reduce user app installation burden"
+        },
+        {
+          "ja": "多数のユーザーへの同時配信能力",
+          "en": "Simultaneous delivery capability to many users"
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "アプリ不要で多ユーザーへ即時通知する仕組みの不足",
+        "en": "Lack of instant notification system to many users without app install"
+      }
+    ],
+    "solutions": [
+      {
+        "ja": "Webプッシュ通知技術の活用による即時配信",
+        "en": "Instant delivery using web push notification technology"
+      }
+    ],
+      "technologyStack": {
+        "Frontend": ["Angular"],
+        "Backend": ["Java"],
+        "Cloud": ["AWS"],
+        "Platform": ["Android", "iOS"],
+        "通知方式": ["Web Push Notifications"]
+      }
+    },
+    {
+      "id": "ps_example_005",
+      "order": 5,
+      "sourceSlides": [28],
+      "projectName": {
+        "ja": "決済照会の統合Web開発",
+        "en": "Integrated Settlement Inquiry Web Development"
+      },
+      "overview": {
+        "ja": "各金融機関とほふり（証券保管振替機構）が取引業務データをやりとりするwebシステム（統合web）の刷新プロジェクト。日本人とベトナム人のオンサイト両方を使用しコミュニケーションを強化。本格開発の前にアセスメントフェーズを実施し業務学習・生産性評価を行った。詳細設計からソースコード自動生成ツールを使用して生産性と品質を向上。",
+        "en": "Renewal project for the web system through which financial institutions and JASDEC exchange transaction data. Strengthened communication using both Japanese and Vietnamese onsite members. Assessment phase conducted before full development. Used automatic source code generation tools from detailed design to improve productivity and quality."
+      },
+      "customer": {
+        "type": "Securities/Financial Infrastructure",
+        "businessContext": "Settlement and securities depository clearing integration"
+      },
+      "projectMetrics": {
+        "projectSize": {
+          "value": 500,
+          "unit": "person-months"
+        },
+        "teamSize": "45～130名",
+        "duration": "11 months"
+      },
+      "scope": {
+        "ja": "詳細設計、製造・単体テスト、結合テスト",
+        "en": "Detailed design, manufacturing/unit testing, integration testing"
+      },
+      "businessNeeds": [
+        {
+          "ja": "各金融機関との取引業務データのやりとりシステムの刷新",
+          "en": "Renewal of transaction data exchange system between financial institutions"
+        },
+        {
+          "ja": "リソース変動幅が大きい（3か月以内に45人～130人に増加）",
+          "en": "Large resource fluctuation (staff increased from 45 to 130 within 3 months)"
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "大規模・短期間での人員変動、品質・生産性維持の難しさ",
+        "en": "Large, rapid staff fluctuation and difficulty maintaining quality/productivity"
+      }
+    ],
+      "solutions": [
+        {
+          "ja": "本格開発の前にアセスメントフェーズを実施し業務学習・生産性評価を行った",
+          "en": "Conducted assessment phase before full development for business learning and productivity evaluation"
+        },
+        {
+          "ja": "本線の各工程の前に先行開発フェーズを実施し開発共通部分の確立・技術検証・テスト自動化の検証",
+          "en": "Conducted advance development phase before each main phase for common components, technology verification, and test automation"
+        },
+        {
+          "ja": "詳細設計からソースコード自動生成ツールを使用して生産性と品質を向上",
+          "en": "Used automatic source code generation tools from detailed design to improve productivity and quality"
+        }
+      ],
+      "technologyStack": {
+        "Backend": ["Java"],
+        "Frontend": ["Vue.js"],
+        "Testing": ["Jest", "Junit", "Selenium"],
+        "Tools": ["VS Code", "Eclipse", "ViSC", "Jenkins"]
+      }
+    },
+    {
+      "id": "ps_example_007",
+      "order": 7,
+      "sourceSlides": [32],
+      "projectName": {
+        "ja": "社保再構築",
+        "en": "Social Insurance System Reconstruction"
+      },
+      "overview": {
+        "ja": "組合の健康保険業務、労災保険業務、介護保険業務、給付金支給業届出処理業務等の現行システムをVB6からOutSystemsへ再構築。現行システムと新規システムは業務が変わらないように再構築。12,000 KLOC / 1,390画面 / 250帳票の大規模プロジェクト。",
+        "en": "Reconstruction of existing systems for health insurance, workers' compensation, nursing care, and benefit payment processing from VB6 to OutSystems. Large-scale project: 12,000 KLOC / 1,390 screens / 250 reports."
+      },
+      "customer": {
+        "type": "Insurance Association/Union",
+        "businessContext": "Social insurance management system modernization"
+      },
+      "projectMetrics": {
+        "projectSize": {
+          "value": 800,
+          "unit": "person-months"
+        },
+        "teamSize": 60,
+        "duration": {
+          "LOT1": "2023/06 - 2024/11",
+          "LOT2": "2024/12～ (規模はLOT1の半分)"
+        },
+        "scale": "12,000 KLOC / 1,390画面 / 250帳票"
+      },
+      "scope": {
+        "ja": "設計〜ITα（FPT担当範囲）",
+        "en": "Design through ITα (FPT scope)"
+      },
+      "businessNeeds": [
+        {
+          "ja": "VB6の老朽化したシステムからの移行",
+          "en": "Migration from aging VB6 system"
+        },
+        {
+          "ja": "健康保険・労災保険・介護保険・給付金支給等の業務モダナイズ",
+          "en": "Modernize health, workers' comp, nursing care, and benefit operations"
+        }
+      ],
+      "challenges": [
+        {
+          "ja": "開発計画（エンドユーザー側担当）が延期し開発フェーズのスケジュールが短い",
+          "en": "Shortened development schedule due to end-user side planning delays"
+        },
+        {
+          "ja": "現行システムで設計資料があまりなく旧ソースコードしかない",
+          "en": "Minimal design documentation in existing system, only legacy source code"
+        }
+      ],
+      "solutions": [
+        {
+          "ja": "VB6からリバースエンジニアリングの設計書を行う方針",
+          "en": "Adopted reverse engineering approach to create design documents from VB6"
+        },
+        {
+          "ja": "リバースエンジニアリングの設計書を元にOutSystemsで実装",
+          "en": "Implemented in OutSystems based on reverse-engineered design documents"
+        },
+        {
+          "ja": "計画段階から品質・生産性向上を考慮",
+          "en": "Considered quality and productivity from planning stage"
+        }
+      ],
+      "achievements": [
+        {
+          "ja": "LOT1は予定通り11月に本番環境にリリースし運用開始に向かって進んでいる",
+          "en": "LOT1 released to production on schedule in November, progressing toward operation"
+        }
+      ],
+      "technologyStack": {
+        "既存システム": ["Visual Studio 6.0 (VB6)", "MS Access"],
+        "新規 - Platform": ["OutSystems"],
+        "新規 - Database": ["SQL Server"],
+        "新規 - Report": ["SVF Report"],
+        "Migration": ["MS Access DB → SQL Server"]
+      }
+    },
+    {
+      "id": "ps_example_008",
+      "order": 8,
+      "sourceSlides": [34],
+      "projectName": {
+        "ja": "日本のS市の福利厚生制度の改善",
+        "en": "Welfare System Improvement for City S in Japan"
+      },
+      "overview": {
+        "ja": "S市の福利厚生管理システムの課題を解決するプロジェクト。手動バッチジョブ管理の自動化、データ転送方式の改善、パフォーマンス向上のためのリファクタリングを実施。",
+        "en": "Project resolving issues in City S's welfare management system. Automated manual batch job management, improved data transfer methods, and performed refactoring for performance."
+      },
+      "customer": {
+        "type": "S市役所 (City S Government)",
+        "cityProfile": {
+          "population": "3.7M",
+          "area": "7,777 km²",
+          "populationDensity": "490 people/km²",
+          "gdp": "195B US$",
+          "gdpPerCapita": "39,000 US$"
+        }
+      },
+      "businessNeeds": [
+        {
+          "ja": "バッチジョブ管理は手動で行われるため労働力がかかり動作ミスが発生しやすい",
+          "en": "Manual batch job management is labor-intensive and error-prone"
+        },
+        {
+          "ja": "サーバーからクライアントへのデータ転送が古い方式で時間がかかる",
+          "en": "Data transfer from server to client uses outdated methods, causing delays"
+        },
+        {
+          "ja": "バッチパフォーマンスが良くない",
+          "en": "Poor batch processing performance"
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "手動運用・旧式転送方式・パフォーマンス低下",
+        "en": "Manual operation, outdated transfer methods, performance degradation"
+      }
+    ],
+      "solutions": [
+        {
+          "ja": "新たにジョブ登録管理機能を構築",
+          "en": "Built new job registration management functionality"
+        },
+        {
+          "ja": "FTPファイル転送方式をベースとした新たなデータ転送機能を構築",
+          "en": "Built new data transfer based on FTP file transfer"
+        },
+        {
+          "ja": "パフォーマンス向上のためにソースコードをリファクタリング",
+          "en": "Refactored source code for performance improvement"
+        },
+        {
+          "ja": "SQLチューニング",
+          "en": "SQL tuning"
+        }
+      ],
+      "achievements": [
+        {
+          "ja": "業務の管理・運用の手間がツール開発前と比べて30%削減",
+          "en": "30% reduction in operational management effort"
+        },
+        {
+          "ja": "データ転送プロセスがコンパクトでユーザーにとって便利に",
+          "en": "Data transfer process became compact and user-friendly"
+        },
+        {
+          "ja": "システムパフォーマンスが向上し長時間ジョブ実行エラーがなくなった",
+          "en": "Improved performance eliminated long-running job execution errors"
+        }
+      ],
+      "technologyStack": {
+        "改善手法": ["リファクタリング", "SQLチューニング", "FTP転送"],
+        "機能": ["ジョブ登録管理", "データ転送"]
+      }
+    },
+    {
+      "id": "ps_example_009",
+      "order": 9,
+      "sourceSlides": [35],
+      "projectName": {
+        "ja": "統合教育情報管理システム",
+        "en": "Integrated Education Information Management System"
+      },
+      "overview": {
+        "ja": "大学の情報管理システムを統合するプロジェクト。授業スケジュール、学習管理、授業料・奨学金情報、就職情報管理を効率化。日本全国の大学およびベトナムの大学で導入。",
+        "en": "Project integrating university information management systems. Streamlines class scheduling, learning management, tuition/scholarship info, and employment management. Deployed across universities in Japan and Vietnam."
+      },
+      "customer": {
+        "type": "Multiple Universities (Japan & Vietnam)",
+        "regions": {
+          "Japan": ["Tohoku", "Kanto", "Chubu", "Kansai", "Chugoku", "Kyushu"],
+          "Vietnam": ["Da Nang", "Ha Noi", "Quang Ngai", "Quang Nam"]
+        }
+      },
+      "businessNeeds": [
+        {
+          "ja": "授業のスケジュール設定やアクセス、学習管理で教師・学生への十分なサポートが不足",
+          "en": "Insufficient support for teachers and students in scheduling, access, and learning management"
+        },
+        {
+          "ja": "授業料、奨学金、就職に関する情報を迅速かつ便利に提供したい",
+          "en": "Desire to provide tuition, scholarship, and employment info quickly and conveniently"
+        }
+      ],
+      "solutions": [
+        {
+          "ja": "授業スケジュール、学習管理、授業料・奨学金・就職情報などを統合管理するWebシステムを構築",
+          "en": "Developed a web system to integrate management of class schedules, learning, tuition, scholarships, and employment information."
+        },
+        {
+          "ja": "学生・教員が簡単にアクセスできるユーザーフレンドリーなインターフェースを提供",
+          "en": "Provided a user-friendly interface for easy access by students and teachers."
+        },
+        {
+          "ja": "多大学・多拠点展開に対応したスケーラブルな設計を採用",
+          "en": "Adopted a scalable design for deployment across multiple universities and locations."
+        }
+      ],
+    "challenges": [
+      {
+        "ja": "情報管理の分散・非効率、学生・教員へのサポート不足",
+        "en": "Dispersed/inefficient info management, insufficient support for students/teachers"
+      }
+    ],
+      "achievements": [
+        {
+          "ja": "大学は学生の研修を簡単に把握・管理しプログラムを迅速に変更可能",
+          "en": "Universities can easily manage student training and quickly modify programs"
+        },
+        {
+          "ja": "授業料支払い状況を把握しタイムリーな措置を講じられる",
+          "en": "Track tuition payment status and take timely measures"
+        },
+        {
+          "ja": "学生は課外情報に簡単にアクセスし経験を高められる",
+          "en": "Students easily access extracurricular information"
+        },
+        {
+          "ja": "学生は奨学金プログラムに簡単にアクセスし申請可能",
+          "en": "Students easily access and apply for scholarships"
+        },
+        {
+          "ja": "採用情報管理により就職しやすい環境を整備",
+          "en": "Recruitment management creates job-friendly environment"
+        }
+      ],
+      "technologyStack": {
+        "Type": ["Web Application"],
+        "Scale": ["多数の大学（日本・ベトナム）"]
+      }
+    },
+    {
+      "id": "ps_example_010",
+      "order": 10,
+      "sourceSlides": [36],
+      "projectName": {
+        "ja": "住民登録システムモダナイゼーション",
+        "en": "Resident Registration System Modernization"
+      },
+      "overview": {
+        "ja": "ずっと前に開発された民事登録管理システムをWindowsアプリからWebプラットフォームへ移行するモダナイゼーションプロジェクト。地方間のデータ連携機能を構築し法改正への迅速な対応を可能に。",
+        "en": "Modernization project migrating civil registration management system from Windows application to Web platform. Built inter-regional data linkage and enabled rapid response to legal amendments."
+      },
+      "customer": {
+        "type": "日本の大手SI様",
+        "profile": {
+          "revenue": "165.7B JPY",
+          "employees": 4830
+        }
+      },
+      "businessNeeds": [
+        {
+          "ja": "Windowsアプリのため動作マシンでのみアクセス可能",
+          "en": "Windows app accessible only on running machine"
+        },
+        {
+          "ja": "州間のデータがリンクされておらず戸籍移管に困難",
+          "en": "Unlinked inter-regional data causes registry transfer difficulties"
+        },
+        {
+          "ja": "法改正への対応が遅い",
+          "en": "Slow response to legal amendments"
+        }
+      ],
+      "solutions": [
+        {
+          "ja": "デスクトップアプリからWebプラットフォームに移行",
+          "en": "Migrate from desktop to Web platform"
+        },
+        {
+          "ja": "地方間のデータ連携機能を構築",
+          "en": "Build inter-regional data linkage"
+        },
+        {
+          "ja": "システムの編集・設定によるルール変更への対応",
+          "en": "Enable rule changes through system configuration"
+        }
+      ],
+      "achievements": [
+        {
+          "ja": "民事上の身分変更手続きの処理時間を短縮",
+          "en": "Shortened civil status change processing time"
+        },
+        {
+          "ja": "安定したエンドユーザーフレンドリーなWebプラットフォーム上で実行",
+          "en": "Runs on stable, end-user-friendly Web platform"
+        },
+        {
+          "ja": "Webサービスとして他システムと統合が容易でデータ交換機能が向上",
+          "en": "Easy integration with other systems as web service, improved data exchange"
+        }
+      ],
+      "technologyStack": {
+        "移行元": ["Windows Desktop Application"],
+        "移行先": ["Web Platform"],
+        "機能": ["地方間データ連携", "ルール設定機能"]
+      }
+    }
+  ],
+  "deliveryModelInsights": {
+    "nearshoreOffshoreModel": {
+      "ja": "ニアショア・オフショア開発モデル",
+      "en": "Nearshore-Offshore Development Model",
+      "description": {
+        "ja": "FPTは福岡・ダナン・ホーチミンに拠点を置き、日本のお客様に最適な開発体制を提供。ODCモデルも活用し安定的なリソース供給と柔軟なスケーリングを実現。",
+        "en": "FPT operates from Fukuoka, Da Nang, and HCM City, providing optimal development for Japanese customers. ODC model enables stable resource supply and flexible scaling."
+      },
+      "locations": ["FPT Fukuoka", "FPT Da Nang", "FPT Ho Chi Minh City"],
+      "benefits": [
+        { "ja": "コスト効率化", "en": "Cost efficiency" },
+        { "ja": "リソースの柔軟性", "en": "Resource flexibility" },
+        { "ja": "質の高い人材確保", "en": "High-quality talent acquisition" },
+        { "ja": "地理的リスク分散", "en": "Geographic risk distribution" }
+      ]
+    }
+  },
+  "technologyEcosystem": {
+    "frontend": ["Angular", "Vue.js", "HTML/CSS"],
+    "backend": ["Java", "Java Spring Boot", "C#", "PHP"],
+    "database": ["PostgreSQL", "SQL Server", "MS Access"],
+    "cloud": ["AWS"],
+    "mobile": ["Android", "iOS"],
+    "platforms": ["OutSystems", "Web Push Notifications"],
+    "frameworks": ["TERASOLUNA", "MyBatis"],
+    "testing": ["Jest", "Junit", "Selenium"],
+    "tools": ["Visual Code", "Eclipse", "Git", "Jenkins", "ViSC"],
+    "infrastructure": ["zabbix", "lifekeeper"],
+    "reporting": ["SVF Report"],
+    "deployment": ["on-premise", "cloud (AWS)"]
+  }
+}

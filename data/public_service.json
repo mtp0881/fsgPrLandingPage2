@@ -1,0 +1,614 @@
+{
+  "service": {
+    "id": "public_service",
+    "name_ja": "パブリックサービス",
+    "name_en": "Public Service",
+    "shortDescription_ja": "政府や自治体、公共機関向けのシステマティックなソリューションとサービスを提供する事業分野です",
+    "shortDescription_en": "A business segment providing systematic solutions and services for government agencies, municipalities, and public organizations",
+    "icon": "🏛️",
+    "color": "#27AE60",
+    "established": 2024,
+    "description_ja": "Public Serviceは、日本全国15地域に拠点を持ち、中央官庁から自治体まで、さまざまな公共部門向けの包括的なIT支援を提供しています。行政手続き、福祉、医療、教育、インフラなど、国民生活に密接に関わるシステムの構築・運用を専門としています。",
+    "description_en": "Public Service has offices in 15 regions across Japan and provides comprehensive IT support for various public sector organizations, from central government to local municipalities. We specialize in building and operating systems that are closely related to people's daily lives, such as administrative procedures, welfare, healthcare, education, and infrastructure.",
+    "keyFeatures": [
+      {
+        "feature_ja": "全国15地域での展開",
+        "feature_en": "Presence in 15 locations nationwide",
+        "description_ja": "日本全国15地域に人材を配置し、迅速なリソース確保が可能",
+        "description_en": "Personnel placed in 15 regions across Japan, enabling quick resource procurement"
+      },
+      {
+        "feature_ja": "多様な業界・システム実績",
+        "feature_en": "Diverse industry and system experience",
+        "description_ja": "交通、エネルギー、政府、医療、教育、航空など11の主要産業・分野で45以上のシステム構築実績",
+        "description_en": "Track record of building 45+ systems across 11 major industries and sectors including transportation, energy, government, healthcare, education, and aviation"
+      },
+      {
+        "feature_ja": "高度なセキュリティ対応",
+        "feature_en": "Advanced security measures",
+        "description_ja": "公共部門の厳格なセキュリティ要件に対応した設計・実装",
+        "description_en": "Design and implementation meeting strict public sector security requirements"
+      },
+      {
+        "feature_ja": "柔軟なスケーリング",
+        "feature_en": "Flexible scaling capabilities",
+        "description_ja": "プロジェクト規模に応じた迅速なリソース増強が可能",
+        "description_en": "Ability to quickly ramp up resources according to project scale"
+      }
+    ]
+  },
+  "industries": [
+    {
+      "id": "transportation",
+      "name_ja": "交通・インフラ",
+      "name_en": "Transportation & Infrastructure",
+      "icon": "🚗",
+      "color": "#3498DB",
+      "systems": [
+        {
+          "id": "highway_inspection",
+          "name_ja": "高速道路点検管理システム",
+          "name_en": "Highway Inspection and Management System",
+          "description_ja": "高速道路の安全性と品質管理を効率化するシステム",
+          "description_en": "System to streamline safety and quality management of highways"
+        },
+        {
+          "id": "etc",
+          "name_ja": "ノンストップ自動料金収受システム (ETC)",
+          "name_en": "Electronic Toll Collection System (ETC)",
+          "description_ja": "スムーズで迅速な料金収受を実現",
+          "description_en": "Enables smooth and fast toll collection"
+        },
+        {
+          "id": "traffic_control",
+          "name_ja": "道路管制システム",
+          "name_en": "Traffic Control System",
+          "description_ja": "交通流の最適化と安全管理",
+          "description_en": "Optimization of traffic flow and safety management"
+        },
+        {
+          "id": "operations_management",
+          "name_ja": "運行管理システム",
+          "name_en": "Operations Management System",
+          "description_ja": "公共交通機関の効率的運行を支援",
+          "description_en": "Supports efficient operation of public transportation"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name_ja": "エネルギー・電力",
+      "name_en": "Energy & Utilities",
+      "icon": "⚡",
+      "color": "#F39C12",
+      "systems": [
+        {
+          "id": "charger_management",
+          "name_ja": "充電器管理システム",
+          "name_en": "Charger Management System",
+          "description_ja": "EV充電インフラの一元管理",
+          "description_en": "Centralized management of EV charging infrastructure"
+        },
+        {
+          "id": "nuclear_application",
+          "name_ja": "原発申請管理システム",
+          "name_en": "Nuclear Application Management System",
+          "description_ja": "原子力発電所の申請・許可プロセスを管理",
+          "description_en": "Manages application and approval processes for nuclear power plants"
+        },
+        {
+          "id": "power_distribution",
+          "name_ja": "電力NW配電地図システム",
+          "name_en": "Power Network Distribution Map System",
+          "description_ja": "電力網の可視化と効率的な配電管理",
+          "description_en": "Visualizes power networks and enables efficient distribution management"
+        },
+        {
+          "id": "water_operation",
+          "name_ja": "水道局水運用システム",
+          "name_en": "Water Authority Operation System",
+          "description_ja": "上水道施設の統合運用管理",
+          "description_en": "Integrated operation management of water supply facilities"
+        }
+      ]
+    },
+    {
+      "id": "government",
+      "name_ja": "行政・政府",
+      "name_en": "Government & Administration",
+      "icon": "📋",
+      "color": "#E74C3C",
+      "systems": [
+        {
+          "id": "admin_procedures",
+          "name_ja": "行政手続きシステム",
+          "name_en": "Administrative Procedures System",
+          "description_ja": "各種行政手続きのデジタル化と効率化",
+          "description_en": "Digitalization and streamlining of administrative procedures"
+        },
+        {
+          "id": "resident_info",
+          "name_ja": "住民情報システム",
+          "name_en": "Resident Information System",
+          "description_ja": "住民台帳と各種情報の統合管理",
+          "description_en": "Integrated management of resident records and information"
+        },
+        {
+          "id": "family_register",
+          "name_ja": "戸籍総合システム",
+          "name_en": "Comprehensive Family Register System",
+          "description_ja": "戸籍情報の一元管理と自治体間連携",
+          "description_en": "Centralized family registration management with inter-municipal cooperation"
+        },
+        {
+          "id": "crime_info",
+          "name_ja": "犯罪情報管理システム",
+          "name_en": "Crime Information Management System",
+          "description_ja": "犯罪統計と防犯情報の管理",
+          "description_en": "Management of crime statistics and crime prevention information"
+        },
+        {
+          "id": "culture_info",
+          "name_ja": "文化情報システム",
+          "name_en": "Cultural Information System",
+          "description_ja": "文化遺産と文化振興情報の管理",
+          "description_en": "Management of cultural heritage and cultural promotion information"
+        },
+        {
+          "id": "tax_management",
+          "name_ja": "税務管理システム",
+          "name_en": "Tax Management System",
+          "description_ja": "税務申告・徴収・管理の効率化",
+          "description_en": "Streamlines tax filing, collection, and management"
+        },
+        {
+          "id": "document_management",
+          "name_ja": "文書管理システム",
+          "name_en": "Document Management System",
+          "description_ja": "組織全体の文書ライフサイクル管理",
+          "description_en": "Manages document lifecycle across the organization"
+        }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "name_ja": "医療・福祉",
+      "name_en": "Healthcare & Welfare",
+      "icon": "🏥",
+      "color": "#E67E22",
+      "systems": [
+        {
+          "id": "welfare_system",
+          "name_ja": "福祉総合システム",
+          "name_en": "Comprehensive Welfare System",
+          "description_ja": "社会保障と福祉サービスの統合管理",
+          "description_en": "Integrated management of social security and welfare services"
+        },
+        {
+          "id": "health_system",
+          "name_ja": "保健総合システム",
+          "name_en": "Comprehensive Health System",
+          "description_ja": "公衆衛生と健康管理の一元化",
+          "description_en": "Centralized public health and health management"
+        },
+        {
+          "id": "vaccination",
+          "name_ja": "予防接種システム",
+          "name_en": "Vaccination System",
+          "description_ja": "予防接種記録と予防接種スケジュール管理",
+          "description_en": "Manages vaccination records and schedules"
+        },
+        {
+          "id": "resident_health_info",
+          "name_ja": "住民健康情報システム",
+          "name_en": "Resident Health Information System",
+          "description_ja": "住民の健康情報と医療履歴の統合管理",
+          "description_en": "Integrated management of resident health information and medical history"
+        },
+        {
+          "id": "public_healthcare",
+          "name_ja": "公共ヘルスケア",
+          "name_en": "Public Healthcare",
+          "description_ja": "地域医療と予防医療の充実",
+          "description_en": "Enhances regional and preventive healthcare"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "name_ja": "教育",
+      "name_en": "Education",
+      "icon": "📚",
+      "color": "#9B59B6",
+      "systems": [
+        {
+          "id": "education_management",
+          "name_ja": "教育管理システム",
+          "name_en": "Educational Management System",
+          "description_ja": "学校運営と教育情報の統合管理",
+          "description_en": "Integrated management of school operations and educational information"
+        }
+      ]
+    },
+    {
+      "id": "rail",
+      "name_ja": "鉄道",
+      "name_en": "Rail Transportation",
+      "icon": "🚆",
+      "color": "#16A085",
+      "systems": [
+        {
+          "id": "railway",
+          "name_ja": "鉄道システム",
+          "name_en": "Railway Systems",
+          "description_ja": "鉄道運営および乗客情報管理システム",
+          "description_en": "Railway operation and passenger information management systems"
+        }
+      ]
+    },
+    {
+      "id": "municipal",
+      "name_ja": "地方自治体向け",
+      "name_en": "Municipal Services",
+      "icon": "🏘️",
+      "color": "#2980B9",
+      "systems": [
+        {
+          "id": "municipal_cloud",
+          "name_ja": "自治体クラウドサービス",
+          "name_en": "Municipal Cloud Services",
+          "description_ja": "複数の自治体が共有するクラウドインフラ",
+          "description_en": "Cloud infrastructure shared by multiple municipalities"
+        },
+        {
+          "id": "financial_accounting",
+          "name_ja": "財務会計システム",
+          "name_en": "Financial Accounting System",
+          "description_ja": "自治体の財務管理と会計処理",
+          "description_en": "Municipal financial management and accounting"
+        },
+        {
+          "id": "hr_payroll",
+          "name_ja": "人事給与システム",
+          "name_en": "Human Resources & Payroll System",
+          "description_ja": "職員管理と給与計算の統合",
+          "description_en": "Integrated staff management and payroll processing"
+        }
+      ]
+    },
+    {
+      "id": "aviation",
+      "name_ja": "航空・宇宙",
+      "name_en": "Aviation & Aerospace",
+      "icon": "✈️",
+      "color": "#34495E",
+      "systems": [
+        {
+          "id": "atm",
+          "name_ja": "航空交通管制システム (ATM)",
+          "name_en": "Air Traffic Management System (ATM)",
+          "description_ja": "航空機の安全運航を支援する管制システム",
+          "description_en": "Air traffic control system supporting safe aircraft operations"
+        },
+        {
+          "id": "cns",
+          "name_ja": "通信・航法・監視システム (CNS)",
+          "name_en": "Communication, Navigation & Surveillance System (CNS)",
+          "description_ja": "航空機との統合通信と安全監視",
+          "description_en": "Integrated communication and safety monitoring with aircraft"
+        },
+        {
+          "id": "drone_management",
+          "name_ja": "ドローン・空飛ぶクルマ運航管理システム",
+          "name_en": "Drone & Flying Car Management System",
+          "description_ja": "次世代モビリティの安全な運航管理",
+          "description_en": "Safe operation management of next-generation mobility solutions"
+        },
+        {
+          "id": "airside_landside",
+          "name_ja": "エアサイド・ランドサイド向けシステム",
+          "name_en": "Airside & Landside Systems",
+          "description_ja": "空港内の航空側と地上側システム",
+          "description_en": "Airside and landside systems for airport operations"
+        },
+        {
+          "id": "space_monitoring",
+          "name_ja": "宇宙電波監視システム",
+          "name_en": "Space Radio Monitoring System",
+          "description_ja": "衛星通信と宇宙電波の監視",
+          "description_en": "Monitoring of satellite communications and space radio signals"
+        },
+        {
+          "id": "navigation",
+          "name_ja": "ナビゲーションシステム",
+          "name_en": "Navigation System",
+          "description_ja": "精密測位と衛星航法",
+          "description_en": "Precision positioning and satellite navigation"
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "name_ja": "消防・防災",
+      "name_en": "Emergency Services & Disaster Management",
+      "icon": "🚒",
+      "color": "#C0392B",
+      "systems": [
+        {
+          "id": "fire_alarm",
+          "name_ja": "火災警報システム",
+          "name_en": "Fire Alarm System",
+          "description_ja": "早期火災検知と自動通報",
+          "description_en": "Early fire detection and automatic notification"
+        },
+        {
+          "id": "evacuation_guidance",
+          "name_ja": "避難誘導システム",
+          "name_en": "Evacuation Guidance System",
+          "description_ja": "災害時の安全な避難をサポート",
+          "description_en": "Supports safe evacuation during disasters"
+        },
+        {
+          "id": "smart_safety",
+          "name_ja": "スマートセーフティ",
+          "name_en": "Smart Safety",
+          "description_ja": "AIと実時間データを活用した安全管理",
+          "description_en": "Safety management using AI and real-time data"
+        },
+        {
+          "id": "disaster_prevention",
+          "name_ja": "防災総合システム",
+          "name_en": "Disaster Prevention System",
+          "description_ja": "災害予防と危機管理の統合",
+          "description_en": "Integrated disaster prevention and crisis management"
+        }
+      ]
+    },
+    {
+      "id": "smart_city",
+      "name_ja": "スマートシティ",
+      "name_en": "Smart City",
+      "icon": "🌆",
+      "color": "#1ABC9C",
+      "systems": [
+        {
+          "id": "smart_city_platform",
+          "name_ja": "スマートシティプラットフォーム",
+          "name_en": "Smart City Platform",
+          "description_ja": "都市全体の統合データプラットフォーム",
+          "description_en": "Integrated data platform for entire city management"
+        },
+        {
+          "id": "iot_solutions",
+          "name_ja": "スマートソリューション",
+          "name_en": "Smart Solutions",
+          "description_ja": "IoTと5Gを活用した市民サービス向上",
+          "description_en": "Improved citizen services using IoT and 5G technology"
+        }
+      ]
+    }
+  ],
+  "staffPresence": {
+    "country_ja": "日本",
+    "country_en": "Japan",
+    "totalLocations": 15,
+    "totalStaffJapan": 143,
+    "locations": [
+      {
+        "id": "kanto_area",
+        "name_ja": "関東エリア",
+        "name_en": "Kanto Area",
+        "staff": 50,
+        "icon": "🏢",
+        "description_ja": "首都近郊の主要拠点、50名の人材を配置",
+        "description_en": "Major base near capital, with 50 personnel"
+      },
+      {
+        "id": "fukuoka",
+        "name_ja": "福岡",
+        "name_en": "Fukuoka",
+        "staff": 20,
+        "icon": "🏢",
+        "description_ja": "九州地域の中核拠点",
+        "description_en": "Core base for Kyushu region"
+      },
+      {
+        "id": "hokkaido",
+        "name_ja": "北海道",
+        "name_en": "Hokkaido",
+        "staff": 9,
+        "icon": "🏢",
+        "description_ja": "北日本の地域拠点",
+        "description_en": "Regional base for northern Japan"
+      },
+      {
+        "id": "nagoya",
+        "name_ja": "名古屋",
+        "name_en": "Nagoya",
+        "staff": 10,
+        "icon": "🏢",
+        "description_ja": "中部地域の重要拠点",
+        "description_en": "Important base for Chubu region"
+      },
+      {
+        "id": "osaka",
+        "name_ja": "大阪",
+        "name_en": "Osaka",
+        "staff": 10,
+        "icon": "🏢",
+        "description_ja": "関西地域の主要拠点",
+        "description_en": "Major base for Kansai region"
+      },
+      {
+        "id": "hiroshima",
+        "name_ja": "広島",
+        "name_en": "Hiroshima",
+        "staff": 6,
+        "icon": "🏢",
+        "description_ja": "中国地域の地域拠点",
+        "description_en": "Regional base for Chugoku region"
+      },
+      {
+        "id": "yamagata",
+        "name_ja": "山形",
+        "name_en": "Yamagata",
+        "staff": 6,
+        "icon": "🏢",
+        "description_ja": "東北地域の地域拠点",
+        "description_en": "Regional base for Tohoku region"
+      },
+      {
+        "id": "aomori",
+        "name_ja": "青森",
+        "name_en": "Aomori",
+        "staff": 3,
+        "icon": "🏢",
+        "description_ja": "北東地域の拠点",
+        "description_en": "Base for northeastern region"
+      },
+      {
+        "id": "shizuoka",
+        "name_ja": "静岡",
+        "name_en": "Shizuoka",
+        "staff": 2,
+        "icon": "🏢",
+        "description_ja": "東海地域の拠点",
+        "description_en": "Base for Tokai region"
+      }
+    ],
+    "internationalPresence": {
+      "country_ja": "ベトナム",
+      "country_en": "Vietnam",
+      "staff": 2,
+      "status_ja": "駐在員配置",
+      "status_en": "Stationed personnel",
+      "description_ja": "ベトナムに駐在員を配置し、グローバルな業務を展開",
+      "description_en": "Stationed personnel in Vietnam for global operations"
+    },
+    "mapImage": "/public_service/image31.png",
+    "mapDescription_ja": "日本全国15地域の拠点と人材配置を示す地図",
+    "mapDescription_en": "Map showing office locations and personnel distribution across 15 regions in Japan",
+    "keyCapabilities": [
+      {
+        "capability_ja": "全国展開",
+        "capability_en": "Nationwide deployment",
+        "description_ja": "日本全国15地域に配置された人材により、全国的なサービス提供が可能",
+        "description_en": "Personnel deployed in 15 regions nationwide enables nationwide service delivery"
+      },
+      {
+        "capability_ja": "迅速なリソース確保",
+        "capability_en": "Quick resource procurement",
+        "description_ja": "プロジェクト規模に応じて素早くリソースを増強できる体制",
+        "description_en": "Ability to quickly increase resources according to project scale"
+      },
+      {
+        "capability_ja": "地域ニーズへの対応",
+        "capability_en": "Regional needs adaptation",
+        "description_ja": "各地域の特性に合わせたきめ細かいサービス提供",
+        "description_en": "Customized service delivery tailored to regional characteristics"
+      }
+    ]
+  },
+  "technologies": [
+    {
+      "technology_ja": "クラウドコンピューティング",
+      "technology_en": "Cloud Computing",
+      "description_ja": "スケーラブルで安全なクラウドプラットフォーム",
+      "description_en": "Scalable and secure cloud platforms"
+    },
+    {
+      "technology_ja": "IoT・センサー技術",
+      "technology_en": "IoT & Sensor Technology",
+      "description_ja": "大規模なIoTネットワークの構築・運用",
+      "description_en": "Building and operating large-scale IoT networks"
+    },
+    {
+      "technology_ja": "データ分析・AI",
+      "technology_en": "Data Analytics & AI",
+      "description_ja": "ビッグデータの分析とAI活用",
+      "description_en": "Big data analysis and AI utilization"
+    },
+    {
+      "technology_ja": "セキュリティ・暗号化",
+      "technology_en": "Security & Encryption",
+      "description_ja": "エンタープライズレベルのセキュリティ対策",
+      "description_en": "Enterprise-level security measures"
+    },
+    {
+      "technology_ja": "5G・通信",
+      "technology_en": "5G & Communication",
+      "description_ja": "超高速通信の活用",
+      "description_en": "Utilization of ultra-fast communication"
+    }
+  ],
+  "competencies": [
+    {
+      "competency_ja": "公共部門への深い理解",
+      "competency_en": "Deep understanding of public sector",
+      "description_ja": "20年以上の公共システム構築経験",
+      "description_en": "20+ years of public system development experience"
+    },
+    {
+      "competency_ja": "規制対応力",
+      "competency_en": "Regulatory compliance expertise",
+      "description_ja": "複雑な法令・規制への対応実績",
+      "description_en": "Track record of handling complex regulations and compliance"
+    },
+    {
+      "competency_ja": "大規模プロジェクト管理",
+      "competency_en": "Large-scale project management",
+      "description_ja": "複数の大型プロジェクトの同時進行実績",
+      "description_en": "Experience managing multiple large projects simultaneously"
+    },
+    {
+      "competency_ja": "統合システム構築",
+      "competency_en": "Integrated system development",
+      "description_ja": "複数システムの統合と相互接続",
+      "description_en": "Integration and interoperability of multiple systems"
+    },
+    {
+      "competency_ja": "24/7運用対応",
+      "competency_en": "24/7 operation support",
+      "description_ja": "ミッションクリティカルなシステムの継続運用",
+      "description_en": "Continuous operation of mission-critical systems"
+    }
+  ],
+  "slides": {
+    "slide5": {
+      "number": 5,
+      "title_ja": "パブリックサービス ご紹介",
+      "title_en": "Public Service Introduction",
+      "content_ja": "パブリックサービス部門の紹介スライド。FSGが提供する重要なサービス領域の概要を示す",
+      "content_en": "Introduction slide for the Public Service division, showing an overview of an important service area provided by FSG"
+    },
+    "slide7": {
+      "number": 7,
+      "title_ja": "公共部門サービスの詳細",
+      "title_en": "Details of Public Sector Services",
+      "subtitle_ja": "11の主要産業・75以上の自治体向けサービス実績",
+      "subtitle_en": "Track record across 11 major industries and for 75+ municipalities",
+      "content_ja": "交通・インフラ、エネルギー、政府・行政、医療・福祉、教育、鉄道、地方自治体、航空・宇宙、消防・防災、スマートシティなど、11の主要分野における45以上のシステム構築実績を紹介",
+      "content_en": "Presents track record of 45+ systems built across 11 major sectors including transportation/infrastructure, energy, government/administration, healthcare/welfare, education, rail, municipalities, aviation/aerospace, emergency services/disaster prevention, and smart cities"
+    },
+    "slide8": {
+      "number": 8,
+      "title_ja": "公共人材のハイライト",
+      "title_en": "Highlights of Public Human Resources",
+      "subtitle_ja": "全国15地域で143名の人材を配置",
+      "subtitle_en": "143 personnel deployed in 15 regions nationwide",
+      "content_ja": "日本全国15地域に合計143名の専門人材を配置し、迅速なリソース確保体制を整備。ベトナムにも駐在員を配置してグローバルな対応を実施",
+      "content_en": "Deploying 143 specialized personnel across 15 regions nationwide with quick resource deployment capabilities. Also has stationed personnel in Vietnam for global operations",
+      "mapImage": "/public_service/image31.png"
+    }
+  },
+  "metadata": {
+    "createdDate": "2026-02-06",
+    "version": "1.0",
+    "sourceFile": "ppt_extracted/ppt/slides/slide5.xml, slide7.xml, slide8.xml",
+    "languages": ["Japanese", "English"],
+    "industryCount": 11,
+    "systemCount": 45,
+    "totalLocations": 15,
+    "totalStaff": 143
+  }
+}

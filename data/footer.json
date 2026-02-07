@@ -1,0 +1,114 @@
+{
+  "company": {
+    "name_ja": "ＦＰＴジャパンホールディングス株式会社",
+    "name_en": "FPT Japan Holdings Co., Ltd.",
+    "brand": "FPT Software",
+    "address_ja": "〒108-0073 東京都港区三田3丁目5−19 住友不動産東京三田ガーデンタワー33階",
+    "address_en": "Sumitomo Fudosan Tokyo Mita Garden Tower 33F, 3-5-19 Mita, Minato-ku, Tokyo 108-0073",
+    "copyright": "Copyright © 2026 FPT Software."
+  },
+  "cta": {
+    "title_ja": "グローバルIT企業のＦＰＴが貴社の課題を解決します",
+    "title_en": "Global IT company FPT solves your business challenges",
+    "contactUrl": "/contact"
+  },
+  "socialMedia": [
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/FPTJapanFPT/",
+      "icon": "facebook"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/company/fptjapanholdings/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/FPT_Japan",
+      "icon": "twitter"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@fptjapanholdings9566",
+      "icon": "youtube"
+    },
+    {
+      "name": "Mail",
+      "url": "/contact",
+      "icon": "mail"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label_ja": "企業情報",
+      "label_en": "About Us",
+      "url": "https://fptsoftware.jp/about-us/fpt-japan"
+    },
+    {
+      "label_ja": "採用情報",
+      "label_en": "Careers",
+      "url": "https://recruit.fpt-software.jp/"
+    },
+    {
+      "label_ja": "イベント",
+      "label_en": "Events",
+      "url": "https://fptsoftware.jp/newsroom/event-calendar"
+    },
+    {
+      "label_ja": "ニュースルーム",
+      "label_en": "Newsroom",
+      "url": "https://fptsoftware.jp/newsroom"
+    },
+    {
+      "label_ja": "お客さまの声",
+      "label_en": "Customer Testimonials",
+      "url": "https://fptsoftware.jp/resource-center/customer-testimonials"
+    },
+    {
+      "label_ja": "お問い合わせ",
+      "label_en": "Contact Us",
+      "url": "/contact"
+    }
+  ],
+  "legalLinks": [
+    {
+      "label_ja": "サイトのご利用条件について",
+      "label_en": "Terms of Use",
+      "url": "https://fptsoftware.jp/terms-of-use"
+    },
+    {
+      "label_ja": "プライバシーステートメント",
+      "label_en": "Privacy Statement",
+      "url": "https://fptsoftware.jp/security-policy-privacy-statement"
+    },
+    {
+      "label_ja": "ビジネス行動規範",
+      "label_en": "Code of Business Conduct",
+      "url": "https://fptsoftware.jp/fpt-code-of-business-conduct"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Privacy Mark",
+      "url": "https://entity-search.jipdec.or.jp/pmark"
+    },
+    {
+      "name": "ISMS (ISO 27001)",
+      "url": "https://isms.jp/lst/ind/CR_IS_x0020_713288.html"
+    },
+    {
+      "name": "EcoVadis",
+      "url": "https://ecovadis.com/ja/about-us/"
+    }
+  ],
+  "navigation": {
+    "services_ja": "サービス",
+    "services_en": "Services",
+    "industries_ja": "業界",
+    "industries_en": "Industries",
+    "resources_ja": "リソースセンター",
+    "resources_en": "Resource Center",
+    "resourcesUrl": "https://fptsoftware.jp/resource-center"
+  }
+}

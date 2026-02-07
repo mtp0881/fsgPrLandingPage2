@@ -1,0 +1,239 @@
+{
+  "organization": {
+    "name": "FSG (Financial Services Group)",
+    "company": "FPT Software",
+    "description": "FSG specializes in providing technology solutions for the financial and public services.",
+    "languageSupport": ["Japanese", "English"]
+  },
+  "departments": [
+    {
+      "id": "BOD",
+      "name": "BOD",
+      "fullName": "Board of Directors",
+      "japaneseFullName": "取締役会",
+      "description_ja": "経営執行委員会",
+      "description_en": "Board of Directors",
+      "members": ["NgaPV","HungNV1","HuyNQ23","Tanaka","HaBV3","HuyenHTP"],
+      "icon": "👔",
+      "color": "#131A3F"
+    },
+    {
+      "id": "PMO",
+      "name": "PMO",
+      "fullName": "Project Management Office",
+      "japaneseFullName": "プロジェクト管理室",
+      "description_ja": "プロジェクト管理とビジネス開発に責任",
+      "description_en": "Responsible for project management and business development",
+      "members": ["HuyenHTP"],
+      "icon": "📊",
+      "color": "#4A90E2"
+    },
+    {
+      "id": "CX",
+      "name": "CX",
+      "fullName": "Government & Public Services Development Division",
+      "japaneseFullName": "パブリックサービス開発部",
+      "description_ja": "政府(省庁、税務、年金)、福祉、公的医療、スマートシティ、警察向けのソリューション開発に特化",
+      "description_en": "Specializes in solutions for Government (Ministries, Tax, Pension), Welfare, Public Healthcare, Smart City, Police",
+      "members": ["HuyNQ23", "ThinhTX"],
+      "icon": "🏛️",
+      "color": "#27AE60"
+    },
+    {
+      "id": "DX",
+      "name": "DX",
+      "fullName": "Digital Financial Solution Development Division",
+      "japaneseFullName": "デジタル金融ソリューション開発部",
+      "description_ja": "銀行、クレジットカード、決済・フィンテック向けのソリューション開発に特化",
+      "description_en": "Specializes in solutions for Bank, Credit card, Payment & Fintech",
+      "members": ["HuyenHTP", "Tanaka"],
+      "icon": "💳",
+      "color": "#E74C3C"
+    },
+    {
+      "id": "CO",
+      "name": "CO",
+      "fullName": "Financial Core Service Development Division",
+      "japaneseFullName": "金融コアサービス開発部",
+      "description_ja": "信託銀行、証券向けのコアバックエンドソリューション開発に特化",
+      "description_en": "Specializes in core backend solutions for Trust bank, Securities",
+      "members": ["HaBV3"],
+      "icon": "🏦",
+      "color": "#8E44AD"
+    },
+    {
+      "id": "AWS",
+      "name": "AWS",
+      "fullName": "AWS & Infrastructure Team",
+      "japaneseFullName": "AWS&インフラストラクチャ部門",
+      "description_ja": "クラウドインフラストラクチャとシステム運用を担当",
+      "description_en": "Responsible for cloud infrastructure and system operations",
+      "members": ["Tanaka"],
+      "icon": "☁️",
+      "color": "#FF9900"
+    },
+    {
+      "id": "RA/HR",
+      "name": "RA/HR",
+      "fullName": "Resource Allocation / Human Resources",
+      "japaneseFullName": "リソース配分/人事部門",
+      "description_ja": "チームメンバーのプロジェクト割り当てと人事管理を担当",
+      "description_en": "Responsible for team assignment and HR management",
+      "members": ["ThinhTX","HuyenHTP"],
+      "icon": "👥",
+      "color": "#3498DB"
+    },
+    {
+      "id": "Presale",
+      "name": "Presale",
+      "fullName": "Presale Department",
+      "japaneseFullName": "プレセールス部門",
+      "description_ja": "営業前のコンサルティングと提案作成に専門",
+      "description_en": "Pre-sales consulting and proposal creation",
+      "nearshoreLocations": ["沖縄 (Okinawa)", "福岡 (Fukuoka)", "北海道 (Hokkaido)"],
+      "estimatedStaff": "~100",
+      "members": ["Tanaka", "HaBV3"],
+      "icon": "🎯",
+      "color": "#1ABC9C"
+    },
+    {
+      "id": "Salesforce Program",
+      "name": "Salesforce Program",
+      "fullName": "Salesforce Program",
+      "japaneseFullName": "セールスフォース・プログラム",
+      "description_ja": "Salesforceの実装とカスタマイズに特化",
+      "description_en": "Specialized in Salesforce implementation and customization",
+      "members": ["Tanaka"],
+      "icon": "💼",
+      "color": "#00A1DF"
+    }
+  ],
+  "members": [
+    {
+      "id": "HuyenHTP",
+      "name": "HuyenHTP",
+      "title": "Senior Executive / Director",
+      "title_ja": "シニア・エグゼクティブ/ディレクター",
+      "position": "Executive Member",
+      "position_ja": "実行委員",
+      "departments": ["BOD", "PMO", "DX", "RA/HR"],
+      "bio_ja": "FSG部門の戦略的リーダーシップを担当",
+      "bio_en": "Leads strategic direction of FSG division",
+      "imageUrl": "/organization/image10.png",
+      "role": "leader",
+      "order": 1
+    },
+    {
+      "id": "ThinhTX",
+      "name": "ThinhTX",
+      "title": "Senior Project Manager",
+      "title_ja": "シニア・プロジェクト・マネージャー",
+      "position": "PMO Member",
+      "position_ja": "PMOメンバー",
+      "departments": ["CX", "RA/HR"],
+      "bio_ja": "PMO主要プロジェクトの管理を担当",
+      "bio_en": "Manages key PMO projects",
+      "imageUrl": "/organization/image11.jpeg",
+      "role": "manager",
+      "order": 2
+    },
+    {
+      "id": "Tanaka",
+      "name": "Tanaka",
+      "title": "Presale Consultant",
+      "title_ja": "プレセールス・コンサルタント",
+      "position": "Presale Team Lead",
+      "position_ja": "プレセールスチームリーダー",
+      "departments": ["BOD","Presale", "DX","Salesforce Program"],
+      "bio_ja": "プレセールスコンサルティングの専門家、金融ソリューションに深い知識を持つ",
+      "bio_en": "Pre-sales consulting expert with deep knowledge of financial solutions",
+      "imageUrl": "/organization/image9.jpeg",
+      "role": "presale_lead",
+      "order": 3
+    },
+    {
+      "id": "HaBV3",
+      "name": "HaBV3",
+      "title": "Presale Consultant",
+      "title_ja": "プレセールス・コンサルタント",
+      "position": "Presale Consultant",
+      "position_ja": "プレセールス・コンサルタント",
+      "departments": ["BOD","Presale", "CO"],
+      "bio_ja": "ニアショア地域のプレセールスコンサルティング専門家",
+      "bio_en": "Pre-sales consultant serving nearshore regions",
+      "imageUrl": "/organization/image8.jpeg",
+      "role": "presale",
+      "order": 4
+    },
+    {
+      "id": "HuyNQ23",
+      "name": "HuyNQ23",
+      "title": "Senior Executive",
+      "title_ja": "シニア・エグゼクティブ",
+      "position": "Executive",
+      "position_ja": "エグゼクティブ",
+      "departments": ["BOD","CX"],
+      "bio_ja": "上級管理職",
+      "bio_en": "Senior management",
+      "imageUrl": "/organization/image6.jpeg",
+      "role": "executive",
+      "order": 5
+    },
+    {
+      "id": "HungNV1",
+      "name": "HungNV1",
+      "title": "Senior Executive",
+      "title_ja": "シニア・エグゼクティブ",
+      "position": "Executive",
+      "position_ja": "エグゼクティブ",
+      "departments": ["BOD"],
+      "bio_ja": "上級管理職",
+      "bio_en": "Senior management",
+      "imageUrl": "/organization/image7.png",
+      "role": "executive",
+      "order": 6
+    },
+    {
+      "id": "NgaPV",
+      "name": "NgaPV",
+      "title": "Senior Executive",
+      "title_ja": "シニア・エグゼクティブ",
+      "position": "Executive",
+      "position_ja": "エグゼクティブ",
+      "departments": ["BOD"],
+      "bio_ja": "上級管理職",
+      "bio_en": "Senior management",
+      "imageUrl": "/organization/image5.jpeg",
+      "role": "executive",
+      "order": 7
+    }
+  ],
+  "structure": {
+    "level1_executives": ["NgaPV","HungNV1","HuyNQ23","Tanaka","HaBV3","HuyenHTP"],
+    "level2_managers": ["ThinhTX"],
+    "divisional_structure": [
+      {
+        "division": "Business Development",
+        "departments": ["BOD", "PMO", "Presale"]
+      },
+      {
+        "division": "Technology & Development",
+        "departments": ["CX", "DX", "CO"]
+      },
+      {
+        "division": "Operations & Infrastructure",
+        "departments": ["AWS", "RA/HR", "Salesforce Program"]
+      }
+    ]
+  },
+  "metadata": {
+    "createdDate": "2026-02-06",
+    "version": "1.0",
+    "sourceFile": "ppt_extracted/ppt/slides/slide2.xml",
+    "language": "ja",
+    "translations": {
+      "ja": "Japanese",
+      "en": "English"
+    }
+  }
+}

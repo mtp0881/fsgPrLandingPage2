@@ -15,8 +15,8 @@ interface ContentSection {
 }
 
 interface ContentData {
-  jp: ContentSection;
-  vn: ContentSection;
+  ja: ContentSection;
+  en: ContentSection;
 }
 
 // Global cache to avoid refetching
