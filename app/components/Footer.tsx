@@ -33,7 +33,7 @@ export default function Footer() {
       {/* CTA Section */}
       {pathname !== '/contact' && (
       <div className="relative border-b border-slate-800 overflow-hidden">
-        <Image src="/images/background.webp" alt="" fill className="object-cover opacity-20" />
+        <Image src="/images/Background.webp" alt="" fill className="object-cover opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
           <h3 className="text-xl sm:text-2xl font-bold mb-4">
             {isJapanese ? footerData.cta.title_ja : footerData.cta.title_en}
