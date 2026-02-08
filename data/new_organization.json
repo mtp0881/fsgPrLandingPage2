@@ -1,0 +1,266 @@
+{
+  "organization": {
+    "name": "Public Finance Service Development Department",
+    "name_ja": "公共・金融サービス開発部門",
+    "abbreviation": "FSG",
+    "nearshore": {
+      "locations": ["Okinawa", "Fukuoka", "Hokkaido"],
+      "locations_ja": ["沖縄", "福岡", "北海道"],
+      "headcount": 100
+    }
+  },
+  "departments": [
+    {
+      "id": "bod",
+      "name": "Board of Directors",
+      "name_ja": "取締役会",
+      "abbreviation": "BOD",
+      "description": "Executive leadership team overseeing all FSG operations"
+    },
+    {
+      "id": "public_service",
+      "name": "Public Service Department",
+      "name_ja": "公共サービス部",
+      "abbreviation": "CX",
+      "description": "Government (Ministries, Tax, Pension), Welfare, Public Healthcare, Smart City, Police",
+      "clients": [
+        "NES/NTT Government and public sector",
+        "NES, NEC Police development / law enforcement infrastructure / Education",
+        "NES Smart city / Smart safety / Media"
+      ]
+    },
+    {
+      "id": "digital_finance",
+      "name": "Digital Finance Solution Department",
+      "name_ja": "デジタル金融ソリューション部",
+      "abbreviation": "DX",
+      "description": "Bank, Securities, Credit card, Payment & Fintech",
+      "clients": [
+        "IBM (MUFG, SMBC), NEC-related (AI)",
+        "Rakuten, DIR, SMTB, NRI",
+        "Resona, other Banks",
+        "Others: Boostry, Paypay, CTC, ZHR, CAC, TDSL, TDEN"
+      ]
+    },
+    {
+      "id": "finance_core",
+      "name": "Finance Core Service Department",
+      "name_ja": "金融コアサービス部",
+      "abbreviation": "CO",
+      "description": "Trust bank, Securities",
+      "clients": [
+        "Trust bank: MUSK, CBJ, CITS-SMTB, SCSK-F",
+        "Securities: JIP, QES",
+        "Others: HTC-F, ISIDJ, TDCS",
+        "Salesforce Program: MUSK, CITS"
+      ]
+    },
+    {
+      "id": "pmo",
+      "name": "Project Management Office",
+      "name_ja": "プロジェクト管理室",
+      "abbreviation": "PMO",
+      "description": "Cross-functional project management office"
+    },
+    {
+      "id": "ra_hr",
+      "name": "RA/HR",
+      "name_ja": "リソース配置・人事",
+      "abbreviation": "RA/HR",
+      "description": "Resource Allocation and Human Resources management across FSG"
+    },
+    {
+      "id": "aws_swat",
+      "name": "AWS / SWAT",
+      "name_ja": "AWS・SWAT",
+      "abbreviation": "AWS/SWAT",
+      "description": "Technical support team for AWS cloud infrastructure and SWAT rapid-response tasks"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce Program",
+      "name_ja": "Salesforceプログラム",
+      "abbreviation": "Salesforce Program",
+      "description": "Salesforce development program under Finance Core Service Department",
+      "clients": ["MUSK", "CITS"]
+    },
+    {
+      "id": "ai_enablement",
+      "name": "AI Enablement",
+      "name_ja": "AI推進",
+      "abbreviation": "AI Enablement",
+      "description": "AI technology enablement and support across departments"
+    }
+  ],
+  "members": [
+    {
+      "id": "ngapv",
+      "name": "NgaPV",
+      "title": "Director",
+      "title_ja": "部長",
+      "position": "BOD Member",
+      "position_ja": "取締役",
+      "departments": ["bod"],
+      "bio_ja": "FSG部門のBODメンバー",
+      "bio_en": "BOD member of FSG department",
+      "imageUrl": "/new_organization/NgaPV.jpeg",
+      "role": "director"
+    },
+    {
+      "id": "huynq23",
+      "name": "HuyNQ23",
+      "title": "Director",
+      "title_ja": "部長",
+      "position": "BOD Member / CX Oversight",
+      "position_ja": "取締役 / CX統括",
+      "departments": ["bod", "public_service"],
+      "bio_ja": "FSG部門のBODメンバー。公共サービス部を統括",
+      "bio_en": "BOD member overseeing Public Service Department (CX)",
+      "imageUrl": "/new_organization/HuyNQ23.jpeg",
+      "role": "director"
+    },
+    {
+      "id": "hungnv1",
+      "name": "HungNV1",
+      "title": "Director",
+      "title_ja": "部長",
+      "position": "BOD Member / DX Oversight",
+      "position_ja": "取締役 / DX統括",
+      "departments": ["bod", "digital_finance"],
+      "bio_ja": "FSG部門のBODメンバー。デジタル金融ソリューション部を統括",
+      "bio_en": "BOD member overseeing Digital Finance Solution Department (DX)",
+      "imageUrl": "/new_organization/HungNV1.png",
+      "role": "director"
+    },
+    {
+      "id": "tanaka",
+      "name": "Tanaka",
+      "title": "Advisor / Director",
+      "title_ja": "アドバイザー / 部長",
+      "position": "BOD Member / CO & Salesforce Oversight",
+      "position_ja": "取締役 / CO・Salesforce統括",
+      "departments": ["bod", "salesforce", "finance_core"],
+      "bio_ja": "FSG部門のBODメンバー（日本人アドバイザー/ディレクター）。金融コアサービス部およびSalesforceプログラムを統括",
+      "bio_en": "BOD member overseeing Finance Core Service Department (CO) and Salesforce Program (Japanese Advisor/Director)",
+      "imageUrl": "/new_organization/Tanaka.jpeg",
+      "role": "director"
+    },
+    {
+      "id": "huyenhtp",
+      "name": "HuyenHTP",
+      "title": "Director",
+      "title_ja": "部長",
+      "position": "BOD Member / CO & RA/HR Oversight",
+      "position_ja": "取締役 / CO・RA/HR統括",
+      "departments": ["bod", "finance_core", "ra_hr"],
+      "bio_ja": "FSG部門のBODメンバー。金融コアサービス部およびRA/HRを統括",
+      "bio_en": "BOD member overseeing Finance Core Service Department (CO) and RA/HR",
+      "imageUrl": "/new_organization/HuyenHTP.png",
+      "role": "director"
+    },
+    {
+      "id": "chivtl",
+      "name": "ChiVTL",
+      "title": "Department Manager",
+      "title_ja": "課長",
+      "position": "AI Enablement Lead",
+      "position_ja": "AI推進リード",
+      "departments": ["ai_enablement"],
+      "bio_ja": "AI推進チームのリーダー",
+      "bio_en": "Lead of AI Enablement team",
+      "imageUrl": "/new_organization/ChiVTL.jpeg",
+      "role": "manager"
+    },
+    {
+      "id": "kataoka",
+      "name": "Kataoka",
+      "title": "Department Manager",
+      "title_ja": "課長",
+      "position": "AI Enablement Lead",
+      "position_ja": "AI推進リード",
+      "departments": ["ai_enablement"],
+      "bio_ja": "AI推進チームのリーダー",
+      "bio_en": "Lead of AI Enablement team",
+      "imageUrl": "/new_organization/Kataoka.png",
+      "role": "manager"
+    },
+    {
+      "id": "thinhtx",
+      "name": "ThinhTX",
+      "title": "Department Manager",
+      "title_ja": "課長",
+      "position": "PMO / RA/HR / CX Lead",
+      "position_ja": "PMO / RA/HR / CXリード",
+      "departments": ["pmo", "ra_hr", "public_service"],
+      "bio_ja": "PMO、RA/HR、公共サービス部を担当",
+      "bio_en": "Responsible for PMO, RA/HR, and Public Service Department (CX)",
+      "imageUrl": "/new_organization/ThinhTX.jpeg",
+      "role": "manager"
+    },
+    {
+      "id": "sonpv12",
+      "name": "SonPV12",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "PMO Lead",
+      "position_ja": "PMOリード",
+      "departments": ["pmo"],
+      "bio_ja": "PMOチームを統括",
+      "bio_en": "Lead of PMO cross-functional team",
+      "imageUrl": "/new_organization/SonPV12.png",
+      "role": "team_lead"
+    },
+    {
+      "id": "quynhht3",
+      "name": "QuynhHT3",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "PMO Lead",
+      "position_ja": "PMOリード",
+      "departments": ["pmo"],
+      "bio_ja": "PMOチームのメンバー",
+      "bio_en": "Member of PMO team",
+      "imageUrl": "/new_organization/QuynhHT3.png",
+      "role": "team_lead"
+    },
+    {
+      "id": "phuongnx8",
+      "name": "PhuongNX8",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "AWS/SWAT Lead",
+      "position_ja": "AWS・SWATリード",
+      "departments": ["aws_swat"],
+      "bio_ja": "AWS/SWATチームのリーダー",
+      "bio_en": "Lead of AWS/SWAT team",
+      "imageUrl": "/new_organization/PhuongNX8.jpeg",
+      "role": "team_lead"
+    },
+    {
+      "id": "phuph3",
+      "name": "PhuPH3",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "AWS/SWAT Lead",
+      "position_ja": "AWS・SWATリード",
+      "departments": ["aws_swat"],
+      "bio_ja": "AWS/SWATチームのリーダー",
+      "bio_en": "Lead of AWS/SWAT team",
+      "imageUrl": "/new_organization/PhuPH3.png",
+      "role": "team_lead"
+    },
+    {
+      "id": "linhnh106",
+      "name": "LinhNH106",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "DX Lead",
+      "position_ja": "DXリード",
+      "departments": ["digital_finance"],
+      "bio_ja": "デジタル金融ソリューション部のチームリーダー",
+      "bio_en": "Team lead in Digital Finance Solution Department (DX)",
+      "imageUrl": "/new_organization/LinhNH106.png",
+      "role": "team_lead"
+    }
+  ]
+}

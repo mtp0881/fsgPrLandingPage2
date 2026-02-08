@@ -14,7 +14,6 @@ import financeExamplesData from '@/data/finance_svc_examples.json';
 export default function Services() {
   const { t, isJapanese } = useLanguage();
   const { departments, members, structure } = orgData;
-  const sortedMembers = [...members].sort((a, b) => a.order - b.order);
   const examples = (publicExamplesData as any).examples || [];
   const financeExamples = (financeExamplesData as any).examples || [];
   const [selectedExample, setSelectedExample] = useState<any>(null);
@@ -78,35 +77,24 @@ export default function Services() {
         </div>
 
         {/* Core Services - Vertical Layout */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-16 mb-16">
 
           {/* ===== PUBLIC SERVICE ===== */}
           <div
             ref={(el) => { sectionRefs.current['public'] = el; }}
             data-section="public"
             className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-            style={expandStyle('public')}
           >
             {/* Header */}
-            <div className="relative px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 overflow-hidden">
-              <Image src="/images/public.jpg" alt="" fill className="object-cover opacity-40" style={{ objectPosition: 'center 85%' }} />
-              <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {isJapanese ? publicServiceData.service.name_ja : publicServiceData.service.name_en}
-                  </h3>
-                </div>
-                <div className="ml-auto flex gap-2 flex-wrap justify-end">
-                  {/* Đã xóa các nội dung: 45+ システム, 11 産業, 15 拠点, 143 人材 */}
-                </div>
-              </div>
-              <p className="text-sm font-medium text-gray-800 mt-1 leading-relaxed">
+            <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
+              <h3 className="text-xl font-bold text-white">
+                {isJapanese ? publicServiceData.service.name_ja : publicServiceData.service.name_en}
+              </h3>
+              <p className="text-sm text-gray-300 mt-1">
                 {isJapanese
                   ? '日本全国15地域に拠点を持ち、中央官庁から自治体まで公共部門向けの包括的なIT支援を提供'
                   : 'Comprehensive IT support for public sector organizations across 15 regions in Japan'}
               </p>
-              </div>
             </div>
 
             {/* Two-column layout: Map left, Info right */}
@@ -123,15 +111,15 @@ export default function Services() {
                       className="w-full h-auto object-contain"
                     />
                     {[
-                      { id: 'hokkaido', top: '15%', left: '77%', side: 'right' },
-                      { id: 'aomori', top: '33%', left: '66%', side: 'right' },
-                      { id: 'yamagata', top: '46%', left: '59%', side: 'left' },
-                      { id: 'kanto_area', top: '62%', left: '62%', side: 'right' },
-                      { id: 'shizuoka', top: '70%', left: '50%', side: 'right' },
-                      { id: 'nagoya', top: '70%', left: '43%', side: 'left' },
-                      { id: 'osaka', top: '74%', left: '33%', side: 'left' },
-                      { id: 'hiroshima', top: '70%', left: '23%', side: 'left' },
-                      { id: 'fukuoka', top: '76%', left: '12%', side: 'left' },
+                      { id: 'hokkaido', top: '13%', left: '73%', side: 'right' },
+                      { id: 'aomori', top: '33%', left: '63%', side: 'right' },
+                      { id: 'yamagata', top: '47%', left: '59%', side: 'right' },
+                      { id: 'kanto_area', top: '66%', left: '61%', side: 'right' },
+                      { id: 'shizuoka', top: '72%', left: '51%', side: 'right' },
+                      { id: 'nagoya', top: '70%', left: '47%', side: 'left' },
+                      { id: 'osaka', top: '74%', left: '31%', side: 'left' },
+                      { id: 'hiroshima', top: '71%', left: '19%', side: 'left' },
+                      { id: 'fukuoka', top: '75%', left: '11%', side: 'left' },
                     ].map((pin) => {
                       const loc = publicServiceData.staffPresence.locations.find((l) => l.id === pin.id);
                       if (!loc) return null;
@@ -168,13 +156,12 @@ export default function Services() {
                     <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '特徴' : 'Features'}</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { icon: '🗾', title_ja: '全国15地域展開', title_en: '15 Locations' },
-                        { icon: '🏗️', title_ja: '多様な業界実績', title_en: 'Diverse Industries' },
-                        { icon: '🔒', title_ja: '高度セキュリティ', title_en: 'Security' },
-                        { icon: '📈', title_ja: '柔軟スケーリング', title_en: 'Scaling' },
+                        { title_ja: '全国15地域展開', title_en: '15 Locations' },
+                        { title_ja: '多様な業界実績', title_en: 'Diverse Industries' },
+                        { title_ja: '高度セキュリティ', title_en: 'Security' },
+                        { title_ja: '柔軟スケーリング', title_en: 'Scaling' },
                       ].map((feat, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
-                          <span className="text-base">{feat.icon}</span>
+                        <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
                           <span className="font-medium text-gray-700 text-xs">{isJapanese ? feat.title_ja : feat.title_en}</span>
                         </div>
                       ))}
@@ -184,54 +171,29 @@ export default function Services() {
                   {/* Industries */}
                   <div>
                     <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対象業界' : 'Industries'}</h4>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {publicServiceData.industries.map((industry) => (
-                        <span key={industry.id} className="inline-flex items-center px-2.5 py-1.5 bg-white border border-gray-200 rounded-lg text-sm hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
-                          <span className="mr-1">{industry.icon}</span>
+                        <span key={industry.id} className="inline-flex items-center px-2.5 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
                           <span className="font-medium text-gray-700">{isJapanese ? industry.name_ja : industry.name_en}</span>
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '技術スタック' : 'Technologies'}</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {publicServiceData.technologies.map((tech, i) => (
-                        <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-medium text-emerald-700">
-                          {isJapanese ? tech.technology_ja : tech.technology_en}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Competencies */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '競争力' : 'Competencies'}</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {publicServiceData.competencies.map((comp, i) => (
-                        <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-medium text-blue-700">
-                          {isJapanese ? comp.competency_ja : comp.competency_en}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
 
             {/* Development Examples */}
-            <div className="px-6 py-4 lg:px-8 bg-emerald-50/50 border-t border-gray-100">
+            <div className="px-6 py-4 lg:px-8 bg-gray-50/50 border-t-2 border-gray-200">
               <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '開発事例' : 'Development Examples'}</h4>
               <div className="flex flex-wrap gap-2">
                 {examples.map((ex: any) => (
                   <button
                     key={ex.id}
                     onClick={() => setSelectedExample(ex)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-emerald-200 rounded-lg text-sm font-medium text-emerald-700 hover:bg-emerald-100 hover:border-emerald-400 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer"
                   >
-                    <span className="text-xs">📋</span>
                     {isJapanese ? ex.projectName?.ja : ex.projectName?.en}
                   </button>
                 ))}
@@ -244,40 +206,31 @@ export default function Services() {
             ref={(el) => { sectionRefs.current['finance'] = el; }}
             data-section="finance"
             className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-            style={expandStyle('finance')}
           >
             {/* Header */}
-            <div className="relative px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 overflow-hidden">
-              <Image src="/images/bank.jpg" alt="" fill className="object-cover opacity-40" style={{ objectPosition: 'center 30%' }} />
-              <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {isJapanese ? 'ファイナンスサービス' : financeServiceData.service.name}
-                  </h3>
-                </div> 
-              </div>
-              <p className="text-sm font-medium text-gray-800 mt-1 leading-relaxed">
+            <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
+              <h3 className="text-xl font-bold text-white">
+                {isJapanese ? 'ファイナンスサービス' : financeServiceData.service.name}
+              </h3>
+              <p className="text-sm text-gray-300 mt-1">
                 {isJapanese ? '銀行・証券・決済など金融機関向けITソリューションを提供' : 'Comprehensive IT solutions for banks, securities firms, and payment systems'}
               </p>
-              </div>
             </div>
 
             {/* Body */}
             <div className="px-6 py-5 lg:px-8">
               {/* 4 Sectors Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {financeServiceData.sectors.map((sector) => (
-                  <div key={sector.id} className="group border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{sector.icon}</span>
+                  <div key={sector.id} className="group border-2 border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all text-center">
+                    <div className="flex items-center justify-center gap-3 mb-3">
                       <h4 className="font-bold text-gray-900 text-sm">
                         {isJapanese ? sector.name : sector.name_en}
                       </h4>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-col items-center gap-1.5">
                       {sector.services.map((service) => (
-                        <span key={service.id} className="inline-flex items-center px-2 py-1 bg-gray-50 border border-gray-200 rounded-lg text-xs text-gray-700 hover:bg-blue-50 hover:border-blue-200 transition-colors cursor-default" title={isJapanese ? service.description_ja : service.description_en}>
+                        <span key={service.id} className="inline-flex items-center px-2 py-1 bg-gray-50 border-2 border-gray-200 rounded-lg text-xs text-gray-700 hover:bg-blue-50 hover:border-blue-200 transition-colors cursor-default" title={isJapanese ? service.description_ja : service.description_en}>
                           {isJapanese ? service.name : (service.name_en || service.name)}
                         </span>
                       ))}
@@ -285,52 +238,18 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-
-              {/* Technologies & Strengths */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                {/* Technologies */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'コア技術' : 'Core Technologies'}</h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {financeServiceData.technologies.map((tech, i) => (
-                      <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-medium text-blue-700" title={isJapanese ? tech.description_ja : tech.description_en}>
-                        {tech.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Strengths */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '強み' : 'Strengths'}</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { icon: '🏆', title_ja: '金融専門性', title_en: 'Expertise', desc_ja: financeServiceData.capabilities.expertise_ja, desc_en: financeServiceData.capabilities.expertise_en },
-                      { icon: '🔗', title_ja: '統合ソリューション', title_en: 'Integration', desc_ja: financeServiceData.capabilities.integration_ja, desc_en: financeServiceData.capabilities.integration_en },
-                      { icon: '🛡️', title_ja: 'コンプライアンス', title_en: 'Compliance', desc_ja: financeServiceData.capabilities.compliance_ja, desc_en: financeServiceData.capabilities.compliance_en },
-                      { icon: '⏰', title_ja: '24/7サポート', title_en: '24/7 Support', desc_ja: financeServiceData.capabilities.support_ja, desc_en: financeServiceData.capabilities.support_en },
-                    ].map((str, i) => (
-                      <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2" title={isJapanese ? str.desc_ja : str.desc_en}>
-                        <span className="text-base">{str.icon}</span>
-                        <span className="font-medium text-gray-700 text-xs">{isJapanese ? str.title_ja : str.title_en}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Development Examples */}
-            <div className="px-6 py-4 lg:px-8 bg-blue-50/50 border-t border-gray-100">
+            <div className="px-6 py-4 lg:px-8 bg-gray-50/50 border-t-2 border-gray-200">
               <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '開発事例' : 'Development Examples'}</h4>
               <div className="flex flex-wrap gap-2">
                 {financeExamples.map((ex: any) => (
                   <button
                     key={ex.id}
                     onClick={() => setSelectedFinanceExample(ex)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-blue-200 rounded-lg text-sm font-medium text-blue-700 hover:bg-blue-100 hover:border-blue-400 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer"
                   >
-                    <span className="text-xs">📋</span>
                     {isJapanese ? ex.projectName?.ja : ex.projectName?.en}
                   </button>
                 ))}
@@ -346,112 +265,97 @@ export default function Services() {
             ref={(el) => { sectionRefs.current['salesforce'] = el; }}
             data-section="salesforce"
             className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-            style={expandStyle('salesforce')}
           >
             {/* Header */}
-            <div className="relative px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 overflow-hidden">
-              <Image src="/images/sale.jpg" alt="" fill className="object-cover opacity-40" style={{ objectPosition: 'center 35%' }} />
-              <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {isJapanese ? 'Salesforce' : 'Salesforce'}
-                  </h3>
-                </div>
-              </div>
-              <p className="text-sm font-medium text-gray-800 mt-1 leading-relaxed">
+            <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
+              <h3 className="text-xl font-bold text-white">
+                {isJapanese ? 'Salesforce' : 'Salesforce'}
+              </h3>
+              <p className="text-sm text-gray-300 mt-1">
                 {isJapanese ? 'CRM/SFA・Marketing領域をワンストップで支援する戦略プログラム' : 'Key program providing one-stop CRM/SFA & Marketing support'}
               </p>
-              </div>
             </div>
 
             {/* Body */}
             <div className="px-6 py-5 lg:px-8">
-              {/* Cloud Solutions */}
-              <div className="mb-5">
-                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'クラウドソリューション' : 'Cloud Solutions'}</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                  {salesforceData.clouds.map((cloud) => (
-                    <div key={cloud.id} className="group border border-gray-200 rounded-xl p-3 hover:border-sky-300 hover:shadow-sm transition-all text-center">
-                      <span className="text-xl block mb-1.5">{cloud.icon}</span>
-                      <h5 className="font-bold text-gray-900 text-xs mb-1.5">{cloud.name}</h5>
-                      <div className="flex flex-wrap justify-center gap-1">
-                        {cloud.capabilities.slice(0, 3).map((cap, i) => (
-                          <span key={i} className="px-1.5 py-0.5 bg-sky-50 border border-sky-200 rounded text-[10px] text-sky-700">
-                            {cap}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-                {/* 人的リソース */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '人的リソース' : 'Human Resources'}</h4>
-                  <div className="space-y-2">
-                    {[
-                      { icon: '👨‍💻', label_ja: 'Salesforceエンジニア・コンサルタント', label_en: 'Salesforce Engineers & Consultants', value: '200+' },
-                      { icon: '🔧', label_ja: 'MuleSoftエンジニア', label_en: 'MuleSoft Engineers', value: '100+' },
-                    ].map((res, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2">
-                        <span className="text-base">{res.icon}</span>
-                        <span className="text-xs font-medium text-gray-700 flex-1">{isJapanese ? res.label_ja : res.label_en}</span>
-                        <span className="text-sm font-bold text-sky-700">{res.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 導入実績 */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '導入実績' : 'Implementation Track Record'}</h4>
-                  <div className="space-y-2">
-                    {[
-                      { name: 'Data Cloud', count: 13, icon: '📈' },
-                      { name: 'MC Engagement', count: 60, icon: '💌' },
-                      { name: 'MC Personalization', count: 6, icon: '🎨' },
-                    ].map((impl, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2">
-                        <span className="text-base">{impl.icon}</span>
-                        <span className="text-xs font-medium text-gray-700 flex-1">{impl.name}</span>
-                        <span className="text-sm font-bold text-sky-700">{impl.count}{isJapanese ? '社' : ' companies'}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                {/* 対応業界 */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対応業界' : 'Target Industries'}</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { icon: '🏭', name_ja: '製造業', name_en: 'Manufacturing' },
-                      { icon: '💰', name_ja: '金融機関', name_en: 'Financial' },
-                      { icon: '🏬', name_ja: '流通・小売業', name_en: 'Distribution/Retail' },
-                      { icon: '🏥', name_ja: '医療機関', name_en: 'Healthcare' },
-                    ].map((ind, i) => (
-                      <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
-                        <span className="text-base">{ind.icon}</span>
-                        <span className="font-medium text-gray-700 text-xs">{isJapanese ? ind.name_ja : ind.name_en}</span>
-                      </div>
-                    ))}
+                {/* Left column: Cloud Solutions + Track Record */}
+                <div className="space-y-5">
+                  {/* Cloud Solutions */}
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'クラウドソリューション' : 'Cloud Solutions'}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {salesforceData.clouds.map((cloud) => (
+                        <div key={cloud.id} className="group border-2 border-gray-200 rounded-xl px-3 py-2 hover:border-sky-300 hover:shadow-sm transition-all text-center">
+                          <span className="font-medium text-gray-900 text-xs">{cloud.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 導入実績 */}
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '導入実績' : 'Implementation Track Record'}</h4>
+                    <div className="space-y-2">
+                      {[
+                        { name: 'Data Cloud', count: 13 },
+                        { name: 'MC Engagement', count: 60 },
+                        { name: 'MC Personalization', count: 6 },
+                      ].map((impl, i) => (
+                        <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                          <span className="text-xs font-medium text-gray-700 flex-1">{impl.name}</span>
+                          <span className="text-xs font-bold text-sky-700">{impl.count}{isJapanese ? '社' : ' companies'}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* 対応プラットフォーム */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'マルチクラウド対応' : 'Multi-Cloud Support'}</h4>
-                  <div className="grid grid-cols-4 gap-3">
-                    {salesforceData.platforms.map((platform) => (
-                      <div key={platform.id} className="relative h-10 bg-gray-50 rounded-lg p-1.5" title={platform.name}>
-                        <Image src={platform.icon} alt={platform.name} fill className="object-contain p-1" />
-                      </div>
-                    ))}
+                {/* Right column: Human Resources + Target Industries + Multi-Cloud */}
+                <div className="space-y-5">
+                  {/* 人的リソース */}
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '人的リソース' : 'Human Resources'}</h4>
+                    <div className="space-y-2">
+                      {[
+                        { label_ja: 'Salesforceエンジニア・コンサルタント', label_en: 'Salesforce Engineers & Consultants', value: '200+' },
+                        { label_ja: 'MuleSoftエンジニア', label_en: 'MuleSoft Engineers', value: '100+' },
+                      ].map((res, i) => (
+                        <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                          <span className="text-xs font-medium text-gray-700 flex-1">{isJapanese ? res.label_ja : res.label_en}</span>
+                          <span className="text-xs font-bold text-sky-700">{res.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 対応業界 */}
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対応業界' : 'Target Industries'}</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        { name_ja: '製造業', name_en: 'Manufacturing' },
+                        { name_ja: '金融機関', name_en: 'Financial' },
+                        { name_ja: '流通・小売業', name_en: 'Distribution/Retail' },
+                        { name_ja: '医療機関', name_en: 'Healthcare' },
+                      ].map((ind, i) => (
+                        <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                          <span className="font-medium text-gray-700 text-xs">{isJapanese ? ind.name_ja : ind.name_en}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* マルチクラウド対応 */}
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'マルチクラウド対応' : 'Multi-Cloud Support'}</h4>
+                    <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 max-w-lg">
+                      {salesforceData.platforms.map((platform) => (
+                        <div key={platform.id} className="relative h-10 bg-gray-50 rounded-lg p-1.5 border-2 border-gray-200" title={platform.name}>
+                          <Image src={platform.icon} alt={platform.name} fill className="object-contain p-1" />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -466,81 +370,221 @@ export default function Services() {
             ref={(el) => { sectionRefs.current['organization'] = el; }}
             data-section="organization"
             className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-            style={expandStyle('organization')}
           >
             {/* Header */}
-            <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100">
-              <div className="flex items-center gap-4 mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">{isJapanese ? '組織体制' : 'Organization'}</h3>
-                </div>
-              </div>
-              <p className="text-sm font-medium text-gray-800 mt-1 leading-relaxed">
-                {isJapanese ? 'FSG事業部の部門・メンバー紹介' : 'FSG departments & team members'}
-              </p>
+            <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
+              <h3 className="text-xl font-bold text-white">{isJapanese ? '公共・金融サービス開発部門' : 'Public Finance Service Development Department'}</h3>
+              <p className="text-sm text-gray-300 mt-1">{isJapanese ? 'FSG事業部の組織体制' : 'FSG Organization Structure'}</p>
             </div>
 
             {/* Body */}
-            <div className="px-6 py-5 lg:px-8 space-y-8">
+            <div className="px-6 py-6 lg:px-8 space-y-8">
 
-              {/* Members */}
+              {/* ── Tier 1: BOD ── */}
               <div>
-                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{t('org.members')}</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
-                  {sortedMembers.map((member) => (
-                    <div key={member.id} className="bg-gray-50 rounded-xl p-3 text-center hover:shadow-md transition-shadow border border-gray-100">
-                      <div className="w-14 h-14 rounded-full overflow-hidden mx-auto mb-2 bg-gray-200">
-                        {member.imageUrl ? (
-                          <Image src={member.imageUrl} alt={member.name} width={56} height={56} className="w-full h-full object-cover" />
-                        ) : null}
-                      </div>
-                      <h4 className="font-semibold text-gray-900 text-xs">{member.name}</h4>
-                      <p className="text-[10px] text-gray-500 mt-0.5">{isJapanese ? member.title_ja : member.title}</p>
-                      <div className="flex flex-wrap justify-center gap-1 mt-1.5">
-                        {member.departments.slice(0, 2).map(deptId => (
-                          <span key={deptId} className="text-[9px] px-1.5 py-0.5 bg-violet-50 text-violet-700 rounded-full">{deptId}</span>
-                        ))}
-                        {member.departments.length > 2 && (
-                          <span className="text-[9px] px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded-full">+{member.departments.length - 2}</span>
-                        )}
-                      </div>
+                <div className="bg-white rounded-xl overflow-hidden border-2 border-gray-200 hover:shadow-md transition-shadow">
+                  <div className="h-1.5" style={{ backgroundColor: '#131A3F' }} />
+                  <div className="p-4">
+                    <div className="mb-4 text-center">
+                      <h5 className="font-bold text-gray-900 text-sm">{t('org.bod')}</h5>
                     </div>
-                  ))}
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {structure.level1_executives.map((memberId) => {
+                        const member = members.find(m => m.id === memberId);
+                        if (!member) return null;
+                        return (
+                          <div key={memberId} className="text-center w-[120px]">
+                            <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-2 ring-2 ring-[#131A3F]/20 bg-gray-200">
+                              <Image src={member.imageUrl} alt={member.name} width={80} height={80} className="w-full h-full object-cover" />
+                            </div>
+                            <h5 className="font-bold text-gray-900 text-sm">{member.name}</h5>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Departments Grid */}
+              {/* ── Tier 2: Cross-functional Teams ── */}
               <div>
-                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{t('org.departments')}</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {departments.map((dept) => (
-                    <div key={dept.id} className="bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
-                      <div className="h-1" style={{ backgroundColor: dept.color }} />
-                      <div className="p-3 flex flex-col flex-1">
-                        <div className="flex items-center gap-2.5 mb-1.5">
-                          <span className="text-lg">{dept.icon}</span>
-                          <div>
-                            <h5 className="font-bold text-gray-900 text-xs">{dept.name}</h5>
-                            <p className="text-[10px] text-gray-500">{isJapanese ? dept.japaneseFullName : dept.fullName}</p>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                  {(() => {
+                    const crossFunctionalDivision = structure.divisional_structure.find(d => d.division === 'Cross-functional Teams');
+                    const crossDeptIds = crossFunctionalDivision ? crossFunctionalDivision.departments : [];
+                    return crossDeptIds.map((deptId) => {
+                      const dept = departments.find(d => d.id === deptId);
+                      if (!dept) return null;
+                      return (
+                        <div key={dept.id} className="bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow border-2 border-gray-200">
+                          <div className="h-1.5" style={{ backgroundColor: dept.color }} />
+                          <div className="p-3 text-center">
+                            <div className="mb-3">
+                              <h5 className="font-bold text-gray-900 text-xs">{dept.name}</h5>
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-2">
+                              {dept.members.map((mId) => {
+                                const m = members.find(mem => mem.id === mId);
+                                if (!m) return null;
+                                return (
+                                  <div key={mId} className="text-center">
+                                    <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white mx-auto">
+                                      <Image src={m.imageUrl} alt={m.name} width={36} height={36} className="w-full h-full object-cover" />
+                                    </div>
+                                    <span className="text-[9px] text-gray-600 mt-0.5 block">{m.name}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
                           </div>
                         </div>
-                        <p className="text-[11px] text-gray-600 mb-1.5">{isJapanese ? dept.description_ja : dept.description_en}</p>
-                        <div className="flex gap-1.5 mt-auto pt-2 overflow-x-auto border-t border-gray-50">
-                          {dept.members.map((memberId) => {
-                            const member = members.find(m => m.id === memberId);
-                            if (!member) return null;
-                            return (
-                              <div key={memberId} className="shrink-0 w-7 h-7 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white" title={member.name}>
-                                <Image src={member.imageUrl} alt={member.name} width={28} height={28} className="w-full h-full object-cover" />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                      );
+                    });
+                  })()}
                 </div>
               </div>
+
+              {/* ── Tier 3: Business Departments ── */}
+              <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {(() => {
+                    const businessDivision = structure.divisional_structure.find(d => d.division === 'Business Departments');
+                    const bizDeptIds = businessDivision ? businessDivision.departments : [];
+                    // Compute max clients count for equal-height client sections
+                    const maxClients = bizDeptIds.reduce((max, deptId) => {
+                      const dept = departments.find(d => d.id === deptId);
+                      const clients = dept ? ((dept as any).clients as string[] | undefined) : undefined;
+                      return Math.max(max, clients ? clients.length : 0);
+                    }, 0);
+                    return bizDeptIds.map((deptId) => {
+                      const dept = departments.find(d => d.id === deptId);
+                      if (!dept) return null;
+                      const deptClients = (dept as any).clients as string[] | undefined;
+                      return (
+                        <div key={dept.id} className="bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow border-2 border-gray-200 flex flex-col">
+                          <div className="h-1.5" style={{ backgroundColor: dept.color }} />
+                          <div className="p-3 flex flex-col flex-1 text-center">
+                            {/* Dept header */}
+                            <div className="mb-2">
+                              <h5 className="font-bold text-gray-900 text-xs">{dept.name}</h5>
+                              <p className="text-[10px] text-gray-500">{isJapanese ? dept.japaneseFullName : dept.fullName}</p>
+                            </div>
+
+                            {/* Members */}
+                            <div className="flex justify-center gap-2 mb-3">
+                              {dept.members.map((mId) => {
+                                const m = members.find(mem => mem.id === mId);
+                                if (!m) return null;
+                                return (
+                                  <div key={mId} className="text-center">
+                                    <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white mx-auto">
+                                      <Image src={m.imageUrl} alt={m.name} width={36} height={36} className="w-full h-full object-cover" />
+                                    </div>
+                                    <span className="text-[9px] text-gray-600 mt-0.5 block">{m.name}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+
+                            {/* Description */}
+                            <div className="mb-2 flex-1 text-left">
+                              <p className="text-[10px] font-semibold text-gray-500 uppercase">{t('org.description')}</p>
+                              <p className="text-[11px] text-gray-600 leading-relaxed">{isJapanese ? dept.description_ja : dept.description_en}</p>
+                            </div>
+
+                            {/* Clients */}
+                            <div className="pt-2 border-t border-gray-50 text-left" style={{ minHeight: `${maxClients * 16 + 24}px` }}>
+                              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">{t('org.clients')}</p>
+                              <ul className="space-y-0.5">
+                                {deptClients && deptClients.map((client, idx) => (
+                                  <li key={idx} className="text-[10px] text-gray-600 leading-tight">• {client}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    });
+                  })()}
+                </div>
+              </div>
+
+              {/* ── Nearshore ── */}
+              <div>
+                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span className="text-lg">📍</span> {t('org.nearshore')}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {orgData.organization.nearshore.locations.map((loc, idx) => (
+                    <span key={idx} className="px-3 py-1.5 bg-gray-50 rounded-lg text-xs text-gray-700 border border-gray-100">
+                      {isJapanese ? orgData.organization.nearshore.locations_ja[idx] : loc}
+                    </span>
+                  ))}
+                  <span className="px-3 py-1.5 bg-blue-50 rounded-lg text-xs text-blue-700 border border-blue-100 font-medium">
+                    👤 ~{orgData.organization.nearshore.headcount} {isJapanese ? '名' : 'members'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="flex items-center gap-3">
+                <div className="flex-1 h-px bg-gray-200" />
+                <div className="flex-1 h-px bg-gray-200" />
+              </div>
+
+              {/* ── BOD Member Details ── */}
+              <div>
+                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
+                  {t('org.bodDetails')}
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {structure.level1_executives.map((memberId) => {
+                    const member = members.find(m => m.id === memberId);
+                    if (!member) return null;
+                    const memberDepts = member.departments.map(dId => {
+                      const d = departments.find(dp => dp.id === dId);
+                      return d ? (isJapanese ? d.japaneseFullName : d.fullName) : dId;
+                    });
+                    return (
+                      <div key={memberId} className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200 hover:shadow-md transition-shadow">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 ring-2 ring-[#131A3F]/10 shrink-0">
+                            <Image src={member.imageUrl} alt={member.name} width={48} height={48} className="w-full h-full object-cover" />
+                          </div>
+                          <div>
+                            <h5 className="font-bold text-gray-900 text-sm">{member.name}</h5>
+                            <p className="text-[10px] text-gray-500">{isJapanese ? member.title_ja : member.title}</p>
+                          </div>
+                        </div>
+                        <div className="space-y-1.5 text-[11px]">
+                          <div className="flex gap-2">
+                            <span className="font-semibold text-gray-500 w-16 shrink-0">{isJapanese ? '役職' : 'Position'}</span>
+                            <span className="text-gray-700">{isJapanese ? member.position_ja : member.position}</span>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="font-semibold text-gray-500 w-16 shrink-0">{isJapanese ? '部門' : 'Depts'}</span>
+                            <div className="flex flex-wrap gap-1">
+                              {member.departments.map(dId => {
+                                const d = departments.find(dp => dp.id === dId);
+                                return (
+                                  <span key={dId} className="px-1.5 py-0.5 bg-violet-50 text-violet-700 rounded-full text-[9px]">
+                                    {d ? d.name : dId}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="font-semibold text-gray-500 w-16 shrink-0">Bio</span>
+                            <span className="text-gray-600">{isJapanese ? member.bio_ja : member.bio_en}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
