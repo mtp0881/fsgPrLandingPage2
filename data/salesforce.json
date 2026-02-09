@@ -82,82 +82,37 @@
         "AI-powered Analytics",
         "Predictive Intelligence",
         "Data Activation"
-      ],
-      "implementation_count": 13
-    }
-  ],
-  "solutions": [
-    {
-      "id": "crm_sfa",
-      "category": "CRM/SFA",
-      "provider": "FPT Software",
-      "description_ja": "営業・顧客管理ソリューション（FPTソフトウェアが提供）",
-      "description_en": "Sales and Customer Management Solution (provided by FPT Software)",
-      "icon": "📋",
-      "color": "#0032A2"
-    },
-    {
-      "id": "marketing",
-      "category": "Marketing",
-      "provider": "NAC",
-      "description_ja": "マーケティング自動化・顧客エンゲージメントソリューション（NAC社が提供）",
-      "description_en": "Marketing Automation and Customer Engagement Solution (provided by NAC)",
-      "icon": "📢",
-      "color": "#0032A2"
-    }
-  ],
-  "implementations": [
-    {
-      "id": "mc_engagement",
-      "name": "Marketing Cloud Engagement",
-      "description_ja": "顧客エンゲージメントとマーケティング自動化を実現するプラットフォーム。60社の導入実績",
-      "description_en": "Customer engagement and marketing automation platform. 60 companies implementation experience",
-      "icon": "💌",
-      "color": "#0032A2",
-      "implementation_count": 60
-    },
-    {
-      "id": "mc_personalization",
-      "name": "Marketing Cloud Personalization",
-      "description_ja": "AIを活用した個人化マーケティングを実現するプラットフォーム。6社の導入実績",
-      "description_en": "Personalized marketing platform powered by AI. 6 companies implementation experience",
-      "icon": "🎨",
-      "color": "#0032A2",
-      "implementation_count": 6
+      ]
     }
   ],
   "industries": [
     {
-      "id": "financial",
-      "name": "金融（Financial）",
-      "description_ja": "金融機関向けのSalesforceソリューション",
-      "description_en": "Salesforce solutions for financial institutions",
-      "icon": "💰",
-      "color": "#0032A2"
+      "id": "manufacturing",
+      "name_ja": "製造業",
+      "name_en": "Manufacturing",
+      "description_ja": "製造業向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for manufacturing industries"
     },
     {
-      "id": "manufacturing",
-      "name": "製造（Manufacturing）",
-      "description_ja": "製造業向けのSalesforceソリューション",
-      "description_en": "Salesforce solutions for manufacturing industries",
-      "icon": "🏭",
-      "color": "#0032A2"
+      "id": "financial",
+      "name_ja": "金融機関",
+      "name_en": "Financial",
+      "description_ja": "金融機関向けのSalesforceソリューション",
+      "description_en": "Salesforce solutions for financial institutions"
     },
     {
       "id": "distribution",
-      "name": "流通（Distribution/Retail）",
+      "name_ja": "流通・小売業",
+      "name_en": "Distribution/Retail",
       "description_ja": "流通・小売業向けのSalesforceソリューション",
-      "description_en": "Salesforce solutions for distribution and retail",
-      "icon": "🏬",
-      "color": "#0032A2"
+      "description_en": "Salesforce solutions for distribution and retail"
     },
     {
       "id": "healthcare",
-      "name": "医療（Healthcare）",
+      "name_ja": "医療機関",
+      "name_en": "Healthcare",
       "description_ja": "医療業界向けのSalesforceソリューション",
-      "description_en": "Salesforce solutions for healthcare industry",
-      "icon": "🏥",
-      "color": "#0032A2"
+      "description_en": "Salesforce solutions for healthcare industry"
     }
   ],
   "capabilities": [
@@ -187,23 +142,68 @@
     }
   ],
   "collaboration": {
-    "description_ja": "2024年春よりFPT SoftwareはグループのNAC社と連携し、CRM/SFA領域だけに留まらずMarketing領域も合わせた包括的な支援サービスを提供しています。",
-    "description_en": "Since spring 2024, FPT Software collaborates with group company NAC to provide comprehensive support covering not only CRM/SFA but also Marketing domains.",
+    "title_ja": "グループ企業内における連携体制",
+    "title_en": "Group Company Collaboration",
+    "description_ja": "グループ会社NAC社との連携により、CRM/SFAからMarketing領域まで包括的に支援",
+    "description_en": "Comprehensive CRM/SFA and Marketing support through collaboration with group company NAC",
     "partners": [
       {
         "id": "fpt_software",
         "name": "FPT Software",
         "domain": "CRM/SFA",
-        "description_ja": "営業・顧客管理領域の専門家"
+        "domain_ja": "CRM/SFA領域",
+        "domain_en": "CRM/SFA",
+        "description_ja": "営業・顧客管理ソリューション（FPTソフトウェアが提供）",
+        "description_en": "Sales and Customer Management Solution (provided by FPT Software)"
       },
       {
         "id": "nac",
         "name": "NAC",
         "domain": "Marketing",
-        "description_ja": "マーケティング・顧客エンゲージメント領域の専門家"
+        "domain_ja": "Marketing領域",
+        "domain_en": "Marketing",
+        "description_ja": "マーケティング自動化・顧客エンゲージメントソリューション（NAC社が提供）",
+        "description_en": "Marketing Automation and Customer Engagement Solution (provided by NAC)"
+      }
+    ],
+    "trackRecord": [
+      {
+        "id": "data_cloud",
+        "name": "Data Cloud",
+        "count": 13,
+        "description_ja": "顧客データを統一的に管理し、AIを活用した分析・予測を実現するデータプラットフォーム",
+        "description_en": "Data platform for unified customer data management and AI-powered analytics"
+      },
+      {
+        "id": "mc_engagement",
+        "name": "MC Engagement",
+        "count": 60,
+        "description_ja": "顧客エンゲージメントとマーケティング自動化を実現するプラットフォーム",
+        "description_en": "Customer engagement and marketing automation platform"
+      },
+      {
+        "id": "mc_personalization",
+        "name": "MC Personalization",
+        "count": 6,
+        "description_ja": "AIを活用した個人化マーケティングを実現するプラットフォーム",
+        "description_en": "Personalized marketing platform powered by AI"
       }
     ]
   },
+  "humanResources": [
+    {
+      "id": "salesforce_engineers",
+      "label_ja": "Salesforceエンジニア・コンサルタント",
+      "label_en": "Salesforce Engineers & Consultants",
+      "value": "200+"
+    },
+    {
+      "id": "mulesoft_engineers",
+      "label_ja": "MuleSoftエンジニア",
+      "label_en": "MuleSoft Engineers",
+      "value": "100+"
+    }
+  ],
   "platforms": [
     {
       "id": "aws",

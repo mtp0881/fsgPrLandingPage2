@@ -25,13 +25,13 @@ export default function Partners() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
           {partners.map((partner, i) => (
-            <div key={i} className="flex items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors h-24">
+            <div key={i} className="flex items-center justify-center p-6 bg-gray-50 rounded-xl h-24">
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 width={140}
                 height={60}
-                className="max-h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100"
+                className="max-h-12 w-auto object-contain"
               />
             </div>
           ))}

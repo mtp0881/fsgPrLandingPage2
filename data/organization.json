@@ -1,7 +1,7 @@
 {
   "organization": {
-    "name": "FSG (Public Finance Service Development Department)",
-    "name_ja": "公共・金融サービス開発部門",
+    "name": "FSG (Public Finance Service Group)",
+    "name_ja": "パブリック・ファイナンスサービス開発事業本部",
     "company": "FPT Software",
     "abbreviation": "FSG",
     "description": "FSG specializes in providing technology solutions for the financial and public services.",
@@ -16,8 +16,8 @@
     {
       "id": "BOD",
       "name": "BOD",
-      "fullName": "Board of Directors",
-      "japaneseFullName": "取締役会",
+      "fullName": "BOD",
+      "japaneseFullName": "BOD",
       "description_ja": "FSG全体を統括する経営執行委員会",
       "description_en": "Executive leadership team overseeing all FSG operations",
       "members": ["NgaPV", "HuyNQ23", "HungNV1", "Tanaka", "HuyenHTP"],
@@ -32,11 +32,6 @@
       "description_ja": "政府(省庁、税務、年金)、福祉、公的医療、スマートシティ、警察向けのソリューション開発に特化",
       "description_en": "Government (Ministries, Tax, Pension), Welfare, Public Healthcare, Smart City, Police",
       "members": ["HuyNQ23", "ThinhTX"],
-      "clients": [
-        "NES/NTT Government and public sector",
-        "NES, NEC Police development / law enforcement infrastructure / Education",
-        "NES Smart city / Smart safety / Media"
-      ],
       "icon": "🏛️",
       "color": "#27AE60"
     },
@@ -48,12 +43,6 @@
       "description_ja": "銀行、証券、クレジットカード、決済・フィンテック向けのソリューション開発に特化",
       "description_en": "Bank, Securities, Credit card, Payment & Fintech",
       "members": ["HungNV1", "LinhNH106"],
-      "clients": [
-        "IBM (MUFG, SMBC), NEC-related (AI)",
-        "Rakuten, DIR, SMTB, NRI",
-        "Resona, other Banks",
-        "Others: Boostry, Paypay, CTC, ZHR, CAC, TDSL, TDEN"
-      ],
       "icon": "💳",
       "color": "#E74C3C"
     },
@@ -65,12 +54,7 @@
       "description_ja": "信託銀行、証券向けのコアバックエンドソリューション開発に特化",
       "description_en": "Trust bank, Securities",
       "members": ["Tanaka", "HuyenHTP"],
-      "clients": [
-        "Trust bank: MUSK, CBJ, CITS-SMTB, SCSK-F",
-        "Securities: JIP, QES",
-        "Others: HTC-F, ISIDJ, TDCS",
-        "Salesforce Program: MUSK, CITS"
-      ],
+      "subDepartments": ["Salesforce Program"],
       "icon": "🏦",
       "color": "#8E44AD"
     },
@@ -81,7 +65,7 @@
       "japaneseFullName": "プロジェクト管理室",
       "description_ja": "部門横断的なプロジェクト管理オフィス",
       "description_en": "Cross-functional project management office",
-      "members": ["ThinhTX", "SonPV12", "QuynhHT3"],
+      "members": ["ThinhTX", "ThoNQ1", "QuynhHT3"],
       "icon": "📊",
       "color": "#4A90E2"
     },
@@ -115,7 +99,6 @@
       "description_ja": "金融コアサービス部門のSalesforce開発プログラム",
       "description_en": "Salesforce development program under Finance Core Service Department",
       "members": ["Tanaka"],
-      "clients": ["MUSK", "CITS"],
       "icon": "💼",
       "color": "#00A1DF"
     },
@@ -129,6 +112,17 @@
       "members": ["ChiVTL", "Kataoka"],
       "icon": "🤖",
       "color": "#9B59B6"
+    },
+    {
+      "id": "YU/WFBP",
+      "name": "YU/WFBP",
+      "fullName": "YU / WFBP",
+      "japaneseFullName": "YU・WFBP",
+      "description_ja": "部門横断的なYU/WFBPチーム",
+      "description_en": "Cross-functional YU/WFBP team",
+      "members": ["ThoNQ1", "ThinhND35"],
+      "icon": "📋",
+      "color": "#2ECC71"
     }
   ],
   "members": [
@@ -245,16 +239,16 @@
       "order": 8
     },
     {
-      "id": "SonPV12",
-      "name": "SonPV12",
+      "id": "ThoNQ1",
+      "name": "ThoNQ1",
       "title": "Team Lead",
       "title_ja": "チームリード",
-      "position": "PMO Lead",
-      "position_ja": "PMOリード",
-      "departments": ["PMO"],
-      "bio_ja": "PMOチームを統括",
-      "bio_en": "Lead of PMO cross-functional team",
-      "imageUrl": "/new_organization/SonPV12.png",
+      "position": "PMO / YU/WFBP Lead",
+      "position_ja": "PMO / YU・WFBPリード",
+      "departments": ["PMO", "YU/WFBP"],
+      "bio_ja": "PMOチームおよびYU/WFBPチームを統括",
+      "bio_en": "Lead of PMO and YU/WFBP cross-functional teams",
+      "imageUrl": "/new_organization/ThoNQ1.png",
       "role": "team_lead",
       "order": 9
     },
@@ -313,11 +307,25 @@
       "imageUrl": "/new_organization/LinhNH106.png",
       "role": "team_lead",
       "order": 13
+    },
+    {
+      "id": "ThinhND35",
+      "name": "ThinhND35",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "YU/WFBP Lead",
+      "position_ja": "YU・WFBPリード",
+      "departments": ["YU/WFBP"],
+      "bio_ja": "YU/WFBPチームのリーダー",
+      "bio_en": "Lead of YU/WFBP team",
+      "imageUrl": "/new_organization/ThinhND35.jpg",
+      "role": "team_lead",
+      "order": 14
     }
   ],
   "structure": {
     "level1_executives": ["NgaPV", "HuyNQ23", "HungNV1", "Tanaka", "HuyenHTP"],
-    "level2_members": ["ChiVTL", "Kataoka", "ThinhTX", "SonPV12", "QuynhHT3", "PhuongNX8", "PhuPH3", "LinhNH106"],
+    "level2_members": ["ChiVTL", "Kataoka", "ThinhTX", "ThoNQ1", "QuynhHT3", "PhuongNX8", "PhuPH3", "LinhNH106", "ThinhND35"],
     "divisional_structure": [
       {
         "division": "Executive Leadership",
@@ -325,11 +333,11 @@
       },
       {
         "division": "Business Departments",
-        "departments": ["CX", "DX", "CO", "Salesforce Program"]
+        "departments": ["CX", "DX", "CO"]
       },
       {
         "division": "Cross-functional Teams",
-        "departments": ["PMO", "RA/HR", "AWS/SWAT", "AI Enablement"]
+        "departments": ["PMO", "RA/HR", "AWS/SWAT", "AI Enablement", "YU/WFBP"]
       }
     ]
   },

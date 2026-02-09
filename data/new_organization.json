@@ -1,7 +1,7 @@
 {
   "organization": {
-    "name": "Public Finance Service Development Department",
-    "name_ja": "公共・金融サービス開発部門",
+    "name": "Public Finance Service Group",
+    "name_ja": "パブリック・ファイナンスサービス開発事業本部",
     "abbreviation": "FSG",
     "nearshore": {
       "locations": ["Okinawa", "Fukuoka", "Hokkaido"],
@@ -12,8 +12,8 @@
   "departments": [
     {
       "id": "bod",
-      "name": "Board of Directors",
-      "name_ja": "取締役会",
+      "name": "BOD",
+      "name_ja": "BOD",
       "abbreviation": "BOD",
       "description": "Executive leadership team overseeing all FSG operations"
     },
@@ -22,25 +22,14 @@
       "name": "Public Service Department",
       "name_ja": "公共サービス部",
       "abbreviation": "CX",
-      "description": "Government (Ministries, Tax, Pension), Welfare, Public Healthcare, Smart City, Police",
-      "clients": [
-        "NES/NTT Government and public sector",
-        "NES, NEC Police development / law enforcement infrastructure / Education",
-        "NES Smart city / Smart safety / Media"
-      ]
+      "description": "Government (Ministries, Tax, Pension), Welfare, Public Healthcare, Smart City, Police"
     },
     {
       "id": "digital_finance",
       "name": "Digital Finance Solution Department",
       "name_ja": "デジタル金融ソリューション部",
       "abbreviation": "DX",
-      "description": "Bank, Securities, Credit card, Payment & Fintech",
-      "clients": [
-        "IBM (MUFG, SMBC), NEC-related (AI)",
-        "Rakuten, DIR, SMTB, NRI",
-        "Resona, other Banks",
-        "Others: Boostry, Paypay, CTC, ZHR, CAC, TDSL, TDEN"
-      ]
+      "description": "Bank, Securities, Credit card, Payment & Fintech"
     },
     {
       "id": "finance_core",
@@ -48,12 +37,7 @@
       "name_ja": "金融コアサービス部",
       "abbreviation": "CO",
       "description": "Trust bank, Securities",
-      "clients": [
-        "Trust bank: MUSK, CBJ, CITS-SMTB, SCSK-F",
-        "Securities: JIP, QES",
-        "Others: HTC-F, ISIDJ, TDCS",
-        "Salesforce Program: MUSK, CITS"
-      ]
+      "subDepartments": ["salesforce"]
     },
     {
       "id": "pmo",
@@ -81,8 +65,7 @@
       "name": "Salesforce Program",
       "name_ja": "Salesforceプログラム",
       "abbreviation": "Salesforce Program",
-      "description": "Salesforce development program under Finance Core Service Department",
-      "clients": ["MUSK", "CITS"]
+      "description": "Salesforce development program under Finance Core Service Department"
     },
     {
       "id": "ai_enablement",
@@ -90,6 +73,13 @@
       "name_ja": "AI推進",
       "abbreviation": "AI Enablement",
       "description": "AI technology enablement and support across departments"
+    },
+    {
+      "id": "yu_wfbp",
+      "name": "YU / WFBP",
+      "name_ja": "YU・WFBP",
+      "abbreviation": "YU/WFBP",
+      "description": "Cross-functional YU/WFBP team"
     }
   ],
   "members": [
@@ -198,16 +188,16 @@
       "role": "manager"
     },
     {
-      "id": "sonpv12",
-      "name": "SonPV12",
+      "id": "thonq1",
+      "name": "ThoNQ1",
       "title": "Team Lead",
       "title_ja": "チームリード",
-      "position": "PMO Lead",
-      "position_ja": "PMOリード",
-      "departments": ["pmo"],
-      "bio_ja": "PMOチームを統括",
-      "bio_en": "Lead of PMO cross-functional team",
-      "imageUrl": "/new_organization/SonPV12.png",
+      "position": "PMO / YU/WFBP Lead",
+      "position_ja": "PMO / YU・WFBPリード",
+      "departments": ["pmo", "yu_wfbp"],
+      "bio_ja": "PMOチームおよびYU/WFBPチームを統括",
+      "bio_en": "Lead of PMO and YU/WFBP cross-functional teams",
+      "imageUrl": "/new_organization/ThoNQ1.png",
       "role": "team_lead"
     },
     {
@@ -260,6 +250,19 @@
       "bio_ja": "デジタル金融ソリューション部のチームリーダー",
       "bio_en": "Team lead in Digital Finance Solution Department (DX)",
       "imageUrl": "/new_organization/LinhNH106.png",
+      "role": "team_lead"
+    },
+    {
+      "id": "thinhnd35",
+      "name": "ThinhND35",
+      "title": "Team Lead",
+      "title_ja": "チームリード",
+      "position": "YU/WFBP Lead",
+      "position_ja": "YU・WFBPリード",
+      "departments": ["yu_wfbp"],
+      "bio_ja": "YU/WFBPチームのリーダー",
+      "bio_en": "Lead of YU/WFBP team",
+      "imageUrl": "/new_organization/ThinhND35.jpg",
       "role": "team_lead"
     }
   ]

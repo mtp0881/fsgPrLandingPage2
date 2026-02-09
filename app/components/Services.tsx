@@ -171,11 +171,11 @@ export default function Services() {
                   {/* Industries */}
                   <div>
                     <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対象業界' : 'Industries'}</h4>
-                    <div className="grid grid-cols-2 gap-1.5">
+                    <div className="grid grid-cols-2 gap-2">
                       {publicServiceData.industries.map((industry) => (
-                        <span key={industry.id} className="inline-flex items-center px-2.5 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
-                          <span className="font-medium text-gray-700">{isJapanese ? industry.name_ja : industry.name_en}</span>
-                        </span>
+                        <div key={industry.id} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                          <span className="font-medium text-gray-700 text-xs">{isJapanese ? industry.name_ja : industry.name_en}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -187,12 +187,12 @@ export default function Services() {
             {/* Development Examples */}
             <div className="px-6 py-4 lg:px-8 bg-gray-50/50 border-t-2 border-gray-200">
               <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '開発事例' : 'Development Examples'}</h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {examples.map((ex: any) => (
                   <button
                     key={ex.id}
                     onClick={() => setSelectedExample(ex)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer"
+                    className="px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer text-center"
                   >
                     {isJapanese ? ex.projectName?.ja : ex.projectName?.en}
                   </button>
@@ -222,7 +222,7 @@ export default function Services() {
               {/* 4 Sectors Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {financeServiceData.sectors.map((sector) => (
-                  <div key={sector.id} className="group border-2 border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all text-center">
+                  <div key={sector.id} className="border-2 border-gray-200 rounded-xl p-4 text-center">
                     <div className="flex items-center justify-center gap-3 mb-3">
                       <h4 className="font-bold text-gray-900 text-sm">
                         {isJapanese ? sector.name : sector.name_en}
@@ -230,7 +230,7 @@ export default function Services() {
                     </div>
                     <div className="flex flex-col items-center gap-1.5">
                       {sector.services.map((service) => (
-                        <span key={service.id} className="inline-flex items-center px-2 py-1 bg-gray-50 border-2 border-gray-200 rounded-lg text-xs text-gray-700 hover:bg-blue-50 hover:border-blue-200 transition-colors cursor-default" title={isJapanese ? service.description_ja : service.description_en}>
+                        <span key={service.id} className="inline-flex items-center px-2 py-1 bg-gray-50 border-2 border-gray-200 rounded-lg text-xs text-gray-700" title={isJapanese ? service.description_ja : service.description_en}>
                           {isJapanese ? service.name : (service.name_en || service.name)}
                         </span>
                       ))}
@@ -243,12 +243,12 @@ export default function Services() {
             {/* Development Examples */}
             <div className="px-6 py-4 lg:px-8 bg-gray-50/50 border-t-2 border-gray-200">
               <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '開発事例' : 'Development Examples'}</h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {financeExamples.map((ex: any) => (
                   <button
                     key={ex.id}
                     onClick={() => setSelectedFinanceExample(ex)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer"
+                    className="px-3 py-1.5 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-colors cursor-pointer text-center"
                   >
                     {isJapanese ? ex.projectName?.ja : ex.projectName?.en}
                   </button>
@@ -278,84 +278,99 @@ export default function Services() {
 
             {/* Body */}
             <div className="px-6 py-5 lg:px-8">
+              {/* Top area: 2x2 grid */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                {/* Left column: Cloud Solutions + Track Record */}
-                <div className="space-y-5">
-                  {/* Cloud Solutions */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'クラウドソリューション' : 'Cloud Solutions'}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {salesforceData.clouds.map((cloud) => (
-                        <div key={cloud.id} className="group border-2 border-gray-200 rounded-xl px-3 py-2 hover:border-sky-300 hover:shadow-sm transition-all text-center">
-                          <span className="font-medium text-gray-900 text-xs">{cloud.name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 導入実績 */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '導入実績' : 'Implementation Track Record'}</h4>
-                    <div className="space-y-2">
-                      {[
-                        { name: 'Data Cloud', count: 13 },
-                        { name: 'MC Engagement', count: 60 },
-                        { name: 'MC Personalization', count: 6 },
-                      ].map((impl, i) => (
-                        <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
-                          <span className="text-xs font-medium text-gray-700 flex-1">{impl.name}</span>
-                          <span className="text-xs font-bold text-sky-700">{impl.count}{isJapanese ? '社' : ' companies'}</span>
-                        </div>
-                      ))}
-                    </div>
+                {/* Row 1 Left: Cloud Solutions */}
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'クラウドソリューション' : 'Cloud Solutions'}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {salesforceData.clouds.map((cloud) => (
+                      <div key={cloud.id} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                        <span className="font-medium text-gray-700 text-xs">{cloud.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Right column: Human Resources + Target Industries + Multi-Cloud */}
-                <div className="space-y-5">
-                  {/* 人的リソース */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '人的リソース' : 'Human Resources'}</h4>
-                    <div className="space-y-2">
-                      {[
-                        { label_ja: 'Salesforceエンジニア・コンサルタント', label_en: 'Salesforce Engineers & Consultants', value: '200+' },
-                        { label_ja: 'MuleSoftエンジニア', label_en: 'MuleSoft Engineers', value: '100+' },
-                      ].map((res, i) => (
-                        <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
-                          <span className="text-xs font-medium text-gray-700 flex-1">{isJapanese ? res.label_ja : res.label_en}</span>
-                          <span className="text-xs font-bold text-sky-700">{res.value}</span>
-                        </div>
-                      ))}
-                    </div>
+                {/* Row 1 Right: Human Resources */}
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '人的リソース' : 'Human Resources'}</h4>
+                  <div className="space-y-2">
+                    {salesforceData.humanResources.map((res) => (
+                      <div key={res.id} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                        <span className="text-xs font-medium text-gray-700 flex-1">{isJapanese ? res.label_ja : res.label_en}</span>
+                        <span className="text-xs font-bold text-sky-700">{res.value}</span>
+                      </div>
+                    ))}
                   </div>
+                </div>
 
-                  {/* 対応業界 */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対応業界' : 'Target Industries'}</h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {[
-                        { name_ja: '製造業', name_en: 'Manufacturing' },
-                        { name_ja: '金融機関', name_en: 'Financial' },
-                        { name_ja: '流通・小売業', name_en: 'Distribution/Retail' },
-                        { name_ja: '医療機関', name_en: 'Healthcare' },
-                      ].map((ind, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
-                          <span className="font-medium text-gray-700 text-xs">{isJapanese ? ind.name_ja : ind.name_en}</span>
-                        </div>
-                      ))}
-                    </div>
+                {/* Row 2 Left: Industries */}
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? '対応業界' : 'Target Industries'}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {salesforceData.industries.map((ind) => (
+                      <div key={ind.id} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 border-2 border-gray-200">
+                        <span className="font-medium text-gray-700 text-xs">{isJapanese ? ind.name_ja : ind.name_en}</span>
+                      </div>
+                    ))}
                   </div>
+                </div>
 
-                  {/* マルチクラウド対応 */}
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'マルチクラウド対応' : 'Multi-Cloud Support'}</h4>
-                    <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 max-w-lg">
-                      {salesforceData.platforms.map((platform) => (
-                        <div key={platform.id} className="relative h-10 bg-gray-50 rounded-lg p-1.5 border-2 border-gray-200" title={platform.name}>
-                          <Image src={platform.icon} alt={platform.name} fill className="object-contain p-1" />
+                {/* Row 2 Right: Multi-Cloud */}
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? 'マルチクラウド対応' : 'Multi-Cloud Support'}</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {salesforceData.platforms.map((platform) => (
+                      <div key={platform.id} className="relative w-10 h-10 bg-gray-50 rounded-lg p-1.5 border-2 border-gray-200" title={platform.name}>
+                        <Image src={platform.icon} alt={platform.name} fill className="object-contain p-1" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Separator */}
+              <div className="border-t-2 border-gray-200 mt-6 pt-6">
+                {/* グループ企業内における連携体制 */}
+                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{isJapanese ? salesforceData.collaboration.title_ja : salesforceData.collaboration.title_en}</h4>
+                <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                  {isJapanese ? salesforceData.collaboration.description_ja : salesforceData.collaboration.description_en}
+                </p>
+
+                {/* FPT ↔ NAC with chain icon */}
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="bg-[#0032A2] rounded-lg px-4 py-2 text-center flex-1 max-w-[200px]">
+                    <span className="text-sm font-bold text-white block">{salesforceData.collaboration.partners[0].name}</span>
+                    <span className="text-xs text-blue-200">{isJapanese ? salesforceData.collaboration.partners[0].domain_ja : salesforceData.collaboration.partners[0].domain_en}</span>
+                  </div>
+                  <svg className="w-6 h-6 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                  <div className="bg-[#0032A2] rounded-lg px-4 py-2 text-center flex-1 max-w-[200px]">
+                    <span className="text-sm font-bold text-white block">{salesforceData.collaboration.partners[1].name}</span>
+                    <span className="text-xs text-blue-200">{isJapanese ? salesforceData.collaboration.partners[1].domain_ja : salesforceData.collaboration.partners[1].domain_en}</span>
+                  </div>
+                </div>
+
+                {/* NACが提供するソリューション */}
+                <div className="border-2 border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
+                    <span className="text-xs font-bold text-gray-700">{isJapanese ? 'NACが提供するソリューション' : 'Solutions provided by NAC'}</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+                    {salesforceData.collaboration.trackRecord.map((impl, i) => (
+                      <div key={impl.id} className="p-4 text-center">
+                        <span className="text-xs font-bold text-gray-900 block mb-1">{impl.name}</span>
+                        {i < salesforceData.collaboration.trackRecord.length - 1 && (
+                          <span className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 text-gray-300">›</span>
+                        )}
+                        <div className="mt-2 pt-2 border-t border-gray-100 flex items-center justify-center gap-2">
+                          <span className="text-xs leading-4 text-gray-500">{isJapanese ? '導入サポート実績' : 'Implementation Record'}</span>
+                          <span className="text-sm leading-4 font-bold text-sky-700">{impl.count}<span className="text-xs text-gray-500 font-normal ml-0.5">{isJapanese ? '社' : ' companies'}</span></span>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -373,7 +388,7 @@ export default function Services() {
           >
             {/* Header */}
             <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
-              <h3 className="text-xl font-bold text-white">{isJapanese ? '公共・金融サービス開発部門' : 'Public Finance Service Development Department'}</h3>
+              <h3 className="text-xl font-bold text-white">{isJapanese ? 'パブリック・ファイナンスサービス開発事業本部' : 'Public Finance Service Group'}</h3>
               <p className="text-sm text-gray-300 mt-1">{isJapanese ? 'FSG事業部の組織体制' : 'FSG Organization Structure'}</p>
             </div>
 
@@ -408,7 +423,7 @@ export default function Services() {
 
               {/* ── Tier 2: Cross-functional Teams ── */}
               <div>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
                   {(() => {
                     const crossFunctionalDivision = structure.divisional_structure.find(d => d.division === 'Cross-functional Teams');
                     const crossDeptIds = crossFunctionalDivision ? crossFunctionalDivision.departments : [];
@@ -431,7 +446,7 @@ export default function Services() {
                                     <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white mx-auto">
                                       <Image src={m.imageUrl} alt={m.name} width={36} height={36} className="w-full h-full object-cover" />
                                     </div>
-                                    <span className="text-[9px] text-gray-600 mt-0.5 block">{m.name}</span>
+                                    <span className="text-[10px] text-gray-600 mt-0.5 block">{m.name}</span>
                                   </div>
                                 );
                               })}
@@ -446,20 +461,14 @@ export default function Services() {
 
               {/* ── Tier 3: Business Departments ── */}
               <div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {(() => {
                     const businessDivision = structure.divisional_structure.find(d => d.division === 'Business Departments');
                     const bizDeptIds = businessDivision ? businessDivision.departments : [];
-                    // Compute max clients count for equal-height client sections
-                    const maxClients = bizDeptIds.reduce((max, deptId) => {
-                      const dept = departments.find(d => d.id === deptId);
-                      const clients = dept ? ((dept as any).clients as string[] | undefined) : undefined;
-                      return Math.max(max, clients ? clients.length : 0);
-                    }, 0);
                     return bizDeptIds.map((deptId) => {
                       const dept = departments.find(d => d.id === deptId);
                       if (!dept) return null;
-                      const deptClients = (dept as any).clients as string[] | undefined;
+                      const subDeptIds = (dept as any).subDepartments as string[] | undefined;
                       return (
                         <div key={dept.id} className="bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow border-2 border-gray-200 flex flex-col">
                           <div className="h-1.5" style={{ backgroundColor: dept.color }} />
@@ -480,27 +489,55 @@ export default function Services() {
                                     <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white mx-auto">
                                       <Image src={m.imageUrl} alt={m.name} width={36} height={36} className="w-full h-full object-cover" />
                                     </div>
-                                    <span className="text-[9px] text-gray-600 mt-0.5 block">{m.name}</span>
+                                    <span className="text-[10px] text-gray-600 mt-0.5 block">{m.name}</span>
                                   </div>
                                 );
                               })}
                             </div>
 
                             {/* Description */}
-                            <div className="mb-2 flex-1 text-left">
+                            <div className="mb-2 text-left">
                               <p className="text-[10px] font-semibold text-gray-500 uppercase">{t('org.description')}</p>
-                              <p className="text-[11px] text-gray-600 leading-relaxed">{isJapanese ? dept.description_ja : dept.description_en}</p>
+                              <p className="text-xs text-gray-600 leading-relaxed">{isJapanese ? dept.description_ja : dept.description_en}</p>
                             </div>
 
-                            {/* Clients */}
-                            <div className="pt-2 border-t border-gray-50 text-left" style={{ minHeight: `${maxClients * 16 + 24}px` }}>
-                              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">{t('org.clients')}</p>
-                              <ul className="space-y-0.5">
-                                {deptClients && deptClients.map((client, idx) => (
-                                  <li key={idx} className="text-[10px] text-gray-600 leading-tight">• {client}</li>
-                                ))}
-                              </ul>
-                            </div>
+                            {/* Sub-departments */}
+                            {subDeptIds && subDeptIds.length > 0 && (
+                              <div className="mt-2 pt-2 border-t border-gray-100 text-left">
+                                {subDeptIds.map((subId) => {
+                                  const subDept = departments.find(d => d.id === subId);
+                                  if (!subDept) return null;
+                                  return (
+                                    <div key={subId} className="bg-gray-50 rounded-lg overflow-hidden border-2 border-gray-200">
+                                      <div className="h-1" style={{ backgroundColor: dept.color }} />
+                                      <div className="p-2">
+                                      <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                          <span className="font-bold text-gray-900 text-[10px]">{subDept.name}</span>
+                                        </div>
+                                        {subDept.members && subDept.members.length > 0 && (
+                                          <div className="flex gap-1.5">
+                                            {subDept.members.map((mId) => {
+                                              const m = members.find(mem => mem.id === mId);
+                                              if (!m) return null;
+                                              return (
+                                                <div key={mId} className="text-center">
+                                                  <div className="w-7 h-7 rounded-full overflow-hidden bg-gray-200 ring-1 ring-white mx-auto">
+                                                    <Image src={m.imageUrl} alt={m.name} width={28} height={28} className="w-full h-full object-cover" />
+                                                  </div>
+                                                  <span className="text-[10px] text-gray-600 mt-0.5 block">{m.name}</span>
+                                                </div>
+                                              );
+                                            })}
+                                          </div>
+                                        )}
+                                      </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
                           </div>
                         </div>
                       );
@@ -526,264 +563,84 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Divider */}
-              <div className="flex items-center gap-3">
-                <div className="flex-1 h-px bg-gray-200" />
-                <div className="flex-1 h-px bg-gray-200" />
-              </div>
-
-              {/* ── BOD Member Details ── */}
-              <div>
-                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
-                  {t('org.bodDetails')}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {structure.level1_executives.map((memberId) => {
-                    const member = members.find(m => m.id === memberId);
-                    if (!member) return null;
-                    const memberDepts = member.departments.map(dId => {
-                      const d = departments.find(dp => dp.id === dId);
-                      return d ? (isJapanese ? d.japaneseFullName : d.fullName) : dId;
-                    });
-                    return (
-                      <div key={memberId} className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200 hover:shadow-md transition-shadow">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 ring-2 ring-[#131A3F]/10 shrink-0">
-                            <Image src={member.imageUrl} alt={member.name} width={48} height={48} className="w-full h-full object-cover" />
-                          </div>
-                          <div>
-                            <h5 className="font-bold text-gray-900 text-sm">{member.name}</h5>
-                            <p className="text-[10px] text-gray-500">{isJapanese ? member.title_ja : member.title}</p>
-                          </div>
-                        </div>
-                        <div className="space-y-1.5 text-[11px]">
-                          <div className="flex gap-2">
-                            <span className="font-semibold text-gray-500 w-16 shrink-0">{isJapanese ? '役職' : 'Position'}</span>
-                            <span className="text-gray-700">{isJapanese ? member.position_ja : member.position}</span>
-                          </div>
-                          <div className="flex gap-2">
-                            <span className="font-semibold text-gray-500 w-16 shrink-0">{isJapanese ? '部門' : 'Depts'}</span>
-                            <div className="flex flex-wrap gap-1">
-                              {member.departments.map(dId => {
-                                const d = departments.find(dp => dp.id === dId);
-                                return (
-                                  <span key={dId} className="px-1.5 py-0.5 bg-violet-50 text-violet-700 rounded-full text-[9px]">
-                                    {d ? d.name : dId}
-                                  </span>
-                                );
-                              })}
-                            </div>
-                          </div>
-                          <div className="flex gap-2">
-                            <span className="font-semibold text-gray-500 w-16 shrink-0">Bio</span>
-                            <span className="text-gray-600">{isJapanese ? member.bio_ja : member.bio_en}</span>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
       </div>
 
-      {/* Example Detail Modal */}
-      {selectedExample && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedExample(null)}>
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-          <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-emerald-600 to-emerald-700 px-6 py-5 rounded-t-2xl">
-              <button onClick={() => setSelectedExample(null)} className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
-              <h3 className="text-xl font-bold text-white pr-10">{isJapanese ? selectedExample.projectName?.ja : selectedExample.projectName?.en}</h3>
-              {selectedExample.projectMetrics && (
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {selectedExample.projectMetrics.projectSize && (
-                    <span className="px-3 py-1 bg-white/15 border border-white/25 rounded-full text-white text-xs">
-                      {typeof selectedExample.projectMetrics.projectSize === 'object'
-                        ? `${selectedExample.projectMetrics.projectSize.value} ${selectedExample.projectMetrics.projectSize.unit || ''}`
-                        : selectedExample.projectMetrics.projectSize}
-                    </span>
-                  )}
-                  {selectedExample.projectMetrics.duration && (
-                    <span className="px-3 py-1 bg-white/15 border border-white/25 rounded-full text-white text-xs">
-                      {typeof selectedExample.projectMetrics.duration === 'object'
-                        ? (isJapanese ? selectedExample.projectMetrics.duration.ja : selectedExample.projectMetrics.duration.en)
-                        : selectedExample.projectMetrics.duration}
-                    </span>
-                  )}
-                  {selectedExample.projectMetrics.teamSize && (
-                    <span className="px-3 py-1 bg-white/15 border border-white/25 rounded-full text-white text-xs">
-                      {typeof selectedExample.projectMetrics.teamSize === 'object'
-                        ? (isJapanese ? selectedExample.projectMetrics.teamSize.ja : selectedExample.projectMetrics.teamSize.en)
-                        : `${selectedExample.projectMetrics.teamSize} ${isJapanese ? '名' : 'members'}`}
-                    </span>
-                  )}
-                </div>
-              )}
-            </div>
+      {/* Unified Example Detail Modal */}
+      {(selectedExample || selectedFinanceExample) && (() => {
+        const ex = selectedExample || selectedFinanceExample;
+        const close = () => { setSelectedExample(null); setSelectedFinanceExample(null); };
 
-            {/* Modal Body */}
-            <div className="p-6 space-y-6">
-              {/* Overview */}
-              <div>
-                <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '概要' : 'Overview'}</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">{isJapanese ? selectedExample.overview?.ja : selectedExample.overview?.en}</p>
-              </div>
+        // Normalize metrics badges
+        const metricBadges: string[] = [];
+        if (ex.projectMetrics) {
+          if (ex.projectMetrics.projectSize) {
+            metricBadges.push(typeof ex.projectMetrics.projectSize === 'object'
+              ? `${ex.projectMetrics.projectSize.value} ${ex.projectMetrics.projectSize.unit || ''}`
+              : ex.projectMetrics.projectSize);
+          }
+          if (ex.projectMetrics.duration) {
+            metricBadges.push(typeof ex.projectMetrics.duration === 'object'
+              ? (isJapanese ? ex.projectMetrics.duration.ja : ex.projectMetrics.duration.en)
+              : ex.projectMetrics.duration);
+          }
+          if (ex.projectMetrics.teamSize) {
+            metricBadges.push(typeof ex.projectMetrics.teamSize === 'object'
+              ? (isJapanese ? ex.projectMetrics.teamSize.ja : ex.projectMetrics.teamSize.en)
+              : `${ex.projectMetrics.teamSize} ${isJapanese ? '名' : 'members'}`);
+          }
+        }
+        if (ex.metrics) {
+          Object.entries(ex.metrics).forEach(([key, value]: [string, any]) => {
+            metricBadges.push(`${key.replace(/([A-Z])/g, ' $1').trim()}: ${value}`);
+          });
+        }
 
-              {/* Customer */}
-              {selectedExample.customer && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '顧客' : 'Customer'}</h4>
-                  <div className="text-sm text-gray-700">
-                    {selectedExample.customer.type && <div>{selectedExample.customer.type}</div>}
-                    {selectedExample.customer.base && <div>{selectedExample.customer.base}</div>}
-                    {selectedExample.customer.businessContext && <div>{isJapanese ? selectedExample.customer.businessContext_ja || selectedExample.customer.businessContext : selectedExample.customer.businessContext_en || selectedExample.customer.businessContext}</div>}
-                  </div>
-                </div>
-              )}
+        // Helper: normalize list data from both formats
+        // Public format: [{ja: string | {title, description}, en: ...}]
+        // Finance format: {ja: string[], en: string[]}
+        const getList = (data: any): string[] => {
+          if (!data) return [];
+          if (data.ja && Array.isArray(data.ja)) return (isJapanese ? data.ja : data.en) || [];
+          if (Array.isArray(data)) return data.map((item: any) => {
+            const val = isJapanese ? (item.ja?.title || item.ja || item) : (item.en?.title || item.en || item);
+            return typeof val === 'string' ? val : JSON.stringify(val);
+          });
+          return [];
+        };
+        const getDesc = (data: any, i: number): string | null => {
+          if (!data || !Array.isArray(data)) return null;
+          const item = data[i];
+          if (!item) return null;
+          return (item.ja?.description || item.en?.description) ? (isJapanese ? item.ja?.description : item.en?.description) : null;
+        };
 
-              {/* Scope */}
-              {selectedExample.scope && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '対象範囲' : 'Scope'}</h4>
-                  {typeof (isJapanese ? selectedExample.scope.ja : selectedExample.scope.en) === 'string' ? (
-                    <p className="text-sm text-gray-600">{isJapanese ? selectedExample.scope.ja : selectedExample.scope.en}</p>
-                  ) : Array.isArray(isJapanese ? selectedExample.scope.ja : selectedExample.scope.en) ? (
-                    <ul className="space-y-1">
-                      {(isJapanese ? selectedExample.scope.ja : selectedExample.scope.en).map((item: string, i: number) => (
-                        <li key={i} className="flex items-start text-sm text-gray-600">
-                          <svg className="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </div>
-              )}
-
-              {/* Business Needs */}
-              {selectedExample.businessNeeds && selectedExample.businessNeeds.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'ビジネスニーズ' : 'Business Needs'}</h4>
-                  <div className="space-y-2">
-                    {selectedExample.businessNeeds.map((need: any, i: number) => (
-                      <div key={i} className="p-3 bg-gray-50 rounded-lg">
-                        <p className="text-sm text-gray-700">{isJapanese ? (need.ja?.title || need.ja) : (need.en?.title || need.en)}</p>
-                        {(need.ja?.description || need.en?.description) && (
-                          <p className="text-xs text-gray-500 mt-1">{isJapanese ? need.ja?.description : need.en?.description}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Challenges */}
-              {selectedExample.challenges && selectedExample.challenges.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '課題' : 'Challenges'}</h4>
-                  <div className="space-y-2">
-                    {selectedExample.challenges.map((item: any, i: number) => (
-                      <div key={i} className="p-3 bg-amber-50 rounded-lg">
-                        <p className="text-sm text-gray-700">{isJapanese ? (item.ja?.title || item.ja || item) : (item.en?.title || item.en || item)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* expectations For FPT */}
-              {selectedExample.expectationsForFPT && selectedExample.expectationsForFPT.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'FPTへの期待' : 'Expectations for FPT'}</h4>
-                  <div className="space-y-2">
-                    {selectedExample.expectationsForFPT.map((item: any, i: number) => (
-                      <div key={i} className="p-3 bg-blue-50 rounded-lg">
-                        <p className="text-sm text-blue-800">{isJapanese ? (item.ja?.title || item.ja) : (item.en?.title || item.en)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Solutions */}
-              {selectedExample.solutions && selectedExample.solutions.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'ソリューション' : 'Solutions'}</h4>
-                  <div className="space-y-2">
-                    {selectedExample.solutions.map((item: any, i: number) => (
-                      <div key={i} className="flex items-start p-3 bg-blue-50 rounded-lg">
-                        <svg className="w-4 h-4 text-blue-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                        <span className="text-sm text-gray-700">{isJapanese ? (item.ja?.title || item.ja || item) : (item.en?.title || item.en || item)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Achievements */}
-              {selectedExample.achievements && selectedExample.achievements.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '成果' : 'Achievements'}</h4>
-                  <div className="space-y-2">
-                    {selectedExample.achievements.map((item: any, i: number) => (
-                      <div key={i} className="p-3 bg-emerald-50 rounded-lg">
-                        <p className="text-sm text-emerald-800">{isJapanese ? (item.ja?.title || item.ja) : (item.en?.title || item.en)}</p>
-                        {(item.ja?.description || item.en?.description) && (
-                          <p className="text-xs text-emerald-600 mt-1">{isJapanese ? item.ja?.description : item.en?.description}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Technology Stack */}
-              {selectedExample.technologyStack && (
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '技術スタック' : 'Technology Stack'}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {Object.entries(selectedExample.technologyStack).map(([category, techs]: [string, any]) => (
-                      <div key={category} className="px-3 py-1.5 bg-gray-50 rounded-lg">
-                        <span className="text-[10px] font-semibold text-gray-400 uppercase">{category}</span>
-                        <p className="text-xs text-gray-700">{typeof techs === 'string' ? techs : Array.isArray(techs) ? techs.join(', ') : JSON.stringify(techs)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Finance Example Detail Modal */}
-      {selectedFinanceExample && (() => {
-        const ex = selectedFinanceExample;
+        const overview = isJapanese ? ex.overview?.ja : ex.overview?.en;
+        const scope = ex.scope ? (isJapanese ? ex.scope.ja : ex.scope.en) : null;
+        const businessNeeds = getList(ex.businessNeeds);
+        const challenges = getList(ex.challenges);
+        const expectations = getList(ex.expectationsForFPT);
+        const solutions = getList(ex.solutions);
+        const achievements = getList(ex.achievements);
         const results = ex.results ? (isJapanese ? ex.results.ja : ex.results.en) : null;
+        const techStack = ex.technologyStack;
+
         return (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedFinanceExample(null)}>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={close}>
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
             <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="sticky top-0 bg-gradient-to-r from-blue-700 to-blue-800 px-6 py-5 rounded-t-2xl">
-                <button onClick={() => setSelectedFinanceExample(null)} className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors">
+              <div className="sticky top-0 px-6 py-5 rounded-t-2xl bg-cover bg-center text-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/jirei_bg.jpeg')" }}>
+                <button onClick={close} className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
-                <h3 className="text-xl font-bold text-white pr-10">{isJapanese ? ex.projectName?.ja : ex.projectName?.en}</h3>
-                <p className="text-blue-200 text-sm mt-1">{isJapanese ? ex.customer : ex.customerEn}</p>
-                {ex.metrics && (
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {Object.entries(ex.metrics).map(([key, value]: [string, any]) => (
-                      <span key={key} className="px-3 py-1 bg-white/15 border border-white/25 rounded-full text-white text-xs">
-                        {key.replace(/([A-Z])/g, ' $1').trim()}: {value}
-                      </span>
+                <h3 className="text-xl font-bold text-white">{isJapanese ? ex.projectName?.ja : ex.projectName?.en}</h3>
+                {metricBadges.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-2 mt-3">
+                    {metricBadges.map((badge, i) => (
+                      <span key={i} className="px-3 py-1 bg-white/15 border border-white/25 rounded-full text-white text-xs">{badge}</span>
                     ))}
                   </div>
                 )}
@@ -792,20 +649,42 @@ export default function Services() {
               {/* Modal Body */}
               <div className="p-6 space-y-6">
                 {/* Overview */}
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '概要' : 'Overview'}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{isJapanese ? ex.overview?.ja : ex.overview?.en}</p>
-                </div>
+                {overview && (
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '概要' : 'Overview'}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{overview}</p>
+                  </div>
+                )}
+
+                {/* Scope */}
+                {scope && (
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '対象範囲' : 'Scope'}</h4>
+                    {typeof scope === 'string' ? (
+                      <p className="text-sm text-gray-600">{scope}</p>
+                    ) : Array.isArray(scope) ? (
+                      <div className="space-y-2">
+                        {scope.map((item: string, i: number) => (
+                          <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                            <p className="text-sm text-gray-700">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                )}
 
                 {/* Business Needs */}
-                {ex.businessNeeds && (
+                {businessNeeds.length > 0 && (
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'ビジネスニーズ' : 'Business Needs'}</h4>
                     <div className="space-y-2">
-                      {(isJapanese ? ex.businessNeeds.ja : ex.businessNeeds.en)?.map((need: string, i: number) => (
-                        <div key={i} className="flex items-start p-3 bg-gray-50 rounded-lg">
-                          <span className="flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold mr-2 mt-0.5">{i + 1}</span>
-                          <span className="text-sm text-gray-700">{need}</span>
+                      {businessNeeds.map((need: string, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{need}</p>
+                          {getDesc(ex.businessNeeds, i) && (
+                            <p className="text-xs text-gray-500 mt-1">{getDesc(ex.businessNeeds, i)}</p>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -813,13 +692,27 @@ export default function Services() {
                 )}
 
                 {/* Challenges */}
-                {ex.challenges && (
+                {challenges.length > 0 && (
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '課題' : 'Challenges'}</h4>
                     <div className="space-y-2">
-                      {(isJapanese ? ex.challenges.ja : ex.challenges.en)?.map((challenge: string, i: number) => (
-                        <div key={i} className="p-3 bg-amber-50 rounded-lg">
-                          <p className="text-sm text-gray-700">{challenge}</p>
+                      {challenges.map((item: string, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Expectations for FPT */}
+                {expectations.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'FPTへの期待' : 'Expectations for FPT'}</h4>
+                    <div className="space-y-2">
+                      {expectations.map((item: string, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{item}</p>
                         </div>
                       ))}
                     </div>
@@ -827,14 +720,30 @@ export default function Services() {
                 )}
 
                 {/* Solutions */}
-                {ex.solutions && (
+                {solutions.length > 0 && (
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? 'ソリューション' : 'Solutions'}</h4>
                     <div className="space-y-2">
-                      {(isJapanese ? ex.solutions.ja : ex.solutions.en)?.map((solution: string, i: number) => (
-                        <div key={i} className="flex items-start p-3 bg-blue-50 rounded-lg">
-                          <svg className="w-4 h-4 text-blue-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                          <span className="text-sm text-gray-700">{solution}</span>
+                      {solutions.map((item: string, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Achievements */}
+                {achievements.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '成果' : 'Achievements'}</h4>
+                    <div className="space-y-2">
+                      {achievements.map((item: string, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{item}</p>
+                          {getDesc(ex.achievements, i) && (
+                            <p className="text-xs text-gray-500 mt-1">{getDesc(ex.achievements, i)}</p>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -847,8 +756,8 @@ export default function Services() {
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '成果' : 'Results'}</h4>
                     <div className="grid grid-cols-2 gap-3">
                       {Object.entries(results).filter(([k]) => k !== 'summary' && k !== 'summ').map(([key, value]: [string, any]) => (
-                        <div key={key} className="p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
-                          <p className="text-[10px] text-blue-500 uppercase">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
+                        <div key={key} className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-xs text-gray-500 uppercase">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
                           <p className="text-sm font-bold text-gray-900">{value}</p>
                         </div>
                       ))}
@@ -860,13 +769,21 @@ export default function Services() {
                 )}
 
                 {/* Technology Stack */}
-                {ex.technologyStack && (
+                {techStack && (
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{isJapanese ? '技術スタック' : 'Technology Stack'}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {(isJapanese ? ex.technologyStack.ja : ex.technologyStack.en)?.map((tech: string, i: number) => (
-                        <span key={i} className="text-xs px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg">{tech}</span>
-                      ))}
+                      {techStack.ja && Array.isArray(techStack.ja)
+                        ? (isJapanese ? techStack.ja : techStack.en)?.map((tech: string, i: number) => (
+                            <span key={i} className="text-xs px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg">{tech}</span>
+                          ))
+                        : Object.entries(techStack).map(([category, techs]: [string, any]) => (
+                            <div key={category} className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg">
+                              <span className="text-xs font-semibold text-gray-400 uppercase">{category}</span>
+                              <p className="text-xs text-gray-700">{typeof techs === 'string' ? techs : Array.isArray(techs) ? techs.join(', ') : JSON.stringify(techs)}</p>
+                            </div>
+                          ))
+                      }
                     </div>
                   </div>
                 )}
