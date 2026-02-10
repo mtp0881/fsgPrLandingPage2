@@ -149,8 +149,8 @@
       "role": "director"
     },
     {
-      "id": "chivtl",
-      "name": "ChiVTL",
+      "id": "chivtl1",
+      "name": "ChiVTL1",
       "title": "Department Manager",
       "title_ja": "課長",
       "position": "AI Enablement Lead",
@@ -158,7 +158,7 @@
       "departments": ["ai_enablement"],
       "bio_ja": "AI推進チームのリーダー",
       "bio_en": "Lead of AI Enablement team",
-      "imageUrl": "/new_organization/ChiVTL.jpeg",
+      "imageUrl": "/new_organization/ChiVTL1.jpeg",
       "role": "manager"
     },
     {

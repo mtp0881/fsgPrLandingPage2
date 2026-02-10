@@ -109,7 +109,7 @@
       "japaneseFullName": "AI推進",
       "description_ja": "部門横断的なAI技術の推進とサポート",
       "description_en": "AI technology enablement and support across departments",
-      "members": ["ChiVTL", "Kataoka"],
+      "members": ["ChiVTL1", "Kataoka"],
       "icon": "🤖",
       "color": "#9B59B6"
     },
@@ -197,8 +197,8 @@
       "order": 5
     },
     {
-      "id": "ChiVTL",
-      "name": "ChiVTL",
+      "id": "ChiVTL1",
+      "name": "ChiVTL1",
       "title": "Department Manager",
       "title_ja": "課長",
       "position": "AI Enablement Lead",
@@ -206,7 +206,7 @@
       "departments": ["AI Enablement"],
       "bio_ja": "AI推進チームのリーダー",
       "bio_en": "Lead of AI Enablement team",
-      "imageUrl": "/new_organization/ChiVTL.jpeg",
+      "imageUrl": "/new_organization/ChiVTL1.jpeg",
       "role": "manager",
       "order": 6
     },
@@ -325,7 +325,7 @@
   ],
   "structure": {
     "level1_executives": ["NgaPV", "HuyNQ23", "HungNV1", "Tanaka", "HuyenHTP"],
-    "level2_members": ["ChiVTL", "Kataoka", "ThinhTX", "SonPV12", "QuynhHT3", "PhuongNX8", "ThoNQ1", "LinhNH106", "ThinhND35"],
+    "level2_members": ["ChiVTL1", "Kataoka", "ThinhTX", "SonPV12", "QuynhHT3", "PhuongNX8", "ThoNQ1", "LinhNH106", "ThinhND35"],
     "divisional_structure": [
       {
         "division": "Executive Leadership",
