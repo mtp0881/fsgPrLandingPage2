@@ -51,7 +51,7 @@ export default function Home() {
                 <Image src="/logo.png" alt="FSG Logo" width={128} height={128} className="h-16 w-auto object-contain" priority />
               </div>
               <p className="text-sm text-gray-400">FPTソフトウェアジャパン株式会社</p>
-              <p className="text-lg text-gray-700 font-semibold mt-2">FSG事業部</p>
+              <p className="text-lg text-gray-700 font-semibold mt-2">パブリック・ファイナンスサービス開発事業本部</p>
             </div>
             <div className="mb-6">
               <div className="w-48 h-1 bg-gray-200 rounded-full mx-auto overflow-hidden">

@@ -65,7 +65,7 @@
       "japaneseFullName": "プロジェクト管理室",
       "description_ja": "部門横断的なプロジェクト管理オフィス",
       "description_en": "Cross-functional project management office",
-      "members": ["ThinhTX", "ThoNQ1", "QuynhHT3"],
+      "members": ["ThinhTX", "SonPV12", "QuynhHT3"],
       "icon": "📊",
       "color": "#4A90E2"
     },
@@ -87,7 +87,7 @@
       "japaneseFullName": "AWS・SWAT",
       "description_ja": "AWSクラウドインフラストラクチャとSWAT即応チーム",
       "description_en": "Technical support team for AWS cloud infrastructure and SWAT rapid-response tasks",
-      "members": ["PhuongNX8", "PhuPH3"],
+      "members": ["PhuongNX8", "ThoNQ1"],
       "icon": "☁️",
       "color": "#FF9900"
     },
@@ -120,7 +120,7 @@
       "japaneseFullName": "YU・WFBP",
       "description_ja": "部門横断的なYU/WFBPチーム",
       "description_en": "Cross-functional YU/WFBP team",
-      "members": ["ThoNQ1", "ThinhND35"],
+      "members": ["SonPV12", "ThinhND35"],
       "icon": "📋",
       "color": "#2ECC71"
     }
@@ -239,8 +239,8 @@
       "order": 8
     },
     {
-      "id": "ThoNQ1",
-      "name": "ThoNQ1",
+      "id": "SonPV12",
+      "name": "SonPV12",
       "title": "Team Lead",
       "title_ja": "チームリード",
       "position": "PMO / YU/WFBP Lead",
@@ -248,7 +248,7 @@
       "departments": ["PMO", "YU/WFBP"],
       "bio_ja": "PMOチームおよびYU/WFBPチームを統括",
       "bio_en": "Lead of PMO and YU/WFBP cross-functional teams",
-      "imageUrl": "/new_organization/ThoNQ1.png",
+      "imageUrl": "/new_organization/SonPV12.png",
       "role": "team_lead",
       "order": 9
     },
@@ -281,8 +281,8 @@
       "order": 11
     },
     {
-      "id": "PhuPH3",
-      "name": "PhuPH3",
+      "id": "ThoNQ1",
+      "name": "ThoNQ1",
       "title": "Team Lead",
       "title_ja": "チームリード",
       "position": "AWS/SWAT Lead",
@@ -290,7 +290,7 @@
       "departments": ["AWS/SWAT"],
       "bio_ja": "AWS/SWATチームのリーダー",
       "bio_en": "Lead of AWS/SWAT team",
-      "imageUrl": "/new_organization/PhuPH3.png",
+      "imageUrl": "/new_organization/ThoNQ1.jpeg",
       "role": "team_lead",
       "order": 12
     },
@@ -325,7 +325,7 @@
   ],
   "structure": {
     "level1_executives": ["NgaPV", "HuyNQ23", "HungNV1", "Tanaka", "HuyenHTP"],
-    "level2_members": ["ChiVTL", "Kataoka", "ThinhTX", "ThoNQ1", "QuynhHT3", "PhuongNX8", "PhuPH3", "LinhNH106", "ThinhND35"],
+    "level2_members": ["ChiVTL", "Kataoka", "ThinhTX", "SonPV12", "QuynhHT3", "PhuongNX8", "ThoNQ1", "LinhNH106", "ThinhND35"],
     "divisional_structure": [
       {
         "division": "Executive Leadership",

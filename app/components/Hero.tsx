@@ -24,7 +24,12 @@ export default function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-          {t('hero.title')}
+          {isJapanese ? (
+            <>
+              <span className="lg:inline hidden">パブリック・ファイナンスサービス<br />開発事業本部</span>
+              <span className="lg:hidden">{t('hero.title')}</span>
+            </>
+          ) : t('hero.title')}
         </h1>
         <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
           {t('hero.subtitle')}

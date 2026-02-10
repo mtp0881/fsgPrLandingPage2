@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FSG事業部 - FPT Software Japan | 金融・公共DXソリューション",
-  description: "FPTソフトウェアジャパン FSG事業部。金融・公共・Salesforce領域で19年以上の実績。45以上のシステム開発、143名のエンジニアがお客様のDXを支援します。",
+  title: "パブリック・ファイナンスサービス開発事業本部 - FPT Software Japan | 金融・公共DXソリューション",
+  description: "FPTソフトウェアジャパン パブリック・ファイナンスサービス開発事業本部。金融・公共・Salesforce領域で19年以上の実績。45以上のシステム開発、143名のエンジニアがお客様のDXを支援します。",
   keywords: ["FPT Software", "FSG", "金融DX", "公共DX", "Salesforce", "オフショア開発"],
 };
 

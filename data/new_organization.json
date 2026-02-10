@@ -188,8 +188,8 @@
       "role": "manager"
     },
     {
-      "id": "thonq1",
-      "name": "ThoNQ1",
+      "id": "sonpv12",
+      "name": "SonPV12",
       "title": "Team Lead",
       "title_ja": "チームリード",
       "position": "PMO / YU/WFBP Lead",
@@ -197,7 +197,7 @@
       "departments": ["pmo", "yu_wfbp"],
       "bio_ja": "PMOチームおよびYU/WFBPチームを統括",
       "bio_en": "Lead of PMO and YU/WFBP cross-functional teams",
-      "imageUrl": "/new_organization/ThoNQ1.png",
+      "imageUrl": "/new_organization/SonPV12.png",
       "role": "team_lead"
     },
     {
@@ -227,8 +227,8 @@
       "role": "team_lead"
     },
     {
-      "id": "phuph3",
-      "name": "PhuPH3",
+      "id": "thonq1",
+      "name": "ThoNQ1",
       "title": "Team Lead",
       "title_ja": "チームリード",
       "position": "AWS/SWAT Lead",
@@ -236,7 +236,7 @@
       "departments": ["aws_swat"],
       "bio_ja": "AWS/SWATチームのリーダー",
       "bio_en": "Lead of AWS/SWAT team",
-      "imageUrl": "/new_organization/PhuPH3.png",
+      "imageUrl": "/new_organization/ThoNQ1.png",
       "role": "team_lead"
     },
     {

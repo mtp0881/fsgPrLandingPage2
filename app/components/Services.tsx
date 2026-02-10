@@ -389,7 +389,7 @@ export default function Services() {
             {/* Header */}
             <div className="px-6 pt-6 pb-3 lg:px-8 lg:pt-8 border-b border-gray-100 bg-gradient-to-r from-[#131A3F] to-[#1e2a5e]">
               <h3 className="text-xl font-bold text-white">{isJapanese ? 'パブリック・ファイナンスサービス開発事業本部' : 'Public Finance Service Group'}</h3>
-              <p className="text-sm text-gray-300 mt-1">{isJapanese ? 'FSG事業部の組織体制' : 'FSG Organization Structure'}</p>
+              <p className="text-sm text-gray-300 mt-1">{isJapanese ? 'パブリック・ファイナンスサービス開発事業本部の組織体制' : 'Public Finance Service Group Organization Structure'}</p>
             </div>
 
             {/* Body */}
