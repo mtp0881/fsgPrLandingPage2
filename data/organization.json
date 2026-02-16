@@ -51,12 +51,12 @@
       "name": "CO",
       "fullName": "Finance Core Service Department",
       "japaneseFullName": "金融コアサービス部",
-      "description_ja": "信託銀行、証券向けのコアバックエンドソリューション開発に特化",
+      "description_ja": "信託銀行、証券向けのコアバンキングソリューション開発に特化",
       "description_en": "Trust bank, Securities",
       "members": ["Tanaka", "HuyenHTP"],
       "subDepartments": ["Salesforce Program"],
       "icon": "🏦",
-      "color": "#8E44AD"
+      "color": "#C8A882"
     },
     {
       "id": "PMO",
@@ -67,7 +67,7 @@
       "description_en": "Cross-functional project management office",
       "members": ["ThinhTX", "SonPV12", "QuynhHT3"],
       "icon": "📊",
-      "color": "#4A90E2"
+      "color": "#8B4513"
     },
     {
       "id": "RA/HR",
@@ -100,7 +100,7 @@
       "description_en": "Salesforce development program under Finance Core Service Department",
       "members": ["Tanaka"],
       "icon": "💼",
-      "color": "#00A1DF"
+      "color": "#C8A882"
     },
     {
       "id": "AI Enablement",

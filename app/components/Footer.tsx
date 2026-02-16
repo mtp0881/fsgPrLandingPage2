@@ -58,9 +58,12 @@ export default function Footer() {
               <Image src="/logo_fpt_text_black.webp" alt="FPT" width={100} height={32} className="h-6 w-auto brightness-0 invert" />
               <Image src="/logo.png" alt="FSG" width={32} height={32} className="h-6 w-auto brightness-0 invert" />
             </div>
-            <h3 className="text-sm font-semibold mb-1">
+            <h3 className="text-sm font-semibold mb-0.5">
               {isJapanese ? footerData.company.name_ja : footerData.company.name_en}
             </h3>
+            <p className="text-slate-300 text-xs font-medium mb-1">
+              {isJapanese ? 'パブリック・ファイナンスサービス開発事業本部' : 'Public Finance Service Group'}
+            </p>
             <p className="text-slate-400 text-xs leading-relaxed mb-4">
               {isJapanese ? footerData.company.address_ja : footerData.company.address_en}
             </p>
