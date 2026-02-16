@@ -23,7 +23,7 @@ export default function Partners() {
           <p className="text-lg text-gray-600">{t('partners.subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center hidden">
           {partners.map((partner, i) => (
             <div key={i} className="flex items-center justify-center p-6 bg-gray-50 rounded-xl h-24">
               <Image
